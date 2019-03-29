@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <title>供应商管理->供应商审核详情</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1">
+    <link rel="stylesheet" type="text/css" href="../../styles/common/base.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/common/common.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/mce/PageMcePrvCheckDetail.css">
+    <script type="text/javascript" src="../../scripts/new_angular/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/angular.1.2.29.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/appServices.js"></script>
+    <script type="text/javascript" src="../../scripts/mce/PageMcePrvCheckDetail.js"></script>
+
+</head>
+
+<body ng-controller="index">
+    <div class="content">
+        <div class="detail">
+            <div class="step1" ng-show="step.one">
+                <div class="title">
+                    <p>帐号信息</p>
+                </div>
+                <div class="info">
+                    <ul>
+                        <li>
+                            <span>组织机构代码</span>
+                            <p>
+                                <input type="text" readonly="" ng-model="infoOne.code">
+                            </p>
+                        </li>
+                        <li>
+                            <span>用户名称</span>
+                            <p>
+                                <input type="text" readonly="" ng-model="infoOne.userName">
+                            </p>
+                        </li>
+                        <li>
+                            <span>手机号码</span>
+                            <p>
+                                <input type="text" readonly="" ng-model="infoOne.phone">
+                            </p>
+                        </li>
+                        <li>
+                            <span>个人邮箱</span>
+                            <p>
+                                <input type="text" readonly="" ng-model="infoOne.email">
+                            </p>
+                        </li>
+                    </ul>
+                    <div class="operation">
+                        <button class="btn" ng-click="goStepTwo()">下一步</button>
+                        <button class="btn" ng-click="goBack()">取消</button>
+                    </div>
+                </div>
+            </div>
+            <div class="step2" ng-show="step.two">
+                <div class="title">
+                    <p>企业信息</p>
+                </div>
+                <div class="info">
+                    <ul>
+                        <li>
+                            <span>企业名称</span>
+                            <p>
+                                <input type="text" readonly="" ng-model="infoTwo.name">
+                            </p>
+                        </li>
+                        <li>
+                            <span>注册地址</span>
+                            <p>
+                                <span ng-bind="infoTwo.proviceName"></span>
+                                省
+                                <span ng-bind="infoTwo.cityName"></span>
+                                市
+                                <span ng-bind="infoTwo.districtName"></span>
+                                区
+                            </p>
+                        </li>
+                        <li>
+                            <span></span>
+                            <p>
+                                <input type="text" readonly="" ng-model="infoTwo.address">
+                            </p>
+                        </li>
+                        <li>
+                            <span>企业类型</span>
+                            <p>
+                                <input type="text" readonly="" ng-model="infoTwo.balance_type_name">
+                            </p>
+                        </li>
+                        <li>
+                            <span>注册资金</span>
+                            <p>
+                                <input type="text" readonly="" ng-model="infoTwo.register_fund">
+                            </p>
+                        </li>
+                        <li>
+                            <span>成立日期</span>
+                            <p>
+                                <input type="text" readonly="" ng-model="infoTwo.establish_Date">
+                            </p>
+                        </li>
+                        <li>
+                            <span>企业法人</span>
+                            <p>
+                                <input type="text" readonly="" ng-model="infoTwo.law_Person">
+                            </p>
+                        </li>
+                        <li>
+                            <span>企业经营范围</span>
+                            <p>
+                                <input type="text" readonly="" ng-model="infoTwo.services ">
+                            </p>
+                        </li>
+                        <li>
+                            <span>企业联系人姓名</span>
+                            <p>
+                                <input type="text" readonly="" ng-model="infoTwo.link_Person">
+                            </p>
+                        </li>
+                    </ul>
+                    <div class="operation">
+                        <button class="btn" ng-click="goStepThree()">下一步</button>
+                        <button class="btn" ng-click="goBack()">取消</button>
+                    </div>
+                </div>
+            </div>
+            <div class="step3" ng-show="step.three">
+                <div class="title">
+                    <p>资质证书</p>
+                </div>
+                <div class="info cert_box">
+                    <ul>
+                        <li ng-repeat="value in infoThree">
+                            <div class="cert">
+                                <div class="cert_img">
+                                    <span></span>
+                                    <p><strong>*</strong><span ng-bind="value.NAME">企业法人营业执照</span></p>
+                                    <button ng-click="showImg(value)">预览</button>
+                                </div>
+                                <div class="term">
+                                    <dl>
+                                        <dt>有效<p></p>期限</dt>
+                                        <dt style="width:5px">:</dt>
+                                        <dd>
+                                            <input type="text" readonly="" ng-model="value.BEGIN_DATE">
+                                            <input type="text" readonly="" ng-model="value.END_DATE">
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="operation" style="text-align:center">
+                        <button class="btn" ng-click="prvCheck()">审核</button>
+                        <button class="btn" ng-click="goBack()">取消</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="img_bg" style="display:none ">
+
+    </div>
+    <div class="img" style="display:none" ng-style="{'height':imgArea._h+'px'}">
+        <div class="img_btn">
+            <button class="" ng-click="largeImg()">放大</button><button class="" ng-click="smallImg()">缩小</button>
+            <span ng-click="closeImg()">&times;</span>
+        </div>
+        <img ng-src="{{certImgUrl}}">
+
+    </div>
+</body>
+
+</html>

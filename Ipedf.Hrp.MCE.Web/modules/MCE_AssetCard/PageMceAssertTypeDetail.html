@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>资产台帐->资产分类详情</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1">
+    <link rel="stylesheet" type="text/css" href="../../styles/common/base.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/common/common.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/MCE_AssetCard/PageMceAssertTypeDetail.css">
+    <script type="text/javascript" src="../../scripts/new_angular/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/angular.1.2.29.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/appDirectives.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/appServices.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/jQuery.print.js"></script>
+    <script type="text/javascript" src="../../scripts/My97DatePicker/WdatePicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../scripts/My97DatePicker/skin/WdatePicker.css">
+    <script type="text/javascript" src="../../scripts/MCE_AssetCard/PageMceAssertTypeDetail.js"></script>
+
+    <script src="../../scripts/mtr/demo/angular-tree-control.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../scripts/mtr/demo/tree-control.css">
+    <link rel="stylesheet" type="text/css" href="../../scripts/mtr/demo/tree-control-attribute.css">
+
+</head>
+<body ng-controller="index" ng-click="InputschangeState.changeState('a')">
+<div class="content">
+    <div class="left">
+
+        <div class="title">
+            <p>资产类别</p>
+        </div>
+        <div style="height:504px;" class="prv">
+
+            <treecontrol class="tree-classic"
+                         tree-model="dataForTheTree"
+                         options="children"
+                         on-selection="showSelected(node, selected)"
+                         selected-node="node">
+                类型: {{node.text}}
+            </treecontrol>
+          
+        </div>
+    </div>
+    <div class="box">
+        <div class="filt">
+            <ul>
+                <li>
+                    <div>
+                        <span>分类编码</span>
+                        <input type="text" ng-model="assertTypeModel.code">
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>分类名称</span>
+                        <input type="text" ng-model="assertTypeModel.name">
+                    </div>
+                </li>
+
+                <li>
+                    <div>
+                        <span>使用状态</span>
+                        <select ng-model="assertTypeModel.state">
+                            <option value="">请选择</option>
+                            <option value="1">正常</option>
+                            <option value="2">禁用</option>
+                        </select>
+                    </div>
+                </li>
+        
+            </ul>
+        </div>
+        <div class="operation">
+            <button class="btn" ng-click="saveModel('')">保存</button>
+            <button class="btn" ng-click="goBack()">返回</button>
+       
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <title>维保管理->设备维修新增</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1">
+    <link rel="stylesheet" type="text/css" href="../../styles/common/base.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/common/common.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/mce/PageMceMaintainNew.css">
+    <script type="text/javascript" src="../../scripts/new_angular/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/angular.1.2.29.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/appDirectives.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/appServices.js"></script>
+
+    <script type="text/javascript" src="../../scripts/My97DatePicker/WdatePicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../scripts/My97DatePicker/skin/WdatePicker.css">
+
+    <script type="text/javascript" src="../../scripts/mce/PageMceMaintainNew.js"></script>
+
+</head>
+
+
+<body ng-controller="index" ng-click="InputschangeState.changeState('a')">
+    <div class="content">
+        <ul class="list clearfix">
+            <li class="fl">
+                <div>
+                    <span>维修单号</span>
+                    <input type="text" ng-disabled="true" class="inp" ng-model="headInfo.CODE">
+                </div>
+            </li>
+            <li class="fl">
+                <div>
+                    <span>报修科室</span>
+                    <my-param param="dept" change="InputschangeState" param-obj="paramDept" show-str="dept" authority="headInfo.STATE > 1?true:false"></my-param>
+                </div>
+            </li>
+            <li class="fl">
+                <div>
+                    <span>报修人</span>
+                    <my-param param="user" change="InputschangeState" param-obj="paramUser" show-str="user" authority="headInfo.STATE > 1?true:false"></my-param>
+                </div>
+            </li>
+            <li class="fl">
+                <div>
+                    <span>报修人电话</span>
+                    <input type="text" ng-readonly="headInfo.STATE > 1" class="inp" ng-model="headInfo.APPLY_USER_PHONE">
+                </div>
+            </li>
+            <li class="fl">
+                <div>
+                    <span>报修时间</span>
+                    <input ng-disabled="headInfo.STATE > 1" type="text" class="clock" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',onpicked:function(){$(this).trigger('change')},isShowClear:false})"
+                           ng-model="headInfo.CREATE_DATE">
+                </div>
+            </li>
+
+            <li class="fl">
+                <div>
+                    <span>设备名称</span>
+                    <my-param param="asset" change="InputschangeState" param-obj="paramAsset" show-str="asset" authority="headInfo.STATE > 1?true:false"></my-param>
+                    <!--<my-param param="asset" change="InputschangeState" param-obj="paramAsset" show-str="asset" authority="headInfo.STATE > 1?true:false"></my-param>-->
+                </div>
+            </li>
+            <li class="fl">
+                <div>
+                    <span>设备类型</span>
+                    <input type="text" ng-disabled="true" class="inp" ng-model="headInfo.ASSETS_TYPE_ID_NAME">
+                </div>
+            </li>
+            <li class="fl">
+                <div>
+                    <span>设备编号</span>
+                    <input type="text" ng-disabled="true" class="inp" ng-model="headInfo.ASSETS_CODE">
+                </div>
+            </li>
+            <li class="fl">
+                <div>
+                    <span>规格型号</span>
+                    <input type="text" ng-disabled="true" class="inp" ng-model="headInfo.SPEC">
+                </div>
+            </li>
+            <li class="fl">
+                <div>
+                    <span>生产厂家</span>
+                    <input type="text" ng-disabled="true" class="inp" ng-model="headInfo.PRD_ID_NAME">
+                </div>
+            </li>
+            <li class="fl">
+                <div>
+                    <span>故障类型</span>
+                    <select ng-model="headInfo.FAULT_TYPE" ng-disabled="headInfo.STATE > 1" ng-options="c.id as c.name for c in faultTypeList">
+                        <option value="">请选择</option>
+                    </select>
+                </div>
+            </li>
+            <li class="fl">
+                <div>
+                    <span>紧急程度</span>
+                    <select ng-model="headInfo.EMERGENCY_DEGREE" ng-disabled="headInfo.STATE > 1" ng-options="c.id as c.name for c in emergencyDegreeList">
+                        <option value="">请选择</option>
+                    </select>
+                </div>
+            </li>
+            <li class="fl">
+                <div>
+                    <span>保修截止日期</span>
+                    <input type="text" class="inp" ng-disabled="true" ng-model="headInfo.MAINTENANCE_PERIOD_DATE">
+                </div>
+            </li>
+            <li class="fl">
+                <div>
+                    <span>维修类型</span>
+                    <select ng-model="headInfo.MTN_TYPE_ID" ng-disabled="headInfo.STATE > 1" ng-options="c.id as c.name for c in mtnTypeList">
+                        <option value="">请选择</option>
+                    </select>
+                </div>
+            </li>
+            <!--<li class="fl">
+                <div>
+                    <span>&nbsp;</span>
+                    <input type="text" class="inp" ng-show="false">
+                </div>
+            </li>-->
+            <li class="fl">
+                <div>
+                    <span>修复时间</span>
+                    <input ng-disabled="headInfo.STATE > 1" type="text" class="clock" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',onpicked:function(){$(this).trigger('change')},isShowClear:false})"
+                           ng-model="headInfo.COMPLETE_TIME">
+                </div>
+            </li>
+            <li class="fl">
+                <div>
+                    <span>维修工程师</span>
+                    <input type="text" ng-readonly="headInfo.STATE > 1" class="inp" ng-model="headInfo.MTN_ENGINEER">
+                </div>
+            </li>
+            <li class="fl">
+                <div>
+                    <span>修复结果</span>
+                    <select ng-model="headInfo.REPAIR_RESULT" ng-disabled="headInfo.STATE > 1" ng-options="c.id as c.name for c in repairResultList">
+                        <option value="">请选择</option>
+                    </select>
+                </div>
+            </li>
+            <li class="fl">
+                <div>
+                    <span>维修总工时</span>
+                    <input type="text" ng-readonly="headInfo.STATE > 1" class="inp" ng-model="headInfo.MTN_TOTAL_HOURS">
+                </div>
+            </li>
+            <li class="fl">
+                <div>
+                    <span>报修总费用</span>
+                    <input type="text" ng-readonly="headInfo.STATE > 1" class="inp" ng-model="headInfo.MAINTAIN_MONEY">
+                </div>
+            </li>
+            <li class="fl">
+                <div>
+                    <span>发票号</span>
+                    <input type="text" ng-readonly="headInfo.STATE > 1" class="inp" ng-model="headInfo.INVOICE_CODE">
+                </div>
+            </li>
+            <li class="fl">
+                <div>
+                    <span>故障描述</span>
+                    <textarea ng-readonly="headInfo.STATE > 1" style="width:870px;height:50px;resize: none;line-height:16px;text-indent:1em;border: 1px solid #bed4ed"
+                              ng-model="headInfo.FAULT_DESC"></textarea>
+                </div>
+            </li>
+            <li class="fl">
+                <div>
+                    <span>故障分析</span>
+                    <textarea ng-readonly="headInfo.STATE > 1" style="width:870px;height:50px;resize: none;line-height:16px;text-indent:1em;border: 1px solid #bed4ed"
+                              ng-model="headInfo.FAULT_ANALYSIS"></textarea>
+                </div>
+            </li>
+            <li class="fl">
+                <div>
+                    <span>解决方案</span>
+                    <textarea ng-readonly="headInfo.STATE > 1" style="width:870px;height:50px;resize: none;line-height:16px;text-indent:1em;border: 1px solid #bed4ed"
+                              ng-model="headInfo.FAULT_SOLUTION"></textarea>
+                </div>
+            </li>
+        </ul>
+
+        <div class="data">
+            <div class="operation">
+                <span style="font-size:12px;font-weight:bold">维修附件信息</span>
+                <button class="btn fr" ng-click="getFile(1024)" ng-show="headInfo.STATE <= 1">添加附件</button>
+
+            </div>
+            <div class="table">
+                <table cellpadding="0" border="0" cellspacing="0">
+                    <thead>
+                    <th>文件名称</th>
+                    <th>提交人</th>
+                    <th>上传时间</th>
+                    <th>操作</th>
+
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="(k,v) in attachRows">
+
+                            <td ng-bind="v.CLIENT_NAME"></td>
+                            <td ng-bind="v.CREATE_USER_ID_NAME"></td>
+                            <td ng-bind="v.CREATE_TIME"></td>
+
+                            <td>
+                                <button ng-click="FileDown(v)">下载</button>
+                                <button ng-show="headInfo.STATE <= 1" ng-click="delAttachModel(k)">删除</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div style="margin-top:10px;">
+            <button class="btn" ng-show="headInfo.STATE <= 1" ng-click="saveModel('1')">保存</button>
+            <button class="btn" ng-show="headInfo.STATE <= 1" ng-click="saveModel('2')">保存返回</button>
+            <button class="btn" ng-show="headInfo.STATE == 1" ng-click="submitModel()">提交</button>
+            <button class="btn" ng-show="headInfo.STATE == 2" ng-click="auditModel()">审核</button>
+            <button class="btn" ng-click="goBack()">返回</button>
+        </div>
+    </div>
+
+
+
+</body>
+
+
+</html>

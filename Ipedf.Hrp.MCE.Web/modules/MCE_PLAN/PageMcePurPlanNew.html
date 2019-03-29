@@ -1,0 +1,267 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <title>设备入账->采购计划新增</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1">
+    <link rel="stylesheet" type="text/css" href="../../styles/common/base.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/common/common.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/mce/PageMcePurPlanNew.css">
+    <script type="text/javascript" src="../../scripts/new_angular/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/angular.1.2.29.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/appDirectives.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/appServices.js"></script>
+
+    <script type="text/javascript" src="../../scripts/My97DatePicker/WdatePicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../scripts/My97DatePicker/skin/WdatePicker.css">
+    <script type="text/javascript" src="../../scripts/mce/PageMcePurPlanNew.js"></script>
+</head>
+<body ng-controller="index" ng-click="clearFkDetailState();InputschangeState.changeState('a')">
+    <div class="content">
+        <div class="filt">
+            <ul>
+                <li>
+                    <div>
+                        <span>单号</span>
+                        <input type="text" readonly ng-model="headInfo.CODE">
+                    </div>
+                </li>
+
+                <li>
+                    <div>
+                        <span>计划科室</span>
+                        <my-param param="dept" change="InputschangeState" param-obj="paramDept" show-str="dept" authority="headInfo.STATE > 1?true:false"></my-param>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>计划人</span>
+                        <my-param param="user" change="InputschangeState" param-obj="paramUser" show-str="user" authority="headInfo.STATE > 1?true:false"></my-param>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>计划日期</span>
+                        <input ng-readonly="headInfo.STATE > 1" type="text" class="clock" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',onpicked:function(){$(this).trigger('change')},isShowClear:false})"
+                               ng-model="headInfo.CREATE_DATE" ng-disabled="headInfo.ID != ''">
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>供应商</span>
+                        <my-param param="prv" change="InputschangeState" param-obj="paramPrv" show-str="prv" authority="headInfo.STATE > 1?true:false"></my-param>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>申购科室</span>
+                        <my-param param="purdept" change="InputschangeState" param-obj="paramPurDept" show-str="purdept" authority="headInfo.STATE > 1?true:false"></my-param>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>采购预算</span>
+                        <input type="text" ng-readonly="true" ng-model="headInfo.APPLY_MONEY">
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>备注</span>
+                        <input ng-readonly="headInfo.STATE > 1" type="text" ng-model="headInfo.COMMENTS">
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="data">
+            <div class="operation">
+                <button class="btn" ng-show="headInfo.STATE <= 1" ng-click="delModel()">删除</button>
+                <button class="btn" ng-show="headInfo.STATE <= 1" ng-click="saveModel('1')">保存</button>
+                <button class="btn" ng-show="headInfo.STATE <= 1" ng-click="saveModel('2')">保存返回</button>
+                <button class="btn" ng-show="headInfo.STATE == 1" ng-click="submitModel()">提交</button>
+                <button class="btn" ng-show="headInfo.STATE == 2" ng-click="auditModel()">审核</button>
+
+                <button class="btn fr" ng-click="goBack()">返回</button>
+                <button class="btn fr" ng-click="openNew()" ng-show="headInfo.STATE <= 1">引入申购单</button>
+                <button class="btn fr" ng-click="openNew2()" ng-show="headInfo.STATE <= 1">添加</button>
+
+            </div>
+            <div class="table">
+                <table cellpadding="0" border="0" cellspacing="0">
+                    <thead>
+                    <th ng-click="checkAll()">全选/全不选</th>
+                    <th>设备分类</th>
+                    <th>设备名称</th>
+                    <th>规格型号</th>
+                    <th>设备厂商</th>
+                    <th>单价</th>
+                    <th>数量</th>
+                    <th>金额</th>
+                    <th>单位</th>
+
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="(k,v) in tableRows">
+                            <td>
+                                <div class="check" ng-click="v.checked = !v.checked" ng-show="headInfo.STATE <= 1">
+                                    <span></span>
+                                    <strong ng-show="v.checked">✔</strong>
+                                </div>
+                            </td>
+                            <td ng-bind="v.TYPE_ID_NAME"></td>
+                            <td ng-bind="v.ASSET_NAME"></td>
+                            <td ng-bind="v.SPEC"></td>
+                            <td ng-bind="v.PRD_NAME"></td>
+                            <td ng-bind="v.PRICE"></td>
+
+                            <td>
+                                <input ng-readonly="headInfo.STATE > 1" type="text" ng-model="v.AMOUNT" class="inp">
+                            </td>
+
+                            <td ng-bind="v.PRICE*1 * v.AMOUNT"></td>
+                            <td ng-bind="v.UNIT_ID_NAME"></td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="bg" ng-show="newState.state"></div>
+    <div class="new_data" ng-show="newState.state">
+
+        <div class="filt">
+            <ul>
+                <li>
+                    <div>
+                        <span>关键字</span>
+                        <input type="text" class="inp" ng-model="paramPurchaseObj.code" placeholder="单号">
+                    </div>
+                </li>
+
+                <li>
+
+                    <button class="btn" ng-click="getModelPurchaseList(1)">查询</button>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="data" style="height:385px;">
+            <div class="table">
+                <table border="0" cellpadding="0" cellspacing="0">
+                    <thead>
+                    <th ng-click="checkAllPurchase()">全选/全不选</th>
+                    <th>单号</th>
+                    <th>申购日期</th>
+                    <th>申购科室</th>
+                    <th>申购人</th>
+                    <th>设备名称</th>
+                    <th>购置数量</th>
+                    <th>单价</th>
+                    <th>生产厂家</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="(key,value) in modelPurchaseList">
+                            <td>
+                                <input type="checkbox" ng-checked="value.checked" ng-click="value.checked=!value.checked">
+                            </td>
+                            <td ng-bind="value.CODE">00001</td>
+                            <td ng-bind="value.CREATE_DATE">长沙迅捷</td>
+                            <td ng-bind="value.APPLY_DEPT_ID_NAME">张三</td>
+                            <td ng-bind="value.APPLY_USER_ID_NAME">13213131313</td>
+                            <td ng-bind="value.ASSET_NAME">336866846436</td>
+                            <td ng-bind="value.APPLY_AMOUNT">13861</td>
+                            <td ng-bind="value.APPLY_PRICE">1351315</td>
+                            <td ng-bind="value.PRD_NAME">3116866868</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <mainpager my-pager="mainPurchasePager" my-search="getModelPurchaseList(curIndex)"></mainpager>
+            </div>
+        </div>
+
+        <div class="in">
+            <button class="btn" ng-click="refPurchaseInfo()">添加</button>
+            <button class="btn" ng-click="newState.state = false">取消</button>
+        </div>
+    </div>
+
+
+
+    <div class="bg" ng-show="newState2.state"></div>
+    <div class="new_data" style="width:1000px;height:500px;left:40%;top:0px" ng-show="newState2.state">
+
+        <div class="search">
+            <span>设备分类</span>
+            <my-param param="type" change="InputschangeState" param-obj="paramType" show-str="type" authority="false"></my-param>
+            &nbsp; &nbsp; &nbsp; &nbsp;
+            <span>设备名称</span>
+            <input type="text" class="inp" placeholder="设备名称" ng-model="paramAssetObj.name">
+
+            <button class="btn" ng-click="getAssetsList()">查询</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="btn" ng-click="newState2.state = false">返回</button>
+        </div>
+
+        <div class="data" style="height:480px; overflow:auto;">
+            <div class="assetsList">
+                <ul class="model">
+                    <li ng-repeat="v in assetsList" class="item">
+
+                        <div class="divData" style="margin-bottom:10px;">
+                            <div style="border: 1px solid #B5CFED;height:180px;width:300px;">
+                                <img style="width:300px;height:180px;" src="{{v.PICTURE}}" alt="">
+
+                            </div>
+                            <ul class="modelList">
+
+                                <li>
+                                    <span>资产名称:</span>
+                                    <input type="text" ng-readonly="true" class="lbl" ng-model="v.NAME">
+                                </li>
+                                <li>
+                                    <span>规格型号:</span>
+                                    <input type="text" ng-readonly="true" class="lbl" ng-model="v.SPEC">
+                                </li>
+                                <li>
+                                    <span>单位:</span>
+                                    <input type="text" ng-readonly="true" class="lbl" ng-model="v.UNIT_ID_NAME">
+                                </li>
+                                <li>
+                                    <span>单价:</span>
+                                    <input type="text" ng-readonly="true" class="lbl" ng-model="v.PRICE">
+                                </li>
+                                <li>
+                                    <span>生产厂家:</span>
+                                    <input type="text" ng-readonly="true" class="lbl" ng-model="v.PRD_ID_NAME">
+                                </li>
+                                <li>
+                                    <span>供应商:</span>
+                                    <input type="text" ng-readonly="true" class="lbl" ng-model="v.PRV_ID_NAME">
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="opera">
+                            <span>数量:</span>
+                            <input type="text" class="inp" ng-model="v.APPLY_AMOUNT">
+                            <button class="btn" ng-click="addPurPlanInfo(v)">确定</button>
+                        </div>
+                    </li>
+
+                </ul>
+                <div>
+                    <mainpager my-pager="mainAssetPager" my-search="getAssetsList(curIndex)"></mainpager>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

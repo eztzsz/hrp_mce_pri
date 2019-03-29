@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <title>设备保养->保养计划新增</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1">
+    <link rel="stylesheet" type="text/css" href="../../styles/common/base.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/common/common.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/mce/PageMceMTNPlanNew.css">
+    <script type="text/javascript" src="../../scripts/new_angular/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/angular.1.2.29.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/appDirectives.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/appServices.js"></script>
+
+    <script type="text/javascript" src="../../scripts/My97DatePicker/WdatePicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../scripts/My97DatePicker/skin/WdatePicker.css">
+    <script type="text/javascript" src="../../scripts/mce/PageMceMTNPlanNew.js"></script>
+</head>
+<body ng-controller="index" ng-click="clearFkDetailState();InputschangeState.changeState('a')">
+    <div class="content">
+        <div class="filt">
+            <ul>
+                <li>
+                    <div>
+                        <span>单号</span>
+                        <input type="text" readonly ng-model="headInfo.CODE">
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>名称</span>
+                        <input type="text" ng-readonly="headInfo.STATE > 1" ng-model="headInfo.NAME">
+                    </div>
+                </li>
+                <li>
+                    <div style="margin-right:30px">
+                        <span>保养类别</span>
+                        <select ng-model="headInfo.MTN_TYPE_ID" ng-disabled="headInfo.STATE > 1" ng-options="c.id as c.name for c in mtnTypeList">
+                            <option value="">请选择</option>
+                        </select>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>保养公司</span>
+                        <my-param param="dept" change="InputschangeState" param-obj="paramDept" show-str="dept" authority="headInfo.STATE > 1?true:false"></my-param>
+                    </div>
+                </li>
+
+                <li>
+                    <div>
+                        <span>执行周期</span>
+                        <select ng-disabled="headInfo.STATE > 1" ng-model="headInfo.EXECUTE_PERIOD_UNIT" style="width:70px;">
+                            <option value="1">年</option>
+                            <option value="2">月</option>
+                            <option value="3">日</option>
+                        </select>                
+                        <input type="text" style="width:80px;" ng-model="headInfo.EXECUTE_PERIOD">
+                    </div>
+                </li>
+
+                <li>
+                    <div>
+                        <span>下次执行日</span>
+                        <input ng-readonly="headInfo.STATE > 1" type="text" class="clock" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',onpicked:function(){$(this).trigger('change')},isShowClear:false})"
+                               ng-model="headInfo.CREATE_DATE" ng-disabled="headInfo.ID != ''">
+                    </div>
+                </li>
+
+                <li>
+                    <div>
+                        <span>负责人</span>
+                        <my-param param="user" change="InputschangeState" param-obj="paramUser" show-str="user" authority="headInfo.STATE > 1?true:false"></my-param>
+                    </div>
+                </li>
+
+                <li>
+                    <div>
+                        <span>项目状态</span>
+                        <input type="text" ng-disabled="true" ng-model="headInfo.PLAN_STATE_NAME">
+                        <!--<select ng-disabled="headInfo.STATE > 1" ng-model="headInfo.PLAN_STATE">
+                            <option value="1">正常</option>
+                            <option value="2">禁用</option>
+                        </select>-->
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>备注</span>
+                        <input ng-readonly="headInfo.STATE > 1" style="width:240px;" type="text" ng-model="headInfo.COMMENTS">
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="data">
+            <div class="operation">
+                <button class="btn" ng-show="headInfo.STATE <= 1" ng-click="delModel()">删除</button>
+                <button class="btn" ng-show="headInfo.STATE <= 1" ng-click="saveModel('1')">保存</button>
+                <button class="btn" ng-show="headInfo.STATE <= 1" ng-click="saveModel('2')">保存返回</button>
+                <button class="btn" ng-show="headInfo.STATE == 1" ng-click="submitModel()">提交</button>
+                <button class="btn" ng-show="headInfo.STATE == 2" ng-click="auditModel()">审核</button>
+
+                <button class="btn" ng-show="headInfo.STATE >= 1 && headInfo.PLAN_STATE == 2" ng-click="enableModel()">启用</button>
+                <button class="btn" ng-show="headInfo.STATE >= 1 && headInfo.PLAN_STATE == 1" ng-click="disableModel()">停用</button>
+
+                <button class="btn fr" ng-click="goBack()">返回</button>
+                <button class="btn fr" ng-click="openNew()" ng-show="headInfo.STATE <= 1">添加</button>
+
+            </div>
+            <div class="table">
+                <table cellpadding="0" border="0" cellspacing="0">
+                    <thead>
+                    <th ng-click="checkAll()">全选/全不选</th>
+                    <th>科室名称</th>
+                    <th>设备编号</th>
+                    <th>设备名称</th>
+                    <th>规格型号</th>
+                    <th>设备条码</th>
+                    <th>项目名称</th>
+                    <th>备注</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="(k,v) in tableRows">
+                            <td>
+                                <div class="check" ng-click="v.checked = !v.checked" ng-show="headInfo.STATE <= 1">
+                                    <span></span>
+                                    <strong ng-show="v.checked">✔</strong>
+                                </div>
+                            </td>
+                          
+                            <td ng-bind="v.DEPT_ID_NAME"></td>
+                            <td ng-bind="v.ASSET_CODE"></td>
+                            <td ng-bind="v.ASSETS_ID_NAME"></td>
+                            <td ng-bind="v.SPEC"></td>
+                            <td ng-bind="v.SEQ_NUMBER"></td>
+                               
+              
+                            <td>
+                                <div style="display:inline-block;position:relative">
+                                    <!-- 保养项目 -->
+
+                                    <input ng-disabled="headInfo.STATE > 1" ng-click="searcFkMtnItemListForAdd(1,v);changeFkMtnItemState(k);$event.stopPropagation()"
+                                           style="height: 25px; border: 1px solid #bed4ed; background-color: white;" ng-model="v.ITEM_ID_NAME"
+                                           ng-change="searcFkMtnItemListForAdd(1,v);" />
+                                    <button ng-disabled="headInfo.STATE > 1" type="button" ng-click="clearFkMtnItemForAdd(v);" name="button"
+                                            style="width: 15px; height: 20px; outline: none; position: absolute; line-height: 20px; border: none; background: white; right: 1px; top: 5px; margin: 0; cursor: pointer">
+                                        &times;
+                                    </button>
+                                    <div class="showTable" ng-click="v.showMTItemState=true;$event.stopPropagation()" ng-show="v.showMTItemState">
+                                        <div>
+                                            <table cellspacing="0" cellpadding="0" border="0">
+                                                <thead>
+                                                <th>编号</th>
+                                                <th>名称</th>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="a in mtnItemList" ng-click="selectFkMtnItemForAdd(v,a);$event.stopPropagation();">
+                                                        <td ng-bind="a.CODE"></td>
+                                                        <td ng-bind="a.NAME"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <mypager my-obj="a" my-pager="fkMtnItemPager" my-search="searcFkMtnItemListForAdd(curIndex,v)"></mypager>
+                                    </div>
+                                 </div>
+                            </td>
+
+                            <td>
+                                <input ng-readonly="headInfo.STATE > 1" style="width:200px;" type="text" ng-model="v.COMMENTS" class="inp">
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+    </div>
+
+
+
+    <div class="bg" ng-show="newState.state"></div>
+    <div class="new_data" ng-show="newState.state">
+
+        <div class="filt">
+            <ul>
+                <li>
+                    <div>
+                        <span>关键字</span>
+                        <input type="text" class="inp" ng-model="paramAssetObj.condition" placeholder="资产编号、资产名称、规格类型、使用科室">
+                    </div>
+                </li>
+
+                <li>
+               
+                    <button class="btn" ng-click="getModelAssetList(1)">查询</button>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="data" style="height:385px;">
+            <div class="table">
+                <table border="0" cellpadding="0" cellspacing="0">
+                    <thead>
+                    <th ng-click="checkAllAssett()">全选/全不选</th>
+                    <th>资产类别</th>
+                    <th>设备编号</th>
+                    <th>设备名称</th>
+                    <th>规格</th>
+                    <th>生产厂家</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="(key,value) in modelAssetList">
+                            <td>
+                                <input type="checkbox" ng-checked="value.checked" ng-click="value.checked=!value.checked">
+                            </td>
+                            <td ng-bind="value.MACHINE_TYPE_ID_NAME">00001</td>
+                            <td ng-bind="value.ASSETS_CODE">长沙迅捷</td>
+                            <td ng-bind="value.ASSETS_NAME">张三</td>
+                            <td ng-bind="value.SPEC">张三</td>
+                            <td ng-bind="value.PRD_ID_NAME">张三</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <mainpager my-pager="mainAssetPager" my-search="getModelAssetList(curIndex)"></mainpager>
+            </div>
+        </div>
+
+        <div class="in">
+            <button class="btn" ng-click="addInfo()">添加</button>
+            <button class="btn" ng-click="newState.state = false">取消</button>
+        </div>
+    </div>
+
+
+</body>
+</html>

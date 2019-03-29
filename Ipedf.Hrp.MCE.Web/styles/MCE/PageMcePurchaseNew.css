@@ -1,0 +1,94 @@
+
+.content {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 10px
+}
+
+.search {
+	height: 30px;
+	line-height: 30px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #b0caeb;
+}
+
+.search span {
+	padding-right: 15px;
+	padding-left: 8px
+}
+
+ .search input {
+	width: 180px;
+	vertical-align: middle;
+}
+
+ .search button {
+	vertical-align: middle;
+}
+
+ .assetsList {
+
+}
+
+ .assetsList .model {
+	display: inline-block;
+	vertical-align: top;
+}
+
+ .assetsList .model > li {
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 20px;
+	margin-right: 10px;
+	width: 300px;
+	height: 340px;
+	border: 1px solid #b0caeb
+}
+
+.assetsList .model > li .opera {
+	text-align: center;
+}
+
+ .assetsList .model > li .opera button {
+	margin: 10px 15px 0 15px
+}
+
+.assetsList .model > li .divData {
+	float: left;
+	padding-top: 3px;
+	width: 300px;
+	height: 280px;
+}
+
+ .assetsList .model > li .divData .modelList > li {
+	padding-bottom: 0px
+}
+
+ .assetsList .model > li .divData .modelList > li > span {
+	display: inline-block;
+	width: 63px;
+	text-align: right;
+	padding-right: 6px
+}
+
+
+.inp {
+	outline: none;
+	border: 1px solid #b0caeb;
+	height: 28px;
+}
+
+.lbl {
+	outline: none;
+	border: none;
+	height: 16px;
+}
+
+.btn{
+	background:#5e8ab3;
+	min-width:70px;
+	height:30px;
+	color:white;
+	border:none;
+	padding:0 2px;
+}

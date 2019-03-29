@@ -1,0 +1,206 @@
+<!--<title>文件列表</title>-->
+<div class="fileList" ng-controller="fileList">
+    <div class="opera">
+        <button ng-show="rollAudit  ==1" ng-click="goRollFileDetail('')" class="btn">新增</button>
+        <button ng-show="rollAudit  ==1" ng-click="delRollFileModel()" class="btn">删除</button>
+        <button ng-click="goRollFileTemplate()" class="btn">另存为模版</button>
+        <button ng-show="rollAudit  ==1" ng-click="goRollFileTempData()" class="btn">导入模版</button>
+        <a ui-sref="records" class="btn" style="float: right;">返回</a>
+    </div>
+
+    <div class="table">
+        <div class="data">
+            <table cellspacing="0" cellpadding="0" border="0">
+                <thead>
+                <th ng-click="checkRollFileAll()">全选/全不选</th>
+                <th>序号</th>
+                <th>文件编号</th>
+                <th>文件名称</th>
+                <th>文件日期</th>
+                <th>页数</th>
+                <th>摘要</th>
+                <th>备注</th>
+                <th>附件</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="(key,value)  in rollFileList" ng-dblclick="goRollFileDetail(value.ID)">
+                        <td>
+                            <div class="check" ng-click="value.checked = !value.checked">
+                                <span></span>
+                                <strong ng-show="value.checked">✔</strong>
+                            </div>
+                        </td>
+                        <td ng-bind="(key+1)">123</td>
+                        <td ng-bind="value.CODE">123</td>
+                        <td ng-bind="value.NAME">1231</td>
+                        <td ng-bind="value.CREATE_DATE">123</tdng-bind>
+                        <td ng-bind="value.PAGE_NUM">13</td>
+                        <td ng-bind="value.SUMMARYS">13</tdng-bind>
+                        <td ng-bind="value.COMMENTS">13</td>
+                        <td><button ng-click="RollFileDown(value.BACKUP1)">下载</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+ 
+    </div>
+
+
+
+    <div class="bg" ng-show="newRollFileState.state"></div>
+    <div class="newData" ng-show="newRollFileState.state">
+        <!--<div class="content">-->
+        <ul class="list clearfix">
+            <li>
+                <div>
+                    <span>文件名称</span>
+                    <input type="text" ng-model="rollFileModel.name" class="inp width-480">
+                </div>
+
+            </li>
+
+            <li class="fl">
+                <div>
+                    <span>文件编号</span>
+                    <input type="text" ng-model="rollFileModel.code" class="inp">
+                </div>
+            </li>
+
+            <li class="fr">
+                <div>
+                    <span>文件日期</span>
+                    <input type="text" ng-model="rollFileModel.create_date" class="inp"
+                           onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',onpicked:function(){$(this).trigger('change')},isShowClear:false})">
+                </div>
+            </li>
+
+            <li class="fl">
+                <div>
+                    <span>页数</span>
+                    <input type="text" ng-model="rollFileModel.page_num" class="inp">
+                </div>
+            </li>
+
+            <li class="fr">
+                <div>
+                    <span>摘要</span>
+                    <input type="text" ng-model="rollFileModel.summarys" class="inp">
+                </div>
+            </li>
+            <li>
+                <div>
+                    <span>备注</span>
+                    <input type="text" ng-model="rollFileModel.comments" class="inp width-480">
+                </div>
+
+            </li>
+
+            <li class="fl">
+                <div style="padding-left:160px">
+                    <strong style="color: #53D4B8; cursor: pointer;" ng-click="RollFileDown(rollFileModel.filename)">下载附件</strong>
+                </div>
+            </li>
+
+            <li class="fr">
+                <div style="padding-right:160px">
+                    <strong style="color: #53D4B8; cursor: pointer;" ng-click="getFile(rollFileModel,'rollfile')">上传附件</strong>
+                </div>
+            </li>
+
+        </ul>
+        <div style="text-align: center">
+            <button class="btn" ng-click="saveRollFileModel(rollFileModel)">保存</button>
+            <button class="btn" ng-click=" newRollFileState.state=false">返回</button>
+        </div>
+    </div>
+  
+
+
+    <div class="bg" ng-show="rollFileTemplateState.state"></div>
+    <div class="newData" ng-show="rollFileTemplateState.state">
+        <ul class="list clearfix">
+            <li>
+                <div>
+                    <span>&nbsp;</span>
+                </div>
+
+            </li>
+            <li>
+                <div>
+                    <span>模板名称</span>
+                    <input type="text" ng-model="rollFileTemplateInfo.name" class="inp width-480">
+                </div>
+
+            </li>
+
+
+            <li>
+                <div style="margin-top:20px;">
+                    <span>模板说明</span>
+                    <input type="text" ng-model="rollFileTemplateInfo.comments" class="inp width-480">
+                </div>
+
+            </li>
+
+        </ul>
+        <div style="text-align: center">
+            <button class="btn" ng-click="saveRollFileTemplate(rollFileTemplateInfo)">保存</button>
+            <button class="btn" ng-click="rollFileTemplateState.state=false">返回</button>
+        </div>
+    </div>
+
+
+    <div class="bg" ng-show="rollFileTempDataState.state"></div>
+    <div class="newData" style="height:470px;width:800px;top:10px;padding:5px;" ng-show="rollFileTempDataState.state">
+        <div class="filt">
+            <ul>
+                <li>
+                    <div>
+                        <span>关键字</span>
+                        <input type="text" class="inp" placeholder="模板名称,模板说明" ng-model="paramTempDataObj.condition">
+                        <button class="btn" ng-click="getTempDatatList(1)">查询</button>
+                    </div>
+                </li>
+
+                <li>
+                    <div style="margin-right:30px">
+                       
+                    </div>
+      
+                </li>
+            </ul>
+        </div>
+
+        <div class="data" style="height:380px;">
+            <div class="table">
+                <table border="0" cellpadding="0" cellspacing="0">
+                    <thead>
+                    <th>选择</th>
+                    <th>模板名称</th>
+                    <th>模板说明</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="(key,value) in modelTempDataList">
+                            <td>
+                                <div class="check" ng-click="selectTempData(value)">
+                                    <span></span>
+                                    <strong ng-show="value.checked">✔</strong>
+                                </div>
+                            </td>
+                            <td ng-bind="value.NAME">00001</td>
+                            <td ng-bind="value.COMMENTS">长沙迅捷</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <mainpager my-pager="mainTempDataPager" my-search="getTempDatatList(curIndex)"></mainpager>
+            </div>
+        </div>
+               
+        <div style="text-align: center">
+            <button class="btn" ng-click="saveRollFilebyTempData()">导入</button>
+            <button class="btn" ng-click="rollFileTempDataState.state=false">返回</button>
+        </div>
+    </div>
+</div>

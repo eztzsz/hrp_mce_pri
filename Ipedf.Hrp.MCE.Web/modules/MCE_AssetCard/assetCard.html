@@ -1,0 +1,58 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head >
+    <title>资产卡片</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1">
+
+    <link rel="stylesheet" href="../../styles/common/base.css">
+    <link rel="stylesheet" href="../../styles/common/common.css">
+    <link rel="stylesheet" href="../../styles/MCE_AssetCard/assetCard.css">
+
+    <script src="../../scripts/new_angular/jquery-1.11.0.js"></script>
+    <script src="../../scripts/new_angular/angular.1.2.29.js"></script>
+    <script src="../../scripts/new_angular/angular-route.min.js"></script>
+    <script src="../../scripts/new_angular/angular-ui-router.js"></script>
+    <script src="../../scripts/new_angular/appServices.js"></script>
+    <script src="../../scripts/new_angular/appDirectives.js"></script>
+    <script src="../../scripts/new_angular/jQuery.print.js"></script>
+    <script src="../../scripts/echarts/echarts.common.min.js"></script>
+
+    <link rel="stylesheet" href="../../scripts/My97DatePicker/skin/WdatePicker.css">
+    <script src="../../scripts/My97DatePicker/WdatePicker.js"></script>
+
+    <script src="../../scripts/MCE_AssetCard/assetCard.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/ocLazyLoad.js"></script>
+</head>
+<body ng-controller="index">
+<div class="content">
+    <div class="menu">
+        <ul>
+            
+    
+            <li ng-class="{'routerSel':routerSel.baseInfo}"><a id="menuBaseInfo" ui-sref="baseInfo">基本信息</a></li>
+            <li ng-class="{'routerSel':routerSel.enclosure}"><a ui-sref="enclosure">附件信息</a></li>
+            <li ng-class="{'routerSel':routerSel.capital}"><a ui-sref="capital">资金信息</a></li>
+            <li ng-class="{'routerSel':routerSel.depreciation}"><a ui-sref="depreciation">折旧信息</a></li>
+            <li ng-class="{'routerSel':routerSel.imported}"><a ui-sref="imported">进口信息</a></li>
+            <li ng-class="{'routerSel':routerSel.contract}"><a ui-sref="contract">合同信息</a></li>
+            <li ng-class="{'routerSel':routerSel.insurance}"><a ui-sref="insurance">保险信息</a></li>
+            <li ng-class="{'routerSel':routerSel.maintenance}"><a ui-sref="maintenance">维保信息</a></li>
+            <li ng-class="{'routerSel':routerSel.circulation}"><a ui-sref="circulation">流转信息</a></li>
+            <li ng-class="{'routerSel':routerSel.metering}"><a ui-sref="metering">计量信息</a></li>
+    
+            <li ng-class="{'routerSel':routerSel.scrap}"><a ui-sref="scrap">报废信息</a></li>
+            <li ng-class="{'routerSel':routerSel.records}"><a id="mnuRollRecordInfo" ui-sref="records">案卷信息</a></li>-
+            
+        </ul>
+    </div>
+    <div class="view">
+        <div ui-view=""></div>
+    </div>
+  
+</div>
+<input type="file" id="uploadFile" style="position:absolute;top:-10000px" >
+</body>
+</html>

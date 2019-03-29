@@ -1,0 +1,242 @@
+.content{
+	padding:10px;
+	min-width:1080px
+}
+.filt{
+
+}
+.filt>ul>li{
+	display:inline-block;
+	vertical-align:middle;
+	height:30px;
+	line-height:30px;
+	margin-bottom:20px;
+	margin-right:20px
+}
+.filt>ul>li>div>span{
+	padding-right:10px;
+	display:inline-block;
+	width:60px;
+	text-align:right
+}
+.filt>ul>li>div{
+	display:inline-block;
+	vertical-align: middle;
+}
+.filt>ul>li>div input{
+	border:1px solid #bed4ed;
+	width:158px;
+	height:28px;
+	text-indent:3px;
+}
+.filt>ul>li>div input.clock{
+	width:118px;
+	background:url(../../images/icon/icon_The_calendar.png) no-repeat 100px center;
+}
+.filt>ul>li>div>select{
+	border:1px solid #bed4ed;
+	width:160px;
+	height:30px;
+	text-indent:3px;
+}
+.operation{
+	margin-bottom:20px;
+}
+.operation button{
+	margin-right:15px;
+}
+.table{
+	min-height:350px;
+	overflow:auto;
+}
+.table table{
+	min-width:100%;
+	border-collapse: collapse;
+}
+.table table td,.table table th{
+	border:1px solid #bed4ed;
+	height:40px;
+	line-height:30px;
+	text-align:center;
+	padding:0 3px;
+}
+.table table thead{
+	background: #e1ecff;
+	cursor:default;
+}
+.table table tr.onsel{
+	color:#e7564f;
+}
+.data .operation{
+	height:30px;
+	padding:7px 0;
+	margin:0;
+	border:1px solid #b0caeb;
+	border-bottom:none;
+}
+.data .operation button{
+	margin-left:10px;
+	margin-right:10px;
+}
+.check {
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.check span {
+    display: inline-block;
+    width: 10px!important;
+    height: 10px;
+    border: 1px solid #abc9ef;
+    background: transparent;
+    vertical-align: top;
+}
+
+.check strong {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 12px;
+    color: #acc8ef;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 15px;
+    font-weight: normal
+}
+.btn{
+	background:#5e8ab3;
+	min-width:70px;
+	height:30px;
+	color:white;
+	border:none;
+	padding:0 2px;
+}
+.num{
+	outline:none;
+	border:1px solid #b0caeb;
+	width:60px;
+	height:25px;
+	text-indent:3px;
+}
+.inp{
+	outline:none;
+	border:1px solid #b0caeb;
+	height:25px;
+	text-indent:3px;
+}
+.date{
+	outline:none;
+	border:1px solid #b0caeb;
+	width:70px;
+	height:25px;
+	text-indent:3px;
+}
+
+
+
+.bg{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: #000;
+    opacity:0.07;
+    filter:alpha(opacity=1);
+}
+.new_data
+{
+	padding:10px;
+    width:800px;
+    height:470px;
+    position: absolute;
+    left: 50%;
+    top:10px;
+    margin-left:-400px;
+    background: #fff;
+}
+.in{
+    height:40px;
+    line-height:40px;
+    text-align: center;
+}
+
+
+
+/*-------------------*/
+.search {
+	height: 25px;
+	line-height: 25px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #b0caeb;
+}
+
+.search span {
+	padding-right: 15px;
+	padding-left: 8px
+}
+
+ .search input {
+	width: 180px;
+	vertical-align: middle;
+}
+
+ .search button {
+	vertical-align: middle;
+}
+
+ .assetsList {
+
+}
+
+ .assetsList .model {
+	display: inline-block;
+	vertical-align: top;
+}
+
+ .assetsList .model > li {
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 10px;
+	margin-right: 10px;
+	width: 300px;
+	height: 340px;
+	border: 1px solid #b0caeb;
+}
+
+.assetsList .model > li .opera {
+	text-align: center;
+}
+
+ .assetsList .model > li .opera button {
+	margin: 10px 15px 0 15px
+}
+
+.assetsList .model > li .divData {
+	float: left;
+	padding-top: 3px;
+	width: 300px;
+	height: 280px;
+}
+
+ .assetsList .model > li .divData .modelList > li {
+	padding-bottom: 0px
+}
+
+ .assetsList .model > li .divData .modelList > li > span {
+	display: inline-block;
+	width: 63px;
+	text-align: right;
+	padding-right: 6px
+}
+
+.lbl {
+	outline: none;
+	border: none;
+	height: 16px;
+}

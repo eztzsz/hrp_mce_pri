@@ -1,0 +1,95 @@
+<!--<title>案卷信息/关联设备</title>-->
+<div class="recordsRelation" ng-controller="recordsRelation">
+    <div class="search">
+        <span>关键字</span>
+        <input type="text" class="inp" ng-model="paramRollEquipObj.condition" placeholder="资产编号、资产名称、规格类型、使用科室">
+        <button ng-click="getRollEquipList(1)" class="btn">查询</button>
+
+        <a ui-sref="records" class="btn" style="float: right;">返回</a>
+    </div>
+    <div class="table">
+        <div class="data">
+            <table cellspacing="0" cellpadding="0" border="0">
+                <thead>
+                <th>资产编号</th>
+                <th>资产名称</th>
+                <th>规格型号</th>
+                <th>资产状态</th>
+                <th>使用科室</th>
+                <th>启用日期</th>
+                <th>设备原值</th>
+                <th>供应商</th>
+                <th>生产厂家</th>
+                <th>产地</th>
+                <th>操作</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="v in mainRollEquipList">
+                        <td ng-bind="v.ASSETS_CODE">123</td>
+                        <td ng-bind="v.ASSETS_NAME">123</td>
+                        <td ng-bind="v.SPEC">1231</td>
+                        <td ng-bind="v.ASSETS_STATE_NAME">123</td>
+                        <td ng-bind="v.USING_DEPT_ID_NAME">123</td>
+                        <td ng-bind="v.ENABLE_DATE">13</td>
+                        <td ng-bind="v.ORIGINAL_VALUE">13</td>
+                        <td ng-bind="v.PROVIDER_ID_NAME">13</td>
+                        <td ng-bind="v.PRD_ID_NAME">13</td>
+                        <td ng-bind="v.PRD_PLACE_TYPE_ID_NAME">13</td>
+                        <td>
+                            <button ng-show="rollAudit  ==1" ng-click="addRealtion(v.ID)">添加</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <mainpager my-pager="mainRollEquipPager" my-search="getRollEquipList(curIndex)"></mainpager>
+        </div>
+    </div>
+    <div class="recordsRelationList">
+        <ul class="modelList">
+            <li>
+                <span><b>已关联设备:</b></span>              
+            </li>
+        </ul>
+
+
+        <ul class="model">
+            <li ng-repeat="v in mainRealtionEquipList" class="item">
+                <div class="left">
+                    <div class="img">
+                        <img src="{{v.PICTURE}}" alt="">
+                    </div>
+                    <!--<span>查看详情</span>-->
+                </div>
+                <div class="right">
+                    <ul class="modelList">
+                        <li>
+                            <span>资产编号</span>
+                            <input type="text" ng-readonly="true" ng-model="v.ASSETS_CODE" class="inp">
+                        </li>
+                        <li>
+                            <span>资产名称</span>
+                            <input type="text" ng-readonly="true" ng-model="v.ASSETS_NAME" class="inp">
+                        </li>
+                        <li>
+                            <span>规格型号</span>
+                            <input type="text" ng-readonly="true" ng-model="v.SPEC" class="inp">
+                        </li>
+                        <li>
+                            <span>资产状态</span>
+                            <input type="text" ng-readonly="true" ng-model="v.ASSETS_STATE_NAME" class="inp">
+                        </li>
+                        <li>
+                            <span>使用科室</span>
+                            <input type="text" ng-readonly="true" ng-model="v.USING_DEPT_ID_NAME" class="inp">
+                        </li>
+                    </ul>
+                </div>
+                <div class="opera">
+                    <button ng-show="rollAudit  ==1" ng-click="delRealtion(v.ID)" class="btn">取消关联</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

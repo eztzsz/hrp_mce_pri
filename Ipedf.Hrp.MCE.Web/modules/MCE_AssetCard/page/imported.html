@@ -1,0 +1,87 @@
+<!--<title>进口信息</title>-->
+<div class="imported" ng-controller="imported">
+    <div class="search">
+        <span>关键字</span>
+        <input type="text" class="inp" placeholder="贸易国别,批准文号,免税号" ng-model="paramImportObj.condition">
+        <button class="btn" ng-click="getImportist()">查询</button>
+    </div>
+    <div class="importedList">
+        <ul class="model">
+            <li ng-repeat="v in importList" class="item">
+                <div class="right">
+                    <ul class="modelList">
+                        <li>
+                            <span>贸易国别</span>
+                            <select style="border-color: rgb(190, 212, 237);" ng-disabled="v.audit_state!=1" ng-model="v.country_id" ng-options="c.id as c.name for c in countryList">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                        <li>
+                            <span>购入金额</span>
+                            <input type="text" ng-readonly="v.audit_state!=1" ng-model="v.purchase_money" class="inp">
+                        </li>
+                        <li>
+                            <span>币种</span>
+                            <select style="border-color: rgb(190, 212, 237);" ng-disabled="v.audit_state!=1" ng-model="v.currency_id" ng-options="c.id as c.name for c in currencyList">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                        <li>
+                            <span>外汇汇率</span>
+                            <input ng-readonly="v.audit_state!=1" ng-model="v.foreign_currency_rate" type="text" class="inp">
+                        </li>
+                        <li>
+                            <span>外汇来源</span>
+                            <select style="border-color: rgb(190, 212, 237);" ng-disabled="v.audit_state!=1" ng-model="v.foreign_currency_source_id" ng-options="c.id as c.name for c in fcsourceList">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                    </ul>
+                    <ul class="modelList">
+                        <li>
+                            <span>关税</span>
+                            <input ng-readonly="v.audit_state!=1" type="text" ng-model="v.customs" class="inp">
+                        </li>
+                        <li>
+                            <span>免税号</span>
+                            <input ng-readonly="v.audit_state!=1" type="text" ng-model="v.exemption_code" class="inp">
+                        </li>
+                        <li>
+                            <span>批准文号</span>
+                            <input ng-readonly="v.audit_state!=1" type="text" ng-model="v.approve_file_code" class="inp">
+                        </li>
+                        <li>
+                            <span>备注</span>
+                            <input ng-readonly="v.audit_state!=1" type="text" ng-model="v.comments" class="inp">
+                        </li>
+                        <li>
+                            <span>附件</span>
+                            <strong>
+                                查看
+                                <ul>
+                                    <li ng-repeat="(key,value) in v.listFileName">
+                                        <a href="javascript:void(0);" ng-click="FileDown(value)">{{value.fileName}}</a>
+                                    </li>
+                                </ul>
+                            </strong>
+                            <strong ng-show="v.audit_state  ==1" ng-click="getFile(v,'import')">上传</strong>
+                        </li>
+                    </ul>
+                </div>
+                <div class="opera">
+                    <button ng-show="v.audit_state  ==1" class="btn" ng-click="saveModel(v)">保存</button>
+                    <button ng-show="v.audit_state  ==1" class="btn" ng-click="auditModel(v)">审核</button>
+                    <button ng-show="v.audit_state  ==1" class="btn" ng-click="delModel(v)">删除</button>
+                </div>
+            </li>
+            <li class=item">
+                <div class="addModel" ng-click="addModel()">
+                    <a href="javascript:void(0);">+新增进口信息</a>
+                </div>
+
+            </li>
+
+        </ul>
+
+    </div>
+</div>

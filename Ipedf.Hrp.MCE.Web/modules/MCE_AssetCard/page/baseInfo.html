@@ -1,0 +1,404 @@
+<!--<title>基础信息</title>-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <div ng-controller="base" class="baseInfo" ng-click="InputschangeState.changeState('a')">
+        <div class="img">
+            <div class="upFile">
+                <img src="../../upload/mce/{{paramBaseObj.picture}}" alt="">
+                <p ng-show="paramBaseObj.state  ==1">
+                    <a href="javascript:void(0);" ng-click="getFile(paramBaseObj,'baseinfo',600,'jpg','png')">选取文件</a>
+                </p>
+            </div>
+            <p class="des">只能上传png/jpg.且不能超过600kb</p>
+            <!--<button class="btn" ng-click="upFile()">点击上传</button>-->
+            <div class="downFile">
+                <img src="{{paramBaseObj.printImg}}" alt="">
+            </div>
+            <button class="btn" ng-click="printCode()">打印</button>
+        </div>
+
+        <div class="infoList">
+            <div>
+                <ul class="list">
+                    <li class="searchName"><span>资产名称</span></li>
+                    <li class="searchName"><span>资产编号</span></li>
+                    <li class="searchName"><span>资产条码</span></li>
+                    <li class="searchName"><span>规格型号</span></li>
+                    <li class="searchName"><span>存放地址</span></li>
+                    <li class="searchName"><span>是否折旧</span></li>
+                </ul>
+                <ul class="list">
+                    <li class="searchInput"><input type="text" class="inp" ng-model="paramBaseObj.assets_name"></li>
+                    <li class="searchInput"><input type="text" class="inp" ng-model="paramBaseObj.assets_code" ng-disabled="true"></li>
+                    <li class="searchInput"><input type="text" class="inp" ng-model="paramBaseObj.seq_number"></li>
+                    <li class="searchInput"><input type="text" class="inp" ng-model="paramBaseObj.spec"></li>
+                    <li class="searchInput"><input type="text" class="inp" ng-model="paramBaseObj.store_address"></li>
+                    <li class="searchInput">
+                        <select ng-model="paramBaseObj.is_depr">
+                            <option value="1">是</option>
+                            <option value="2">否</option>
+                        </select>
+                    </li>
+                </ul>
+                <ul class="list">
+                    <li class="searchName"><span>资产分类</span></li>
+                    <li class="searchName"><span>资产状态</span></li>
+                    <li class="searchName"><span>计量单位</span></li>
+                    <li class="searchName"><span>购买日期</span></li>
+                    <li class="searchName"><span>保养周期(月)</span></li>
+                    <li class="searchName"><span>是否计量</span></li>
+                </ul>
+                <ul class="list">                   
+                    <li class="searchInput">
+                        <my-param param="type" change="InputschangeState" param-obj="ParamObjType" show-str="type" authority="false"> </my-param>
+                    </li>
+                    <li class="searchInput">
+                        <select ng-model="paramBaseObj.assets_state" ng-options="c.id as c.name for c in assetStateList">
+                            <option value="">请选择</option>
+                        </select>
+                    </li>
+                    <li class="searchInput">
+                        <my-param param="unit" change="InputschangeState" param-obj="ParamObjUnit" show-str="unit" authority="false"> </my-param>
+                    </li>
+                    <li class="searchInput">
+                        <input type="text" class="inp" ng-model="paramBaseObj.purchase_date"
+                               onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',onpicked:function(){$(this).trigger('change')},isShowClear:false})">
+                    </li>
+                    <li class="searchInput"><input type="text" class="inp" ng-model="paramBaseObj.maintain_period"></li>
+                    <li class="searchInput">
+                        <select ng-model="paramBaseObj.is_metering">
+                            <option value="1">是</option>
+                            <option value="2">否</option>
+                        </select>
+                    </li>
+                </ul>
+                <ul class="list">
+                    <li class="searchName"><span>英文名称</span></li>
+                    <li class="searchName"><span>卡片编号</span></li>
+                    <li class="searchName"><span>卡片类型</span></li>
+                    <li class="searchName"><span>启用日期</span></li>
+                    <li class="searchName"><span>是否附件</span></li>
+                    <li class="searchName"><span>是否自制</span></li>
+                </ul>
+                <ul class="list">
+                    <li class="searchInput"><input type="text" ng-model="paramBaseObj.en_name" class="inp"></li>
+                    <li class="searchInput"><input type="text" ng-model="paramBaseObj.card_code" class="inp"></li>
+                    <li class="searchInput">
+                        <select ng-model="paramBaseObj.card_type_id" ng-options="c.id as c.name for c in cardTypeList">
+                            <option value="">请选择</option>
+                        </select>
+                    </li>
+                    <li class="searchInput">
+                        <input type="text" class="inp" ng-disabled="true" ng-model="paramBaseObj.enable_date"
+                               onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',onpicked:function(){$(this).trigger('change')},isShowClear:false})">
+                    </li>
+                    <li class="searchInput">
+                        <select ng-model="paramBaseObj.is_affix">
+                            <option value="1">是</option>
+                            <option value="2">否</option>
+                        </select>
+                    </li>
+                    <li class="searchInput">
+                        <select ng-model="paramBaseObj.is_self_restraint">
+                            <option value="1">是</option>
+                            <option value="2">否</option>
+                        </select>
+                    </li>
+                </ul>
+                <ul class="list" style="width: 120px;">
+                    <li class="searchName"><span>使用期限(月)</span></li>
+                    <li class="searchName"><span>是否财务入账</span></li>
+                    <li class="searchName"><span>财务入账日期</span></li>
+                    <li class="searchName"><span>财务销账日期</span></li>
+                    <li class="searchName"><span>是否固定资产</span></li>
+                    <li class="searchName"><span>是否大型医疗设备</span></li>
+                </ul>
+                <ul class="list">
+                    <li class="searchInput">
+                        <input type="text" class="inp" ng-model="paramBaseObj.service_life">
+                    </li>
+                    <li class="searchInput">
+                        <select ng-model="paramBaseObj.is_in_account">
+                            <option value="1">是</option>
+                            <option value="2">否</option>
+                        </select>
+                    </li>
+                    <li class="searchInput">
+                        <input ng-disabled="true" type="text" class="inp" ng-model="paramBaseObj.in_account_date"
+                               onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',onpicked:function(){$(this).trigger('change')},isShowClear:false})">
+                    </li>
+                    <li class="searchInput">
+                        <input ng-disabled="true" type="text" class="inp" ng-model="paramBaseObj.out_account_date"
+                               onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',onpicked:function(){$(this).trigger('change')},isShowClear:false})">
+                    </li>
+                    <li class="searchInput">
+                        <select ng-model="paramBaseObj.is_assets">
+                            <option value="1">是</option>
+                            <option value="2">否</option>
+                        </select>
+                    </li>
+                    <li class="searchInput">
+                        <select ng-model="paramBaseObj.is_large_me">
+                            <option value="1">是</option>
+                            <option value="2">否</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <ul class="list">
+                    <li class="searchName"><span>权属信息</span></li>
+                    <li class="searchName"><span>所属部门</span></li>
+                    <li class="searchName"><span>保管科室</span></li>
+                    <li class="searchName"><span>领用科室</span></li>
+                    <li class="searchName"><span>领用人</span></li>
+                </ul>
+                <ul class="list">
+                    <li class="searchInput">
+                        <select ng-model="paramBaseObj.ownership_type_id" ng-options="c.id as c.name for c in ownerShipList">
+                            <option value="">请选择</option>
+                        </select>
+                    </li>
+                    <li class="searchInput">
+                        <my-param param="dept" change="InputschangeState" param-obj="ParamObjDept" show-str="dept" authority="false"> </my-param>
+                    </li>
+                    <li class="searchInput"><input ng-disabled="true" type="text" ng-model="paramBaseObj.custody_dept_id_name" class="inp"></li>
+                    <li class="searchInput"><input ng-disabled="true" type="text" ng-model="paramBaseObj.using_dept_id_name" class="inp"></li>
+                    <li class="searchInput"><input ng-disabled="true" type="text" ng-model="paramBaseObj.using_user_id_name" class="inp"></li>
+                </ul>
+                <ul class="list">
+                    <li class="searchName"><span>使用状态</span></li>
+                    <li class="searchName"><span>业务类型</span></li>
+                    <li class="searchName"><span>保管人</span></li>
+                    <li class="searchName"><span>拼音码</span></li>
+                    <li class="searchName"><span>五笔码</span></li>
+                </ul>
+                <ul class="list">
+                    <li class="searchInput">
+                        <select ng-model="paramBaseObj.use_state" ng-disabled="true" ng-options="c.id as c.name for c in useStateList">
+                            <option value="">请选择</option>
+                        </select>                   
+                    </li>
+                    <li class="searchInput">
+                        <select ng-model="paramBaseObj.biz_type_id" ng-options="c.id as c.name for c in bizTypeList">
+                            <option value="">请选择</option>
+                        </select>
+                    </li>
+                    <li class="searchInput"><input ng-disabled="true" type="text" ng-model="paramBaseObj.custody_user_id_name" class="inp"></li>
+                    <li class="searchInput"><input type="text" ng-model="paramBaseObj.spell_code" class="inp"></li>
+                    <li class="searchInput"><input type="text" ng-model="paramBaseObj.five_stroke_code" class="inp"></li>
+                </ul>
+                <ul class="list">
+                    <li class="searchName"><span>自定义码</span></li>
+                    <li class="searchName"><span>案卷编号</span></li>
+                    <li class="searchName"><span>保管等级</span></li>
+                    <li class="searchName"><span>国际码</span></li>
+                    <li class="searchName"><span>发票号</span></li>
+                </ul>
+                <ul class="list">
+                    <li class="searchInput"><input type="text" ng-model="paramBaseObj.custom_code" class="inp"></li>
+                    <li class="searchInput"><input ng-disabled="true" type="text" ng-model="paramBaseObj.file_code" class="inp"></li>
+                    <li class="searchInput">
+                        <select ng-model="paramBaseObj.custody_level_id" ng-options="c.id as c.name for c in custodyLevelList">
+                            <option value="">请选择</option>
+                        </select>
+                    </li>
+                    <li class="searchInput"><input type="text" ng-model="paramBaseObj.international_code" class="inp"></li>
+                    <li class="searchInput"><input type="text" ng-model="paramBaseObj.maintain_contact" class="inp"></li>
+                </ul>
+                <ul class="list" style="width: 120px;">
+                    <li class="searchName"><span>招标编码</span></li>
+                    <li class="searchName"><span>合同编号</span></li>
+                    <li class="searchName"><span>经营设备类型</span></li>
+                    <li class="searchName"><span>设备管理类型</span></li>
+                    <li class="searchName"><span>许可证号</span></li>
+                </ul>
+                <ul class="list">
+                    <li class="searchInput"><input type="text" ng-model="paramBaseObj.call_code" class="inp"></li>
+                    <li class="searchInput"><input ng-disabled="true" type="text" ng-model="paramBaseObj.contract_code" class="inp"></li>
+                    <li class="searchInput">
+                        <select ng-model="paramBaseObj.operating_machine_type_id" ng-options="c.id as c.name for c in operatingMachineTypeList">
+                            <option value="">请选择</option>
+                        </select>
+                    </li>
+                    <li class="searchInput">
+                        <select ng-model="paramBaseObj.machine_manage_type_id" ng-options="c.id as c.name for c in machineManageTypeList">
+                            <option value="">请选择</option>
+                        </select>
+                    </li>
+                    <li class="searchInput"><input type="text" ng-model="paramBaseObj.licence_code" class="inp"></li>
+                </ul>
+            </div>
+
+            <div>
+                <ul class="list">
+                    <li class="searchName"><span>原值</span></li>
+                    <li class="searchName"><span>净值</span></li>
+                    <li class="searchName"><span>残值</span></li>
+                    <li class="searchName"><span>净额</span></li>
+                    <li class="searchName"><span>折旧方式</span></li>
+                </ul>
+                <ul class="list">
+                    <li class="searchInput"><input ng-disabled="true" type="text" ng-model="paramBaseObj.original_value" class="inp"></li>
+                    <li class="searchInput"><input ng-disabled="true" type="text" ng-model="paramBaseObj.net_value" class="inp"></li>
+                    <li class="searchInput"><input ng-disabled="true" type="text" ng-model="paramBaseObj.rudimental_value" class="inp"></li>
+                    <li class="searchInput"><input type="text" ng-model="paramBaseObj.net_amount" class="inp"></li>
+                    <li class="searchInput">
+                        <select ng-model="paramBaseObj.depr_type_id" ng-options="c.ID as c.NAME for c in deprTypeeList">
+                            <option value="">请选择</option>
+                        </select>
+                    </li>
+                </ul>
+                <ul class="list">
+                    <li class="searchName"><span>设备增值</span></li>
+                    <li class="searchName"><span>购入方式</span></li>
+                    <li class="searchName"><span>残值率</span></li>
+                    <li class="searchName"><span>出租(借)方</span></li>
+                    <li class="searchName"><span>折旧年限</span></li>
+                </ul>
+                <ul class="list">
+                    <li class="searchInput"><input type="text" ng-model="paramBaseObj.add_value" class="inp"></li>
+                    <li class="searchInput">
+                        <select ng-model="paramBaseObj.purchase_type_id" ng-options="c.id as c.name for c in purchaseTypeList">
+                            <option value="">请选择</option>
+                        </select>
+                    </li>
+                    <li class="searchInput"><input type="text" ng-model="paramBaseObj.rudimental_value_ratio" class="inp"></li>
+                    <li class="searchInput">
+                        <my-param param="less" change="InputschangeState" param-obj="ParamObjLess" show-str="less" authority="false"> </my-param>
+                    </li>
+                    <li class="searchInput"><input type="text" ng-model="paramBaseObj.depr_year_amount" class="inp"></li>
+                </ul>
+                <ul class="list">
+                    <li class="searchName"><span>用途</span></li>
+                    <li class="searchName"><span>价值类型</span></li>
+                    <li class="searchName"><span>资金来源</span></li>
+                    <li class="searchName"><span>财政编码类型</span></li>
+                </ul>
+                <ul class="list">
+                    <li class="searchInput">
+                        <select ng-model="paramBaseObj.economic_use_type_id" ng-options="c.id as c.name for c in economicUseTypeList">
+                            <option value="">请选择</option>
+                        </select>
+                    </li>
+                    <li class="searchInput">
+                        <select ng-model="paramBaseObj.value_type_id" ng-options="c.id as c.name for c in valueTpeList">
+                            <option value="">请选择</option>
+                        </select>
+                    </li>
+                    <li class="searchInput">
+                        <select ng-model="paramBaseObj.capital_source_type_id" ng-options="c.id as c.name for c in capitalResourceList">
+                            <option value="">请选择</option>
+                        </select>
+                    </li>
+                    <li class="searchInput">
+                        <select ng-model="paramBaseObj.finance_type_id" ng-options="c.id as c.name for c in financeTypeList">
+                            <option value="">请选择</option>
+                        </select>
+                    </li>
+                </ul>
+                <ul class="list" style="width: 120px;">
+                    <li class="searchName"><span>预计净残值率</span></li>
+                    <li class="searchName"><span>取得所有权方式</span></li>
+                    <li class="searchName"><span>取得使用方式</span></li>
+                    <li class="searchName"><span>有偿使用费(元/年)</span></li>
+                </ul>
+                <ul class="list">
+                    <li class="searchInput"><input type="text" ng-model="paramBaseObj.predict_net_rudimental_value" class="inp"></li>
+                    <li class="searchInput">
+                        <select ng-model="paramBaseObj.acquire_ownership_type_id" ng-options="c.id as c.name for c in ownerShipTpeList">
+                            <option value="">请选择</option>
+                        </select>
+                    </li>
+                    <li class="searchInput">
+                        <select ng-model="paramBaseObj.acquire_use_type_id" ng-options="c.id as c.name for c in useTpeList">
+                            <option value="">请选择</option>
+                        </select>
+                    </li>
+                    <li class="searchInput"><input type="text" ng-model="paramBaseObj.ref_price" class="inp"></li>
+                </ul>
+            </div>
+
+            <div style="border: none">
+                <ul class="list">
+                    <li class="searchName"><span>生产日期</span></li>
+                    <li class="searchName"><span>车辆牌号</span></li>
+                    <li class="searchName"><span>能源类型</span></li>
+                </ul>
+                <ul class="list">
+                    <li class="searchInput">
+                        <input type="text" class="inp" ng-model="paramBaseObj.prd_date"
+                               onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',onpicked:function(){$(this).trigger('change')},isShowClear:false})">
+                    </li>
+                    <li class="searchInput"><input type="text" ng-model="paramBaseObj.vehicle_code" class="inp"></li>
+                    <li class="searchInput">
+                        <select ng-model="paramBaseObj.energy_type_id" ng-options="c.id as c.name for c in energyTypList">
+                            <option value="">请选择</option>
+                        </select>
+                    </li>
+                </ul>
+                <ul class="list">
+                    <li class="searchName"><span>生产厂家</span></li>
+                    <li class="searchName"><span>供应商</span></li>
+                    <li class="searchName"><span>国别地区</span></li>
+                </ul>
+                <ul class="list">
+                    <li class="searchInput">
+                        <my-param param="prd" change="InputschangeState" param-obj="ParamObjPrd" show-str="prd" authority="false"> </my-param>
+                    </li>
+                    <li class="searchInput">
+                        <my-param param="prv" change="InputschangeState" param-obj="ParamObjPrv" show-str="prv" authority="false"> </my-param>
+                    </li>
+                    <select ng-model="paramBaseObj.nationality_id" ng-options="c.id as c.name for c in nationalityList">
+                        <option value="">请选择</option>
+                    </select>
+                    </li>
+                </ul>
+                <ul class="list">
+                    <li class="searchName"><span>保修到期日期</span></li>
+                    <li class="searchName"><span>车辆用途</span></li>
+                    <li class="searchName"><span>品牌名称</span></li>
+                </ul>
+                <ul class="list">
+                    <li class="searchInput">
+                        <input type="text" class="inp" ng-model="paramBaseObj.maintenance_period_date"
+                               onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',onpicked:function(){$(this).trigger('change')},isShowClear:false})">
+                    </li>
+                    <li class="searchInput">
+                        <select ng-model="paramBaseObj.vehicle_use_type_id" ng-options="c.id as c.name for c in vehicleUseTypeList">
+                            <option value="">请选择</option>
+                        </select>
+                    </li>
+                    <li class="searchInput"><input type="text" ng-model="paramBaseObj.brand_name" class="inp"></li>
+                </ul>
+                <ul class="list" style="width: 120px;">
+                    <li class="searchName"><span>出厂编号</span></li>
+                    <li class="searchName"><span>设备产地</span></li>
+                </ul>
+                <ul class="list">
+                    <li class="searchInput"><input type="text" ng-model="paramBaseObj.prd_code" class="inp"></li>
+                    <li class="searchInput">
+                        <select ng-model="paramBaseObj.prd_place_type_id" ng-options="c.id as c.name for c in prdPlaceTypeList">
+                            <option value="">请选择</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="opera">
+            <button ng-show="paramBaseObj.state  ==1" ng-click="saveBaseModel()" class="btn">保存</button>
+            <button ng-show="paramBaseObj.state  ==1" ng-click="auditBaseModel(paramBaseObj)" class="btn">审核</button>
+            <button ng-click="goBack()" class="btn">关闭</button>
+        </div>
+
+
+
+    </div>
+</body>
+</html>

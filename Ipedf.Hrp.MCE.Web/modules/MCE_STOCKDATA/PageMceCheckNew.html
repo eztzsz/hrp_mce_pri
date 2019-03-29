@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <title>资产盘点-资产盘点新增</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1">
+    <link rel="stylesheet" type="text/css" href="../../styles/common/base.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/common/common.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/mce/PageMceCheckNew.css">
+    <script type="text/javascript" src="../../scripts/new_angular/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/angular.1.2.29.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/appDirectives.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/appServices.js"></script>
+
+    <script type="text/javascript" src="../../scripts/My97DatePicker/WdatePicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../scripts/My97DatePicker/skin/WdatePicker.css">
+    <script type="text/javascript" src="../../scripts/mce/PageMceCheckNew.js"></script>
+</head>
+<body ng-controller="index" ng-click="clearFkDetailState();InputschangeState.changeState('a')">
+    <div class="content">
+        <div class="filt">
+            <ul>
+                <li>
+                    <div>
+                        <span>单号</span>
+                        <input type="text" readonly ng-model="headInfo.CODE">
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>盘点日期</span>
+                        <input ng-readonly="headInfo.STATE > 1" type="text" class="clock" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',onpicked:function(){$(this).trigger('change')},isShowClear:false})"
+                               ng-model="headInfo.CREATE_DATE" ng-disabled="headInfo.ID != ''">
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>盘点科室</span>
+                        <my-param param="dept" change="InputschangeState" param-obj="paramDept" show-str="dept" authority="headInfo.STATE > 1?true:false"></my-param>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>盘点人</span>
+                        <my-param param="user" change="InputschangeState" param-obj="paramUser" show-str="user" authority="headInfo.STATE > 1?true:false"></my-param>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>盘点类型</span>
+                        <select ng-model="headInfo.CHECK_TYPE_ID" ng-options="c.id as c.name for c in checkTypeList">
+                        </select>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>备注</span>
+                        <input ng-readonly="headInfo.STATE > 1" type="text" ng-model="headInfo.COMMENTS">
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="data">
+            <div class="operation">
+                <button class="btn" ng-show="headInfo.STATE <= 1" ng-click="delModel()">删除</button>
+                <button class="btn" ng-show="headInfo.STATE <= 1" ng-click="saveModel('1')">保存</button>
+                <button class="btn" ng-show="headInfo.STATE <= 1" ng-click="saveModel('2')">保存返回</button>
+                <button class="btn" ng-show="headInfo.STATE <= 1" ng-click="generateModel()">生成</button>
+                <button class="btn" ng-show="headInfo.STATE == 1" ng-click="submitModel()">提交</button>
+                <button class="btn" ng-show="headInfo.STATE == 2" ng-click="auditModel()">审核</button>
+
+                <button class="btn fr" ng-click="goBack()">返回</button>
+                <button class="btn fr" ng-click="openNew()" ng-show="headInfo.STATE <= 1">按类型盘点</button>
+
+            </div>
+            <div class="table">
+                <table cellpadding="0" border="0" cellspacing="0">
+                    <thead>
+                    <th ng-click="checkAll()">全选/全不选</th>
+                    <th>设备名称</th>
+                    <th>设备编码</th>
+                    <th>使用科室</th>
+                    <th>规格型号</th>
+                    <th>盘点前状态</th>
+                    <th>盘点后状态</th>
+           
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="(k,v) in tableRows">
+                            <td>
+                                <div class="check" ng-click="v.checked = !v.checked" ng-show="headInfo.STATE <= 1">
+                                    <span></span>
+                                    <strong ng-show="v.checked">✔</strong>
+                                </div>
+                            </td>
+                          
+                            <td ng-bind="v.ASSETS_ID_NAME"></td>
+                            <td ng-bind="v.ASSETS_CODE"></td>
+                            <td ng-bind="v.USING_DEPT_ID_NAME"></td>
+                            <td ng-bind="v.SPEC"></td>
+                            <td ng-bind="v.OLD_ASSETS_STATE_NAME"></td>
+                            <td>
+                                <select style="width: 160px; height: 30px; border: 1px solid #bed4ed;" ng-model="v.NEW_ASSETS_STATE" ng-options="c.id as c.name for c in checkStateList">
+                                    <option value="">请选择</option>
+                                </select>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+    </div>
+
+
+
+    <div class="bg" ng-show="newState.state"></div>
+    <div ng-click="clearFkAssetTypeDetailState();" class="new_data" ng-show="newState.state">
+
+        <div class="filt">
+            <ul>
+                <li>
+                    <button class="btn" ng-click="addAssetTypeModel()">新增</button>
+                </li>
+                <li>
+                    <button class="btn" ng-click="delAssetTypeModel()">删除</button>
+                </li>
+                <li>
+                    <button class="btn" ng-click="saveAssetTypeModel()">保存</button>
+                </li>
+                <li>
+                    <button class="btn" ng-click="newState.state = false">返回</button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="data" style="height:385px;">
+            <div class="table">
+                <table border="0" cellpadding="0" cellspacing="0">
+                    <thead>
+                    <th ng-click="checkAssetTypeAll()">全选/全不选</th>
+                    <th>分类名称</th>
+                    <th>分类编码</th>
+
+
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="(k,v) in modelAssetTypeList">
+                            <td>
+                                <div class="check" ng-click="v.checked = !v.checked" ng-show="headInfo.STATE <= 1">
+                                    <span></span>
+                                    <strong ng-show="v.checked">✔</strong>
+                                </div>
+                            </td>
+                            <td>
+
+                                <!-- 分类 -->
+                                <div style="display:inline-block;position:relative">
+                                    <input ng-disabled="headInfo.STATE > 1" ng-click="searcFkMCeTypeListForAdd(1,v);changeFkMceTypeState(k);$event.stopPropagation()"
+                                           style="width:400px; height:25px;border:1px solid #bed4ed ;background-color:white;" ng-model="v.NAME"
+                                           ng-change="searcFkMCeTypeListForAdd(1,v);" />
+                                    <button ng-disabled="headInfo.STATE > 1" type="button" ng-click="clearFkMceTypeForAdd(v);" name="button"
+                                            style="width: 15px; height: 20px; outline: none; position: absolute; line-height: 20px; border: none; background: white; right: 1px; top: 5px; margin: 0; cursor: pointer">
+                                        &times;
+                                    </button>
+                                    <div class="showTable" ng-click="v.showMceTypeState=true;$event.stopPropagation()" ng-show="v.showMceTypeState">
+                                        <div>
+                                            <table cellspacing="0" cellpadding="0" border="0">
+                                                <thead>
+                                                <th>分类编码</th>
+                                                <th>分类名称</th>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="a in mceTypeList" ng-click="selectFkMceTypeForAdd(v,a);$event.stopPropagation();">
+                                                        <td ng-bind="a.CODE"></td>
+                                                        <td ng-bind="a.NAME"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <mypager my-obj="a" my-pager="fkMceTypePager" my-search="searcFkMCeTypeListForAdd(curIndex,v)"></mypager>
+                                    </div>
+                                </div>
+
+                            </td>
+                            <td ng-bind="v.CODE">313168</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</body>
+</html>

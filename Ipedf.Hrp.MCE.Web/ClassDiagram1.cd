@@ -1,0 +1,543 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Ipedf.Web.PageObject_MDM_D_STOCK" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EKAEAAEAAEAMACJwIAAAABCQMCQAAAAAQAAAAIIAAgY=</HashCode>
+      <FileName>modules\MDM_DICT\PageObject_MDM_D_STOCK.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MDM_D_STOCK_M_TYPE" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EKAAAAAAAAAAACAAAAAABBAAMAQAAAAAAIAAAIIAAAE=</HashCode>
+      <FileName>modules\MDM_DICT\PageObject_MDM_D_STOCK_M_TYPE.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MDM_D_STOCK_M_TYPE_Param" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAQAAAACAACIQAABAABAAMAQAAAAAAAIAAAIAAAA=</HashCode>
+      <FileName>modules\MDM_DICT\PageObject_MDM_D_STOCK_M_TYPE_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MDM_D_STOCK_Param" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAACAACIQQABCABAAMAQAAAAAAAIAAAIAAAA=</HashCode>
+      <FileName>modules\MDM_DICT\PageObject_MDM_D_STOCK_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_D_FEE_ITEM" Collapsed="true">
+    <Position X="9.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EKAAAAAAAAAAACAAAAAABBAAMAQAEAAAAAAAAIIAAEE=</HashCode>
+      <FileName>modules\MTR_DICT\PageObject_MTR_D_FEE_ITEM.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_D_FEE_ITEM_Param" Collapsed="true">
+    <Position X="11" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAACAACIQQABAABAIMAQAAAAAAAIAAAIAAAA=</HashCode>
+      <FileName>modules\MTR_DICT\PageObject_MTR_D_FEE_ITEM_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_D_MTR" Collapsed="true">
+    <Position X="12.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>G6AEAKgAEMAMADJwICCQABiwMAUAgBIgSgAIYYIhCEc=</HashCode>
+      <FileName>modules\MTR_DICT\PageObject_MTR_D_MTR.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_D_MTR_C" Collapsed="true">
+    <Position X="14.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EKAAAACAAAAAACAAAABABBAAMAUCAAAIAAAAAIIAAEE=</HashCode>
+      <FileName>modules\MTR_DICT\PageObject_MTR_D_MTR_C.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_D_MTR_C_Param" Collapsed="true">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAEACAACoQAABAABAAMAQAAAAAAAIAIEIAAAA=</HashCode>
+      <FileName>modules\MTR_DICT\PageObject_MTR_D_MTR_C_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_D_MTR_C_Resource" Collapsed="true">
+    <Position X="2.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AKAAAAAAAAKIACIQABBAABAAMAQAAAAAAAAAAIIAAAI=</HashCode>
+      <FileName>modules\MTR_DICT\PageObject_MTR_D_MTR_C_Resource.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_D_MTR_C_Resource_Param" Collapsed="true">
+    <Position X="4" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAACAACIQAABAABAAMAQAAAAAAAIAAAIAAAA=</HashCode>
+      <FileName>modules\MTR_DICT\PageObject_MTR_D_MTR_C_Resource_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_D_MTR_EXT" Collapsed="true">
+    <Position X="5.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EKAFAIIAAAAAACAAAAAABBAAMAQAAAAAAIAAAIIAAAE=</HashCode>
+      <FileName>modules\MTR_DICT\PageObject_MTR_D_MTR_EXT.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_D_MTR_EXT_Param" Collapsed="true">
+    <Position X="7.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAQAAAACAACIQAABAABAAMAQAAAAAAAIAAgIAAAA=</HashCode>
+      <FileName>modules\MTR_DICT\PageObject_MTR_D_MTR_EXT_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_D_MTR_FEE" Collapsed="true">
+    <Position X="9.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EKAAAAQAAAAAACAAAAAABBAAMAQAAAAAAAAAgIIAAEE=</HashCode>
+      <FileName>modules\MTR_DICT\PageObject_MTR_D_MTR_FEE.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_D_MTR_FEE_Param" Collapsed="true">
+    <Position X="11" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAACAACIQAABAABAAMAQAAAAAAAIAAEIAAAA=</HashCode>
+      <FileName>modules\MTR_DICT\PageObject_MTR_D_MTR_FEE_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_D_MTR_Param" Collapsed="true">
+    <Position X="12.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAUAAESCIEC4QQABQABABchQBiCAAAAICkEKAEAQ=</HashCode>
+      <FileName>modules\MTR_DICT\PageObject_MTR_D_MTR_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_D_MTR_PRICE_CTRL" Collapsed="true">
+    <Position X="14.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>G6AEAKgAEMAMACJwICCQABiwMAUAgBIgSgAIYYIhCEc=</HashCode>
+      <FileName>modules\MTR_DICT\PageObject_MTR_D_MTR_PRICE_CTRL.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_D_MTR_PROVIDER" Collapsed="true">
+    <Position X="0.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EKIAAAAAAAAAACAAAAAABBAAMAQAIAAAAAAAAIIAAAE=</HashCode>
+      <FileName>modules\MTR_DICT\PageObject_MTR_D_MTR_PROVIDER.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_D_MTR_PROVIDER_Param" Collapsed="true">
+    <Position X="2.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAQAACAACIQAABAABAAMAQAAAIAAAIAAAIAAAA=</HashCode>
+      <FileName>modules\MTR_DICT\PageObject_MTR_D_MTR_PROVIDER_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_D_MTR_PROVIDER_PRICE" Collapsed="true">
+    <Position X="4" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EKAAAAAAAAAAACAAAAAABBAAMAQAIAAAAAAEAIIAAAE=</HashCode>
+      <FileName>modules\MTR_DICT\PageObject_MTR_D_MTR_PROVIDER_PRICE.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_D_MTR_PROVIDER_PRICE_Param" Collapsed="true">
+    <Position X="5.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AiAAAAAQACCAACIQAABAABAAMCQAAAIAAAIAAAIACAA=</HashCode>
+      <FileName>modules\MTR_DICT\PageObject_MTR_D_MTR_PROVIDER_PRICE_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_D_MTR_TYPE" Collapsed="true">
+    <Position X="7.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>mKAEACAAAMAMACpwICAABBCQMAQAgAIAQAAAAIIAAAY=</HashCode>
+      <FileName>modules\MTR_DICT\PageObject_MTR_D_MTR_TYPE.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_D_MTR_TYPE_C" Collapsed="true">
+    <Position X="9.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EKAEAAAAAAAAACAAAAAABBAAMAQAAAAAAIAAAIIAAAE=</HashCode>
+      <FileName>modules\MTR_DICT\PageObject_MTR_D_MTR_TYPE_C.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_D_MTR_TYPE_C_Param" Collapsed="true">
+    <Position X="11" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAQAAAACAACIQQABAABAAMAQAAAAAQAIAAAIAAAA=</HashCode>
+      <FileName>modules\MTR_DICT\PageObject_MTR_D_MTR_TYPE_C_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_D_MTR_TYPE_Param" Collapsed="true">
+    <Position X="12.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAACAAQCAECYQQABAABABMAQAAAAAAAIAAAIEAAQ=</HashCode>
+      <FileName>modules\MTR_DICT\PageObject_MTR_D_MTR_TYPE_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_D_PRICE_RULE" Collapsed="true">
+    <Position X="14.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kKAEAAAAAEIMACJSIAAQABCUMAQAAAAAAEAAAIIgAAY=</HashCode>
+      <FileName>modules\MTR_DICT\PageObject_MTR_D_PRICE_RULE.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_D_PRICE_RULE_Param" Collapsed="true">
+    <Position X="0.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAACAACIQQABAABAAMAQAAAAAAAIAACIAAAA=</HashCode>
+      <FileName>modules\MTR_DICT\PageObject_MTR_D_PRICE_RULE_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_D_USED_DEPT" Collapsed="true">
+    <Position X="2.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EKAEAAAAAAAMACpwIAAABBCQMAQAAAAAQAAAAIIAAgY=</HashCode>
+      <FileName>modules\MTR_DICT\PageObject_MTR_D_USED_DEPT.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_D_USED_DEPT_Param" Collapsed="true">
+    <Position X="4" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAACAACIQAABAABAAMAQAAAAAACIAAAIEAAA=</HashCode>
+      <FileName>modules\MTR_DICT\PageObject_MTR_D_USED_DEPT_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_AOG" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kKBMADSAAAIIQEJSYgAEABCEMA0GAQCKAGgAABIAAEQ=</HashCode>
+      <FileName>modules\MTR_INSTOCK\PageObject_MTR_B_AOG.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_AOG_Param" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACBAAAAQAACAICIQQCBAABAAMAQAAACAAAIAAAIAAAA=</HashCode>
+      <FileName>modules\MTR_INSTOCK\PageObject_MTR_B_AOG_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_AOG_Resource" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AKAAAAAAAAIIACBQABAAAAAAMAQAAAAAAAAAAIIAAAI=</HashCode>
+      <FileName>modules\MTR_INSTOCK\PageObject_MTR_B_AOG_Resource.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_AOG_Resource_Param" Collapsed="true">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAUAQESCIEC4QQABQABABchQBiCAAAAICkEKAEAQ=</HashCode>
+      <FileName>modules\MTR_INSTOCK\PageObject_MTR_B_AOG_Resource_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_AOG_Resource_plan" Collapsed="true">
+    <Position X="14.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AKAAAAAAAAIIACBQABAAAAAAMAQAAAAAAAAAAIIAAAI=</HashCode>
+      <FileName>modules\MTR_INSTOCK\PageObject_MTR_B_AOG_Resource_plan.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_AOG_Resource_plan_Param" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAQAAAAIAAARCAAABAAMgQAAACAAAIAAAIQAAA=</HashCode>
+      <FileName>modules\MTR_INSTOCK\PageObject_MTR_B_AOG_Resource_plan_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_INSTOCK" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kOBMADSAAAKKQEJSYgAEABCEMQ0GAQGaAGgAABMoIEQ=</HashCode>
+      <FileName>modules\MTR_INSTOCK\PageObject_MTR_B_INSTOCK.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_INSTOCK_D_SEQ" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EKAAAAAAAAAAACAAAAAABBAAMAQAAAAACAAAAIIAAEE=</HashCode>
+      <FileName>modules\MTR_INSTOCK\PageObject_MTR_B_INSTOCK_D_SEQ.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_INSTOCK_D_SEQ_Param" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACgAAAAAAACAACIQAABAABAAMAQAAAAAAAIAAAIAAAA=</HashCode>
+      <FileName>modules\MTR_INSTOCK\PageObject_MTR_B_INSTOCK_D_SEQ_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_INSTOCK_Param" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACFAAAAQAACAICIQQCBAABAAMAQAgACAAAIAAAIICAA=</HashCode>
+      <FileName>modules\MTR_INSTOCK\PageObject_MTR_B_INSTOCK_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_INSTOCK_Resourc_AOG" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AKAAAAAAAAIIACBQABAAAAAAMAQAAAAAAAAAAIIAAAI=</HashCode>
+      <FileName>modules\MTR_INSTOCK\PageObject_MTR_B_INSTOCK_Resourc_AOG.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_INSTOCK_Resourc_AOG_Param" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACBAAAAQAAAAIAAARCAAAAAAMAQAAACAAAIAAAIQAAA=</HashCode>
+      <FileName>modules\MTR_INSTOCK\PageObject_MTR_B_INSTOCK_Resourc_AOG_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_INSTOCK_Resourc_plan" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AKAAAAAAAAIIACBQABAAAAAAMAQAAAAAAAAAAIIAAAI=</HashCode>
+      <FileName>modules\MTR_INSTOCK\PageObject_MTR_B_INSTOCK_Resourc_plan.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_INSTOCK_Resourc_plan_Param" Collapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAQAAAAIAAARCAAABAAMgQAAACAAAIAAAIQAAA=</HashCode>
+      <FileName>modules\MTR_INSTOCK\PageObject_MTR_B_INSTOCK_Resourc_plan_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_INSTOCK_Resource" Collapsed="true">
+    <Position X="11" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AKAAAAAAAAIIACBQABAAAAAAMAQAAAAAAAAAAIIAAAI=</HashCode>
+      <FileName>modules\MTR_INSTOCK\PageObject_MTR_B_INSTOCK_Resource.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_INSTOCK_Resource_Param" Collapsed="true">
+    <Position X="12.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAUAQESCIEC4QQABQABABchQBiCAAAAICkEKAEAQ=</HashCode>
+      <FileName>modules\MTR_INSTOCK\PageObject_MTR_B_INSTOCK_Resource_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_OUTSTOCK" Collapsed="true">
+    <Position X="14.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kOBMACSAAAKIQAJSYgAEABCEMA0GAQCKAGAgABKAAEQ=</HashCode>
+      <FileName>modules\MTR_OUTSTOCK\PageObject_MTR_B_OUTSTOCK.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_OUTSTOCK_APPLY" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kKAIACSAAAKAYAISYgEEABCEMA0GAwiIAGAhAAIAAkA=</HashCode>
+      <FileName>modules\MTR_OUTSTOCK\PageObject_MTR_B_OUTSTOCK_APPLY.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_OUTSTOCK_APPLY_Param" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAACAICIQQAFAABAAMAQAAACAAAIAAAIAAAA=</HashCode>
+      <FileName>modules\MTR_OUTSTOCK\PageObject_MTR_B_OUTSTOCK_APPLY_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_OUTSTOCK_APPLY_Resource" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AKAAAAAAAAKIACIQABBAABAAMAQAAAAAAAAAAIIAAAI=</HashCode>
+      <FileName>modules\MTR_OUTSTOCK\PageObject_MTR_B_OUTSTOCK_APPLY_Resource.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_OUTSTOCK_APPLY_Resource_Param" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAACAACIQAABAABAAMAQAAAAAAAIAAAIAAAA=</HashCode>
+      <FileName>modules\MTR_OUTSTOCK\PageObject_MTR_B_OUTSTOCK_APPLY_Resource_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_OUTSTOCK_D_SEQ" Collapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EOAAAAAAAgAAACAAAgAABBAAMAQAAAAAAAAAAIIAAEE=</HashCode>
+      <FileName>modules\MTR_OUTSTOCK\PageObject_MTR_B_OUTSTOCK_D_SEQ.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_OUTSTOCK_D_SEQ_Param" Collapsed="true">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACgAAAAAAACAACIQAABAABAAMAQAAAAAAAIAAAIAAAA=</HashCode>
+      <FileName>modules\MTR_OUTSTOCK\PageObject_MTR_B_OUTSTOCK_D_SEQ_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_OUTSTOCK_Param" Collapsed="true">
+    <Position X="11" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACBAAEAAAACAICJQQCFAABAAMAQCAACAAAIAAAIAAAA=</HashCode>
+      <FileName>modules\MTR_OUTSTOCK\PageObject_MTR_B_OUTSTOCK_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_OUTSTOCK_Resource" Collapsed="true">
+    <Position X="12.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AKAAAAAAAAIIACBQABAAAAAAMAQAAAAAAAAAAIIAAAI=</HashCode>
+      <FileName>modules\MTR_OUTSTOCK\PageObject_MTR_B_OUTSTOCK_Resource.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_OUTSTOCK_Resource_Param" Collapsed="true">
+    <Position X="14.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAUAQESCIEC4QQABQABABchQBiCAAAAICkEKAEAQ=</HashCode>
+      <FileName>modules\MTR_OUTSTOCK\PageObject_MTR_B_OUTSTOCK_Resource_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_INSTOCK_REQ" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kKBMACSAAAIAQAJSIgAEABCEMAwGAQCKAGAAABIAAkQ=</HashCode>
+      <FileName>modules\MTR_PLAN\PageObject_MTR_B_INSTOCK_REQ.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_INSTOCK_REQ_Param" Collapsed="true">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAACAICIQACBAABAAMAQAAACAAAIAAAIAAAA=</HashCode>
+      <FileName>modules\MTR_PLAN\PageObject_MTR_B_INSTOCK_REQ_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_INSTOCK_REQ_Resource" Collapsed="true">
+    <Position X="12.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AKAAAAAAAAIIACBQABAAAAAAMAQAAAAAAAAAAIIAAAI=</HashCode>
+      <FileName>modules\MTR_PLAN\PageObject_MTR_B_INSTOCK_REQ_Resource.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_INSTOCK_REQ_Resource_Param" Collapsed="true">
+    <Position X="14.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAUAQESCIEC4QQABQABABchQBiCAAAAICkEKAEAQ=</HashCode>
+      <FileName>modules\MTR_PLAN\PageObject_MTR_B_INSTOCK_REQ_Resource_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_INSTOCK_REQ_SUM" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kKAMACQAAAIAQAJSIgAEABCEMA0GAQCCAGAAABIAAkQ=</HashCode>
+      <FileName>modules\MTR_PLAN\PageObject_MTR_B_INSTOCK_REQ_SUM.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_INSTOCK_REQ_SUM_Param" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAACAICIQQCBAABAAMAQAAACAAAIAAAIAAAA=</HashCode>
+      <FileName>modules\MTR_PLAN\PageObject_MTR_B_INSTOCK_REQ_SUM_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_PURCHASE_BILL" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kKAMACQAAAIAQAJSYgAEABCEMA0WAQCCAGAAABIAAkQ=</HashCode>
+      <FileName>modules\MTR_PLAN\PageObject_MTR_B_PURCHASE_BILL.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_PURCHASE_BILL_Param" Collapsed="true">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAQAACAICIQQCBAABAAMgQAAACAAAIAAAIAAAA=</HashCode>
+      <FileName>modules\MTR_PLAN\PageObject_MTR_B_PURCHASE_BILL_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_PURCHASE_PLAN" Collapsed="true">
+    <Position X="4" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kKJMACSAAAIAQAJSYgAEABCEMAwGAQDKAGAAABIAAkQ=</HashCode>
+      <FileName>modules\MTR_PLAN\PageObject_MTR_B_PURCHASE_PLAN.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_PURCHASE_PLAN_Param" Collapsed="true">
+    <Position X="5.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAACAICIQQCBAADAAMAQAAACAAAIAAAIAAAA=</HashCode>
+      <FileName>modules\MTR_PLAN\PageObject_MTR_B_PURCHASE_PLAN_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_PURCHASE_PLAN_Resource" Collapsed="true">
+    <Position X="7.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AKAAAAAAAAIIACBQABAAAAAAMAQAAAAAAAAAAIIAAAI=</HashCode>
+      <FileName>modules\MTR_PLAN\PageObject_MTR_B_PURCHASE_PLAN_Resource.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_PURCHASE_PLAN_Resource_Param" Collapsed="true">
+    <Position X="9.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAUAQESCIEC4QQABQABABchQBiCAAAAICkEKAEAQ=</HashCode>
+      <FileName>modules\MTR_PLAN\PageObject_MTR_B_PURCHASE_PLAN_Resource_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_STOCK_DATA" Collapsed="true">
+    <Position X="11" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AKAEAAAAAAAIACBQAAAAABAAMAQAAAAAAAAAAIIAAAI=</HashCode>
+      <FileName>modules\MTR_STOCKDATA\PageObject_MTR_B_STOCK_DATA.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_STOCK_DATA_CHECK" Collapsed="true">
+    <Position X="12.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kKAMACQAACIIQIJSYgAEABCEMU0GAQCCAGAAABIAAkQ=</HashCode>
+      <FileName>modules\MTR_STOCKDATA\PageObject_MTR_B_STOCK_DATA_CHECK.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_STOCK_DATA_CHECK_Param" Collapsed="true">
+    <Position X="14.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACBAAAAgAACAICIQQCBAABAAMAQAAACAAAIAAEIAAAA=</HashCode>
+      <FileName>modules\MTR_STOCKDATA\PageObject_MTR_B_STOCK_DATA_CHECK_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_STOCK_DATA_CHECK_TYPE" Collapsed="true">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EKAAAAAAAAAAACAAAAAABBAAMAQAAAAAAIAAAIIAAAE=</HashCode>
+      <FileName>modules\MTR_STOCKDATA\PageObject_MTR_B_STOCK_DATA_CHECK_TYPE.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_STOCK_DATA_CHECK_TYPE_Param" Collapsed="true">
+    <Position X="2.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAQAAAACAACIQAABAABAAMAQAAAAAAAIAAAIAAAA=</HashCode>
+      <FileName>modules\MTR_STOCKDATA\PageObject_MTR_B_STOCK_DATA_CHECK_TYPE_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_STOCK_DATA_MOVE" Collapsed="true">
+    <Position X="4" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kqAMACQAAAIAQIJSYgAEABCEMA0GAQCCAGAgABIgAkQ=</HashCode>
+      <FileName>modules\MTR_STOCKDATA\PageObject_MTR_B_STOCK_DATA_MOVE.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_STOCK_DATA_MOVE_Param" Collapsed="true">
+    <Position X="5.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ASAAAAAAAASAICIQQCFAABAAMAQAAACAAAIAAAIAAAA=</HashCode>
+      <FileName>modules\MTR_STOCKDATA\PageObject_MTR_B_STOCK_DATA_MOVE_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_MTR_B_STOCK_DATA_Param" Collapsed="true">
+    <Position X="7.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAEAAECCAACoQAgBAABgEcAQCAAAAAAIAIEIAAAA=</HashCode>
+      <FileName>modules\MTR_STOCKDATA\PageObject_MTR_B_STOCK_DATA_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_V_MTR_STOCK_DATA" Collapsed="true">
+    <Position X="5.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AKAEAAAAAAAIACBQAAAAABAAMAQAAAAAAAAAAIIAAAI=</HashCode>
+      <FileName>modules\MTR_STOCKDATA\PageObject_V_MTR_STOCK_DATA.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ipedf.Web.PageObject_V_MTR_STOCK_DATA_Param" Collapsed="true">
+    <Position X="7.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACBAAEAAECCAACoQAgBAABAEcAQAAAAAAAIAIEIAAAA=</HashCode>
+      <FileName>modules\MTR_STOCKDATA\PageObject_V_MTR_STOCK_DATA_Param.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="微软雅黑" Size="9" />
+</ClassDiagram>

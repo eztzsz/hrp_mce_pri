@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <title>设备转移->设备转移新增</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1">
+    <link rel="stylesheet" type="text/css" href="../../styles/common/base.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/common/common.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/mce/PageMceTransferNew.css">
+    <script type="text/javascript" src="../../scripts/new_angular/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/angular.1.2.29.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/appDirectives.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/appServices.js"></script>
+
+    <script type="text/javascript" src="../../scripts/My97DatePicker/WdatePicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../scripts/My97DatePicker/skin/WdatePicker.css">
+    <script type="text/javascript" src="../../scripts/mce/PageMceTransferNew.js"></script>
+</head>
+<body ng-controller="index" ng-click="clearFkDetailState();InputschangeState.changeState('a')">
+    <div class="content">
+        <div class="filt">
+            <ul>
+                <li>
+                    <div>
+                        <span>单号</span>
+                        <input type="text" readonly ng-model="headInfo.CODE">
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>转移日期</span>
+                        <input ng-readonly="headInfo.STATE > 1" type="text" class="clock" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',onpicked:function(){$(this).trigger('change')},isShowClear:false})"
+                               ng-model="headInfo.CREATE_DATE" ng-disabled="headInfo.ID != ''">
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>转移科室</span>
+                        <my-param param="outdept" change="InputschangeState" param-obj="paramOutDept" show-str="outdept" authority="headInfo.STATE > 1?true:false"></my-param>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>转移人</span>
+                        <my-param param="outuser" change="InputschangeState" param-obj="paramOutUser" show-str="outuser" authority="headInfo.STATE > 1?true:false"></my-param>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>使用科室</span>
+                        <my-param param="dept" change="InputschangeState" param-obj="paramDept" show-str="dept" authority="headInfo.STATE > 1?true:false"></my-param>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>使用人</span>
+                        <my-param param="user" change="InputschangeState" param-obj="paramUser" show-str="user" authority="headInfo.STATE > 1?true:false"></my-param>
+                    </div>
+                </li>             
+                <li>
+                    <div>
+                        <span>备注</span>
+                        <input ng-readonly="headInfo.STATE > 1" type="text" ng-model="headInfo.COMMENTS">
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="data">
+            <div class="operation">
+                <button class="btn" ng-show="headInfo.STATE <= 1" ng-click="delModel()">删除</button>
+                <button class="btn" ng-show="headInfo.STATE <= 1" ng-click="saveModel('1')">保存</button>
+                <button class="btn" ng-show="headInfo.STATE <= 1" ng-click="saveModel('2')">保存返回</button>
+                <button class="btn" ng-show="headInfo.STATE == 1" ng-click="submitModel()">提交</button>
+                <button class="btn" ng-show="headInfo.STATE == 2" ng-click="auditModel()">审核</button>
+
+                <button class="btn fr" ng-click="goBack()">返回</button>
+                <button class="btn fr" ng-click="addModel()" ng-show="headInfo.STATE <= 1">新建数据</button>
+
+            </div>
+            <div class="table">
+                <table cellpadding="0" border="0" cellspacing="0">
+                    <thead>
+                    <th ng-click="checkAll()">全选/全不选</th>
+                    <th>设备名称</th>
+                    <th>规格型号</th>
+                    <th>资产编号</th>
+                    <th>备注</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="(k,v) in tableRows">
+                            <td>
+                                <div class="check" ng-click="v.checked = !v.checked" ng-show="headInfo.STATE <= 1">
+                                    <span></span>
+                                    <strong ng-show="v.checked">✔</strong>
+                                </div>
+                            </td>
+                            <td>
+
+                                <!-- 设备名称 -->
+                                <div style="display:inline-block;position:relative">
+                                    <input ng-disabled="headInfo.STATE > 1" ng-click="searcFkMceListForAdd(1,v);changeFkMceState(k);$event.stopPropagation()"
+                                           style="width:200px; height:25px;border:1px solid #bed4ed ;background-color:white;" ng-model="v.ASSETS_NAME"
+                                           ng-change="searcFkMceListForAdd(1,v);" />
+                                    <button ng-disabled="headInfo.STATE > 1" type="button" ng-click="clearFkMceForAdd(v);" name="button"
+                                            style="width: 15px; height: 20px; outline: none; position: absolute; line-height: 20px; border: none; background: white; right: 1px; top: 5px; margin: 0; cursor: pointer">
+                                        &times;
+                                    </button>
+                                    <div class="showTable" ng-click="v.showMceState=true;$event.stopPropagation()" ng-show="v.showMceState">
+                                        <div>
+                                            <table cellspacing="0" cellpadding="0" border="0">
+                                                <thead>
+                                                <th>编码</th>
+                                                <th>名称</th>
+                                                <th>规格</th>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="a in mceList" ng-click="selectFkMceForAdd(v,a);$event.stopPropagation();">
+                                                        <td ng-bind="a.ASSETS_CODE"></td>
+                                                        <td ng-bind="a.ASSETS_NAME"></td>
+                                                        <td ng-bind="a.SPEC"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <mypager my-obj="a" my-pager="fkMcePager" my-search="searcFkMceListForAdd(curIndex,v)"></mypager>
+                                    </div>
+                                </div>
+
+                            </td>
+                            <td>
+                                <input ng-readonly="headInfo.STATE > 1" type="text" ng-model="v.SPEC" class="inp">
+                            </td>
+                            <td>
+                                <input ng-readonly="headInfo.STATE > 1" type="text" ng-model="v.ASSETS_CODE" class="inp">
+                            </td>
+
+                            <td>
+                                <input ng-readonly="headInfo.STATE > 1" type="text" ng-model="v.COMMENTS" style="width:200px" class="inp">
+                            </td>
+                          
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <input type="file" id="uploadFile" style="position:absolute;top:-10000px">
+    </div>
+</body>
+</html>

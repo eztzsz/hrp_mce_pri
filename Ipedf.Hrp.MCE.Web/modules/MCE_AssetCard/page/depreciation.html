@@ -1,0 +1,121 @@
+<!--<title>折旧信息</title>-->
+<div class="depreciation" ng-controller="depreciation" ng-click="changeFkState()">
+    <div class="search">
+        <span>关键字</span>
+        <input type="text" class="inp" placeholder="分配部门" ng-model="paramDeprObj.condition">
+        <button ng-click="getDeprList()" class="btn">查询</button>
+    </div>
+    <div class="depreciationList">
+        <ul class="model">
+
+
+
+            <li ng-repeat="v in deprList" class="item">
+                <div class="left">
+                    <div class="img">
+                        <div class="depreciationEChart" name="depreciationEChart">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <ul class="modelList">
+                        <li>
+                            <span>分配部门</span>
+                            <div style="display:inline-block;position:relative">
+                                <input ng-disabled="v.audit_state!=1" ng-click="searcFkDeptList(1,v.dept_name);v.showList=true;$event.stopPropagation()" ng-change="searcFkDeptList(1,v.dept_name)" type="" name="" id="" ng-model="v.dept_name" style="height:20px;border:1px solid #bed4ed" />
+                                <button ng-disabled="v.audit_state!=1" type="button" ng-click="v.dept_name='';v.dept_id=''" name="button" style="width:20px;height:20px;outline:none;position:absolute;line-height:20px;border:none;background:white;right:1px;top:1px;margin:0;cursor:pointer
+            ">
+                                    &times;
+                                </button>
+                            </div>
+                                <div class="showTable" ng-click="states.dept=true;$event.stopPropagation()" ng-show="v.showList">
+                                    <div>
+                                        <table cellspacing="0" cellpadding="0" border="0">
+                                            <thead>
+                                            <th>编号</th>
+                                            <th>名称</th>
+                                            <th>院区</th>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="vDept in deptList" ng-click="selectDept(v,vDept);v.showList=false;$event.stopPropagation();">
+                                                    <td ng-bind="vDept.code"></td>
+                                                    <td ng-bind="vDept.name"></td>
+                                                    <td ng-bind="vDept.areaName"></td>
+                                                </tr>
+                                            </tbody>
+
+                                        </table>
+                                    </div>
+                                    <mypager my-pager="fkDeptPager" my-search="searcFkDeptList(curIndex,v.dept_name)"></mypager>
+                                </div>
+                        </li>
+                        <li>
+                            <span>分配比例</span>
+                            <input ng-readonly="v.audit_state!=1" type="text" ng-model="v.ratio" class="inp">
+                        </li>
+                        <li>
+                            <span>备注</span>
+                            <input ng-readonly="v.audit_state!=1" type="text"  ng-model="v.comments" class="inp">
+                        </li>
+                        <li>
+                            <span>附件</span>
+                            <strong>
+                                查看
+                                <ul>
+                                    <li ng-repeat="(key,value) in v.listFileName">
+                                        <a href="javascript:void(0);" ng-click="FileDown(value)">{{value.fileName}}</a>
+                                    </li>
+                                </ul>
+                            </strong>
+                            <strong ng-show="v.audit_state  ==1" ng-click="getFile(v,'depr')">上传</strong>
+                        </li>
+                    </ul>
+                </div>
+                <div class="opera">
+                    <button ng-show="v.audit_state  ==1" ng-click="saveModel(v)" class="btn">保存</button>
+                    <button ng-show="v.audit_state  ==1" ng-click="auditModel(v)" class="btn">审核</button>
+                    <button ng-show="v.audit_state  ==1" ng-click="delModel(v)" class="btn">删除</button>
+                </div>
+            </li>
+        </ul>
+        <ul class="model">
+            <li>
+                <div class="addModel" ng-click="addModel()">
+                    <a href="javascript:void(0);">+新增折旧分配</a>
+                </div>
+
+            </li>
+        </ul>
+    </div>
+    <div class="table">
+        <div id="depreciationAdd">
+
+        </div>
+        <h4>历史记录</h4>
+        <div class="data">
+            <table cellspacing="0" cellpadding="0" border="0">
+                <thead>
+                <th>财务月份</th>
+                <th>原值</th>
+                <th>净值</th>
+                <th>折旧计提</th>
+                <th>折后净值</th>
+                <th>使用科室</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="vDepr in deprHistoryList">
+                        <td ng-bind="vDepr.FINANCE_CYCLE"></td>
+                        <td ng-bind="vDepr.ORIGINAL_VALUE"></td>
+                        <td ng-bind="vDepr.NET_VALUE"></td>
+
+                        <td ng-bind="vDepr.MONEY"></td>
+                        <td ng-bind="vDepr.NEW_NET_VALUE"></td>
+                        <td ng-bind="vDepr.DEPT_NAME"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <mypager my-pager="fkDeprHistoryPager" my-search="searcFkDeprHistoryList(curIndex)"></mypager>
+    </div>
+</div>

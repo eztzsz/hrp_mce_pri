@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>资产台帐->资产分类授权</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1" >
+	<link rel="stylesheet" type="text/css" href="../../styles/common/base.css">
+	<link rel="stylesheet" type="text/css" href="../../styles/common/common.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/MCE_AssetCard/PageMceAssertTypeDept.css">
+	<script type="text/javascript" src="../../scripts/new_angular/jquery-1.11.0.js"></script>
+	<script type="text/javascript" src="../../scripts/new_angular/angular.1.2.29.js"></script>
+	<script type="text/javascript" src="../../scripts/new_angular/appDirectives.js"></script>
+	<script type="text/javascript" src="../../scripts/new_angular/appServices.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="../../scripts/My97DatePicker/skin/WdatePicker.css">
+	<script type="text/javascript" src="../../scripts/My97DatePicker/WdatePicker.js"></script>
+
+    <script type="text/javascript" src="../../scripts/MCE_AssetCard/PageMceAssertTypeDept.js"></script>
+</head>
+<body ng-controller="index" >
+	<div class="content">
+		<div class="filt">
+			<ul>
+				<li>
+					<div>
+                        <span>关键字</span>
+                        <input type="text" class="inp" placeholder="科室名称" ng-model="paramObj.condition">
+					</div>
+				</li>
+
+				<li>
+					<div style="margin-right:30px">
+						<span>院区</span>
+                        <select ng-model="paramObj.area">
+                            <option ng-repeat="value in hosList" value="{{value.id}}" ng-bind="value.name">院区</option>
+                        </select>
+					</div>
+					<button class="btn" ng-click="getModelList(1)">查询</button>
+
+				</li>
+			</ul>
+		</div>
+		<div class="operation">
+            <button class="btn" ng-click="openNew()">添加</button>
+            <button class="btn" ng-click="delInfo()">删除</button>
+            <button class="btn" ng-click="goBack()">返回</button>
+		</div>
+		<div class="data">
+			<div class="table">
+				<table border="0" cellpadding="0" cellspacing="0">
+					<thead>
+						<th ng-click="checkAll()">全选/全不选</th>
+						<th>院区</th>
+						<th>科室</th>
+						<th>编号</th>
+					</thead>
+					<tbody>
+						<tr ng-repeat="(key,value) in modelList" ng-click="onselChange(key)" ng-class="{'onsel':value.onsel}" >
+							<td>
+								<input type="checkbox" ng-checked="value.checked" ng-click="value.checked=!value.checked" 
+								>
+							</td>
+                            <td ng-bind="value.areaName">00001</td>
+                            <td ng-bind="value.name">长沙迅捷</td>
+							<td ng-bind="value.code">张三</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div>
+				<mainpager my-pager="mainPager" my-search="getModelList(curIndex)" ></mainpager>
+			</div>
+		</div>
+		
+	</div>
+
+
+    <div class="bg" ng-show="newState.state"></div>
+    <div class="new_data" ng-show="newState.state">
+      
+        <div class="filt">
+            <ul>
+                <li>
+                    <div>
+                        <span>关键字</span>
+                        <input type="text" class="inp" placeholder="科室名称" ng-model="paramDeptObj.condition">
+                    </div>
+                </li>
+
+                <li>
+                    <div style="margin-right:30px">
+                        <span>院区</span>
+                        <select ng-model="paramDeptObj.area">
+                            <option ng-repeat="value in hosList" value="{{value.id}}" ng-bind="value.name">院区</option>
+                        </select>
+                    </div>
+                    <button class="btn" ng-click="getModelDeptList(1)">查询</button>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="data" style="height:385px;">
+            <div class="table">
+                <table border="0" cellpadding="0" cellspacing="0">
+                    <thead>
+                    <th ng-click="checkAllDept()">全选/全不选</th>
+                    <th>院区</th>
+                    <th>科室</th>
+                    <th>编号</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="(key,value) in modelDeptList">
+                            <td>
+                                <input type="checkbox" ng-checked="value.checked" ng-click="value.checked=!value.checked">
+                            </td>
+                            <td ng-bind="value.areaName">00001</td>
+                            <td ng-bind="value.name">长沙迅捷</td>
+                            <td ng-bind="value.code">张三</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <mainpager my-pager="mainDeptPager" my-search="getModelDeptList(curIndex)"></mainpager>
+            </div>
+        </div>
+
+        <div class="in">
+            <button class="btn" ng-click="addInfo()">添加</button>
+            <button class="btn" ng-click="newState.state = false">取消</button>
+        </div>
+    </div>
+
+
+</body>
+</html>

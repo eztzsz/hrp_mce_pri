@@ -1,0 +1,140 @@
+<!--<title>合同信息</title>-->
+<div class="insurance" ng-controller="contract" ng-click="changeFkState()">
+    <div class="search">
+        <span>关键字</span>
+        <input type="text" class="inp" placeholder="合同乙方、合同编号、合同名称、合同类型" ng-model="paramContractObj.condition">
+        <button class="btn" ng-click="getContractist()">查询</button>
+    </div>
+    <div class="insuranceList">
+        <ul class="model">
+            <li ng-repeat="v in contractList" class="item">
+                <div class="right">
+                    <ul class="modelList">
+                        <li>
+                            <span>合同编号</span>
+                            <input type="text" ng-model="v.code" ng-disabled="true" class="inp">
+                        </li>
+                        <li>
+                            <span>合同名称</span>
+                            <input type="text" ng-model="v.name" ng-readonly="v.audit_state!=1" class="inp">
+                        </li>
+                        <li>
+                            <span>合同金额</span>
+                            <input type="text" ng-model="v.money" ng-readonly="v.audit_state!=1" class="inp">
+                        </li>
+                        <li>
+                            <span>合同甲方</span>
+                            <div style="display:inline-block;position:relative">
+                                <input class="inp" ng-disabled="v.audit_state!=1" ng-click="searcFkDeptList(1,v.first_party_name);v.showDeptList=true;$event.stopPropagation()" ng-change="searcFkDeptList(1,v.first_party_name)" type="" name="" id="" ng-model="v.first_party_name"  />
+                                <button ng-disabled="v.audit_state!=1" type="button" ng-click="v.first_party_name='';v.first_party=''" name="button" style="width:20px;height:20px;outline:none;position:absolute;line-height:20px;border:none;background:white;right:1px;top:1px;margin:0;cursor:pointer
+            ">
+                                    &times;
+                                </button>
+                            </div>
+                            <div class="showTable" ng-show="v.showDeptList">
+                                <div>
+                                    <table cellspacing="0" cellpadding="0" border="0">
+                                        <thead>
+                                        <th>编号</th>
+                                        <th>名称</th>
+                                        <th>院区</th>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="vDept in deptList" ng-click="selectDept(v,vDept);v.showDeptList=false;$event.stopPropagation();">
+                                                <td ng-bind="vDept.code"></td>
+                                                <td ng-bind="vDept.name"></td>
+                                                <td ng-bind="vDept.areaName"></td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                                <mypager my-pager="fkDeptPager" my-search="searcFkDeptList(curIndex,v.first_party_name)"></mypager>
+                            </div>
+                        </li>
+                        <li>
+                            <span>合同乙方</span>
+                            <div style="display:inline-block;position:relative">
+                                <input class="inp" ng-disabled="v.audit_state!=1" ng-click="searcFkPrvList(1,v.second_party_name);v.showPrvList=true;$event.stopPropagation()" ng-change="searcFkPrvList(1,v.second_party_name)" type="" name="" id="" ng-model="v.second_party_name" />
+                                <button ng-disabled="v.audit_state!=1" type="button" ng-click="v.second_party_name='';v.second_party=''" name="button" style="width:20px;height:20px;outline:none;position:absolute;line-height:20px;border:none;background:white;right:1px;top:1px;margin:0;cursor:pointer
+            ">
+                                    &times;
+                                </button>
+                            </div>
+                            <div class="showTable" ng-show="v.showPrvList">
+                                <div>
+                                    <table cellspacing="0" cellpadding="0" border="0">
+                                        <thead>
+                                        <th>编号</th>
+                                        <th>名称</th>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="vPrv in prvList" ng-click="selectPrv(v,vPrv);v.showPrvList=false;$event.stopPropagation();">
+                                                <td ng-bind="vPrv.code"></td>
+                                                <td ng-bind="vPrv.name"></td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                                <mypager my-pager="fkDeptPager" my-search="searcFkPrvList(curIndex,v.second_party_name)"></mypager>
+                            </div>
+                        </li>
+                        <li>
+                            <span>合同附件</span>
+                            <strong>
+                                查看
+                                <ul>
+                                    <li ng-repeat="(key,value) in v.listFileName">
+                                        <a href="javascript:void(0);" ng-click="FileDown(value)">{{value.fileName}}</a>
+                                    </li>
+                                </ul>
+                            </strong>
+                            <strong ng-show="v.audit_state  ==1" ng-click="getFile(v,'contract')">上传</strong>
+                        </li>
+                    </ul>
+                    <ul class="modelList">
+                        <li>
+                            <span>合同类型</span>
+                            <select style="border-color: rgb(190, 212, 237);" ng-disabled="v.audit_state!=1" ng-model="v.type_id" ng-options="c.id as c.name for c in contractTypeList">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                        <li>
+                            <span>签订日期</span>
+                            <input ng-disabled="v.audit_state!=1" type="text" ng-model="v.sign_date" class="inp"
+                                   onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',onpicked:function(){$(this).trigger('change')},isShowClear:false})">
+                        </li>
+                        <li>
+                            <span>到期日期</span>
+                            <input ng-disabled="v.audit_state!=1" type="text" ng-model="v.expire_date" class="inp" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',onpicked:function(){$(this).trigger('change')},isShowClear:false})">
+                        </li>
+                        <li>
+                            <span>备注</span>
+                            <input ng-readonly="v.audit_state!=1" type="text" ng-model="v.comments" class="inp">
+                        </li>
+                        <li>
+                            <span>合同状态</span>
+                            <strong style="cursor:default;text-decoration:none">{{v.state_name}}</strong>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="opera">
+                    <button ng-click="stopModel(v)" class="btn">终止</button>
+                    <button ng-click="continueModel(v)" class="btn">续签</button>
+                    <button ng-show="v.audit_state  ==1" ng-click="saveModel(v)" class="btn">保存</button>
+                    <button ng-show="v.audit_state  ==1" ng-click="auditModel(v)" class="btn">审核</button>
+                    <button ng-show="v.audit_state  ==1" ng-click="delModel(v)" class="btn">删除</button>
+                </div>
+            </li>
+            <li class="item">
+                <div class="addModel" ng-click="addModel()">
+                    <a href="javascript:void(0);">+新增合同信息</a>
+                </div>
+
+            </li>
+        </ul>
+
+    </div>
+</div>

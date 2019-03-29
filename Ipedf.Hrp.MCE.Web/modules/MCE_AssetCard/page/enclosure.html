@@ -1,0 +1,73 @@
+<!--<title>附件信息</title>-->
+<div class="enclosure" ng-controller="enclosure">
+    <div class="search">
+        <span>关键字</span>
+        <input type="text" class="inp" ng-model="paramAffixObj.condition" placeholder="编码、名称、规格">
+        <button ng-click="getAffixList()" class="btn">查询</button>
+    </div>
+    <div class="enclosureList">
+        <ul class="model">
+            <li ng-repeat="v in affixList" class="item">
+                <div class="left">
+                    <div class="img">
+                        <img src={{v.barcode}} alt="" style="width:200px;height:200px;" class="enclosureImg">
+                    </div>
+
+
+                </div>
+                <div class="right">
+                    <ul class="modelList">
+                        <li>
+                            <span>编码</span>
+                            <input type="text" ng-model="v.code" ng-disabled="true" value="自动生成" class="inp">
+                        </li>
+                        <li>
+                            <span>名称</span>
+                            <input type="text" ng-model="v.name" ng-readonly="v.audit_state!=1" class="inp">
+                        </li>
+                        <li>
+                            <span>规格</span>
+                            <input type="text" ng-model="v.spec" ng-readonly="v.audit_state!=1" class="inp">
+                        </li>
+                        <li>
+                            <span>数量</span>
+                            <input type="text" ng-model="v.amount" ng-readonly="v.audit_state!=1" class="inp">
+                        </li>
+                        <li>
+                            <span>备注</span>
+                            <input type="text" ng-model="v.comments" ng-readonly="v.audit_state!=1" class="inp">
+                        </li>
+                        <li>
+                            <span>附件</span>
+                            <strong>
+                                查看
+                                <ul>
+                                    <li ng-repeat="(key,value) in v.listFileName">
+                                        <a href="javascript:void(0);" ng-click="FileDown(value)">{{value.fileName}}</a>
+                                    </li>
+                                </ul>
+                            </strong>
+                            <strong ng-show="v.audit_state ==1" ng-click="getFile(v,'affix')">上传</strong>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="opera">
+                    <button ng-click="printCode()" class="btn">打印</button>
+                    <button ng-click="saveModel(v)" ng-show="v.audit_state  ==1" class="btn">保存</button>
+                    <button ng-click="auditModel(v)" ng-show="v.audit_state  ==1" class="btn">审核</button>
+                    <button ng-click="delModel(v)" ng-show="v.audit_state  ==1" class="btn">删除</button>
+                </div>
+            </li>
+            <li class=item">
+                <div ng-click="addModel()" class="addModel">
+                    <a href="javascript:void(0);">+新增附件</a>
+                </div>
+
+            </li>
+        </ul>
+        <!--<ul class="model">
+
+        </ul>-->
+    </div>
+</div>

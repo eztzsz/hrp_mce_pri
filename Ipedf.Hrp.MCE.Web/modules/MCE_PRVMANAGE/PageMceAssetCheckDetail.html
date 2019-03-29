@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <title>供应商管理->供应商设备审核详情</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1">
+    <link rel="stylesheet" type="text/css" href="../../styles/common/base.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/common/common.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/mce/PageMceAssetCheckDetail.css">
+    <script type="text/javascript" src="../../scripts/new_angular/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/angular.1.2.29.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/appServices.js"></script>
+    <script type="text/javascript" src="../../scripts/mce/PageMceAssetCheckDetail.js"></script>
+
+</head>
+
+
+<body ng-controller="index">
+    <div class="content">
+        <ul class="list clearfix">
+            <li class="fl">
+                <div>
+                    <span>设备名称</span>
+                    <input type="text" class="inp" ng-model="mceModel.name" ng-readonly='true'>
+                </div>
+            </li>
+            <li class="fr">
+                <div>
+                    <span>英文名称</span>
+                    <input type="text" class="inp" ng-model="mceModel.en_name" ng-readonly='true'>
+                </div>
+            </li>
+            <li class="fl">
+                <div>
+                    <span>设备分类</span>
+                    <input type="text" class="inp" ng-model="mceModel.type_id_name" ng-readonly='true'>
+                </div>
+            </li>
+            <li class="fr">
+                <div>
+                    <span>规格型号</span>
+                    <input type="text" class="inp" ng-model="mceModel.spec" ng-readonly="true">
+                </div>
+            </li>
+
+            <li class="fl">
+                <div>
+                    <span>品牌名称</span>
+                    <input type="text" class="inp" ng-model="mceModel.brand_name" ng-readonly='true'>
+                </div>
+            </li>
+            <li class="fr">
+                <div>
+                    <span>生产厂家</span>
+                    <input type="text" class="inp" ng-model="mceModel.prd_id_name" ng-readonly='true'>
+                </div>
+            </li>
+            <li class="fl">
+                <div>
+                    <span>出厂编号</span>
+                    <input type="text" class="inp" ng-model="mceModel.prd_code" ng-readonly='true'>
+                </div>
+            </li>
+            <li class="fr">
+                <div>
+                    <span>计量单位</span>
+                    <input type="text" class="inp" ng-model="mceModel.unit_id_name" ng-readonly='true'>
+                </div>
+            </li>
+
+            <li class="fl">
+                <div>
+                    <span>许可证号</span>
+                    <input type="text" class="inp" ng-model="mceModel.licence_code" ng-readonly='true'>
+                </div>
+            </li>
+
+            <li class="fr">
+                <div>
+                    <span>生产日期</span>
+                    <input type="text" class="inp" ng-model="mceModel.prd_date" ng-readonly='true'>
+
+                </div>
+            </li>
+
+            <li class="fl">
+                <div>
+                    <span>销售价格</span>
+                    <input type="text" class="inp" ng-model="mceModel.price" ng-readonly='true'>
+                </div>
+            </li>
+            <li class="fr">
+                <div>
+                    <span>设备产地</span>
+                    <input type="text" class="inp" ng-model="mceModel.prd_place_type_id_name" ng-readonly='true'>
+                </div>
+            </li>
+
+
+            <li class="fl">
+                <div>
+                    <span>国标码</span>
+                    <input type="text" class="inp" ng-model="mceModel.international_code" ng-readonly='true'>
+                </div>
+            </li>
+            <li class="fr">
+                <div>
+                    <span>
+                        &nbsp;
+                    </span>
+
+                </div>
+            </li>
+
+            <li class="fl">
+                <div>
+                    <span>技术参数</span>
+                    <input type="text" class="inp width-480" ng-model="mceModel.technical_para" ng-readonly="true" '>
+                </div>
+            </li>
+            <li class="fl">
+                <div>
+                    <span>配置要求</span>
+                    <input type="text" class="inp width-480" ng-model="mceModel.configuration" ng-readonly='true'>
+                </div>
+            </li>
+            <li class="fl">
+                <div>
+                    <span>设备用途</span>
+                    <input type="text" class="inp width-480" ng-model="mceModel.usage" ng-readonly='true'>
+                </div>
+            </li>
+            <li class="fl">
+                <div>
+                    <span>设备图片</span>
+                    <div class="img fr cert_box">
+                        <div class="upFile">
+                            <img src="{{mceModel.picture}}" alt="">
+                            <!--<p ng-show="mceModel.state  ==-1 || mceModel.state  ==2">
+                                <a href="javascript:void(0);" ng-click="upFile(mceModel)">选取文件</a>
+                            </p>-->
+                        </div>
+
+                    </div>
+
+                </div>
+            </li>
+        </ul>
+
+        <div>
+            <button class="btn" id="btnCheck" ng-click="checkAsset()" ng-show="mceModel.state==0">审核通过</button>
+            <button class="btn" ng-click="openNew()" ng-show="mceModel.state==0">审核不通过</button>
+            <button class="btn" ng-click="goBack()">返回</button>
+        </div>
+    </div>
+
+
+
+    <div class="bg" ng-show="newState.state"></div>
+    <div class="new_data" ng-show="newState.state">
+
+        <div style="height:240px;width:500px;">
+            <ul>
+                <li>
+                    <div>
+                        <span style="vertical-align: top;font-size:medium">拒绝原因:</span>
+                        <textarea style="width:500px;height:200px;resize: none;line-height:16px;text-indent:2em;border: 1px solid #bed4ed"
+                                  ng-model="paramAssetObj.Reason"></textarea>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+
+        <div class="in">
+            <button id="btnRefuseCheck" class="btn" ng-click="checkAssetNo()">确认</button>
+            <button class="btn" ng-click="newState.state = false">取消</button>
+        </div>
+    </div>
+
+</body>
+
+
+</html>

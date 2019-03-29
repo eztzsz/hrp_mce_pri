@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>供应商管理->供应商审核</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1" >
+	<link rel="stylesheet" type="text/css" href="../../styles/common/base.css">
+	<link rel="stylesheet" type="text/css" href="../../styles/common/common.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/mce/PageMceGetPrvCheckList.css">
+	<script type="text/javascript" src="../../scripts/new_angular/jquery-1.11.0.js"></script>
+	<script type="text/javascript" src="../../scripts/new_angular/angular.1.2.29.js"></script>
+	<script type="text/javascript" src="../../scripts/new_angular/appDirectives.js"></script>
+	<script type="text/javascript" src="../../scripts/new_angular/appServices.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="../../scripts/My97DatePicker/skin/WdatePicker.css">
+	<script type="text/javascript" src="../../scripts/My97DatePicker/WdatePicker.js"></script>
+
+    <script type="text/javascript" src="../../scripts/mce/PageMceGetPrvCheckList.js"></script>
+</head>
+<body ng-controller="index" ng-click="InputschangeState.changeState('a')">
+	<div class="content">
+		<div class="filt">
+			<ul>
+				<li>
+					<div>
+						<span>供应商</span>
+						<my-param param="prvModel" change="InputschangeState" param-obj="paramPrv" show-str="prv" authority="false"></my-param>
+					</div>
+				</li>
+				<li>
+					<div>
+						<span>创建时间</span>
+						<input type="text" class="clock" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',onpicked:function(){$(this).trigger('change')},isShowClear:false})" ng-model="paramObj.beginspan">
+						至
+						<input type="text" class="clock" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',onpicked:function(){$(this).trigger('change')},isShowClear:false})" ng-model="paramObj.endspan">
+					</div>
+				</li>
+				<li>
+					<div style="margin-right:30px">
+						<span>状态</span>
+						<select ng-model="paramObj.status">
+							<option value="">全部</option>
+							<option value="COM_1002_00">未审核</option>
+							<option value="COM_1002_01">审核通过</option>
+							<option value="COM_1002_02">审核未通过</option>
+							<option value="COM_1002_03">已作废</option>
+						</select>
+					</div>
+					<button class="btn" ng-click="getModelList(1)">查询</button>
+
+				</li>
+			</ul>
+		</div>
+		<div class="operation">
+            <button id="btnCheck" class="btn" ng-click="checkPrv()">审核</button>
+			<button class="btn" ng-click="checkPrvNo()">取消审核</button>
+			<button style="display:none;" class="btn">打开接口</button>
+            <button style="display:none;" class="btn">关闭接口</button>
+            <button style="display:none;" class="btn" ng-click="fileDow()">下载资质文件</button>
+            <button style="display:none;" class="btn">限制验收资格</button>
+            <button style="display:none;" class="btn">不限制验收资格</button>
+		</div>
+		<div class="data">
+			<div class="table">
+				<table border="0" cellpadding="0" cellspacing="0">
+					<thead>
+						<th ng-click="checkAll()">全选/全不选</th>
+						<th>供应商编码</th>
+						<th>供应商名称</th>
+						<th>联系人</th>
+						<th>联系电话</th>
+						<th>电子邮箱</th>
+						<th>供应商帐号</th>
+						<th>审批人</th>
+						<th>审批时间</th>
+						<th>审批状态</th>
+					</thead>
+					<tbody>
+						<tr ng-repeat="(key,value) in modelList" ng-click="onselChange(key)" ng-class="{'onsel':value.onsel}"  ng-dblclick="goDetail(value.ID)">
+							<td>
+								<input type="checkbox" ng-checked="value.checked" ng-click="value.checked=!value.checked" 
+								>
+							</td>
+							<td ng-bind="value.CODE">00001</td>
+							<td ng-bind="value.NAME">长沙迅捷</td>
+							<td ng-bind="value.LINK_PERSON">张三</td>
+							<td ng-bind="value.PHONE">13213131313</td>
+							<td ng-bind="value.EMAIL">336866846436</td>
+							<td ng-bind="value.BANK_NUMBER">13861</td>
+							<td ng-bind="value.AUDIT_USER_NAME">1351315</td>
+							<td ng-bind="value.AUDIT_TIME">3116866868</td>
+							<td ng-bind="value.AUDIT_STATE_NAME">审批通过</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div>
+				<mainpager my-pager="mainPager" my-search="getModelList(curIndex)" ></mainpager>
+			</div>
+		</div>
+		
+	</div>
+	<a ng-href="fileSrc" id="fileDow"></a>
+</body>
+</html>

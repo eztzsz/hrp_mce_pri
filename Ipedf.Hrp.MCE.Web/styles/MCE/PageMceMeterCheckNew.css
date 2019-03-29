@@ -1,0 +1,87 @@
+.content{
+    padding-top:20px;
+    padding-left: 20px;
+    padding-right:10px;
+    /*min-width:800px;*/
+    background: #fff;
+}
+.list{
+    width: 900px;
+}
+.list>li{
+    /*display: inline-block;*/
+    line-height:30px;
+    padding-bottom:8px;
+    padding-left:10px;
+    font-size:14px;
+}
+.list>li>div>span{
+    display: inline-block;
+    width:90px;
+    font-size:14px;
+}
+.list>li>div input{
+    width:180px;
+    padding-left:8px;
+    height:28px!important;
+	border:1px solid #b0caeb;
+}
+.list>li>div select{
+    width:190px;
+    padding-left:8px;
+    height:30px;
+    border:1px solid #a2d5cd;
+}
+.inp{
+    /*border-radius:100px;*/
+    width:180px;
+    padding-left:8px;
+    height:28px;
+    border:1px solid #a2d5cd;
+}
+.btn{
+	background:#5e8ab3;
+	min-width:70px;
+	height:30px;
+	color:white;
+	border:none;
+	padding:0 2px;
+}
+.width-480{
+    width: 485px!important;
+}
+
+
+.table{
+	min-height:100px;
+	overflow:auto;
+}
+.table table{
+	min-width:100%;
+	border-collapse: collapse;
+}
+.table table td,.table table th{
+	border:1px solid #bed4ed;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	padding:0 3px;
+}
+.table table thead{
+	background: #e1ecff;
+	cursor:default;
+}
+.table table tr.onsel{
+	color:#e7564f;
+}
+.data .operation{
+	height:30px;
+	padding:7px 0;
+	margin:0;
+	border:1px solid #b0caeb;
+	border-bottom:none;
+}
+.data .operation button{
+	margin-left:10px;
+	margin-right:10px;
+}

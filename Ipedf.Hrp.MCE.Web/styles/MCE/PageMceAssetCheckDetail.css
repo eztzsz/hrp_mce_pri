@@ -1,0 +1,120 @@
+.content{
+    padding-top:20px;
+    padding-left: 20px;
+    padding-right:10px;
+    /*min-width:800px;*/
+    background: #fff;
+}
+.list{
+    width: 600px;
+}
+.list>li{
+    /*display: inline-block;*/
+    line-height:30px;
+    padding-bottom:8px;
+    padding-left:10px;
+    font-size:14px;
+}
+.list>li>div>span{
+    display: inline-block;
+    width:90px;
+    font-size:14px;
+}
+.list>li>div input{
+    width:180px;
+    padding-left:8px;
+    height:28px!important;
+	border:1px solid #b0caeb;
+}
+.list>li>div select{
+    width:190px;
+    padding-left:8px;
+    height:30px;
+    border:1px solid #a2d5cd;
+}
+.inp{
+    /*border-radius:100px;*/
+    width:180px;
+    padding-left:8px;
+    height:28px;
+    border:1px solid #a2d5cd;
+}
+.btn{
+	background:#5e8ab3;
+	min-width:70px;
+	height:30px;
+	color:white;
+	border:none;
+	padding:0 2px;
+}
+.width-480{
+    width: 485px!important;
+}
+
+
+ .img {
+	width: 205px;
+}
+
+.img .upFile {
+	height: 330px;
+	width: 490px;
+	line-height: 250px;
+	border: 1px solid #B5CFED;
+	text-align: center;
+	margin-left:6px;
+	position: relative;
+}
+
+.img .upFile img {
+	width: 480px;
+	height: 300px;
+}
+
+ .img .upFile p {
+	height: 30px;
+	line-height: 30px;
+	position: absolute;
+	bottom: 2px;
+	width: 100%;
+}
+
+.img .upFile a {
+	color: #84B2FC;
+}
+
+
+ .img .des {
+	color: #ddd;
+	font-size: 12px;
+	height: 40px;
+	line-height: 40px;
+}
+
+
+.bg{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: #000;
+    opacity:0.07;
+    filter:alpha(opacity=1);
+}
+.new_data
+{
+	padding:10px;
+    width:500px;
+    height:280px;
+    position: absolute;
+    left: 50%;
+    top:10px;
+    margin-left:-400px;
+    background: #fff;
+}
+.in{
+    height:40px;
+    line-height:40px;
+    text-align: center;
+}

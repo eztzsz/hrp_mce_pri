@@ -1,0 +1,2158 @@
+.content {
+	min-width: 1100px;
+	font-size: 14px;
+	position: relative;
+	min-height: 650px;
+}
+
+.menu {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 128px;
+	height: 100%;
+	text-align: center;
+	background: #E1ECFF;
+	border-right: 1px solid #ccc;
+}
+
+.menu ul {
+	width: 128px;
+}
+
+.menu ul li {
+	height: 30px;
+	margin: 20px 0;
+}
+
+.menu ul li a {
+	height: 30px;
+	line-height: 30px;
+	display: block;
+	color: #333;
+	font-weight: normal;
+}
+
+.menu ul li.routerSel a {
+	text-decoration: none;
+	background: #B5CFED;
+	font-weight: 700;
+	color: #000
+}
+
+.menu ul li a:hover {
+	text-decoration: none;
+	background: #B5CFED;
+	font-weight: 700;
+	color: #000
+}
+
+.view {
+	margin-left: 129px;
+	min-height: 340px
+}
+
+.btn {
+	display: inline-block;
+	min-width: 70px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	background: #5E89B3;
+	outline: none;
+	border: none;
+	color: #fff;
+}
+
+input {
+	width: 130px;
+	text-indent: 5px;
+	height: 28px;
+}
+
+select {
+	width: 132px;
+	height: 30px;
+}
+
+.inp {
+	outline: none;
+	border: 1px solid #b0caeb;
+	height: 28px;
+}
+
+.check {
+	width: 15px;
+	height: 15px;
+	text-align: center;
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	cursor: default;
+	user-select: none;
+}
+
+.check span {
+	display: inline-block;
+	width: 10px !important;
+	height: 10px;
+	border: 1px solid #abc9ef;
+	background: transparent;
+	vertical-align: top;
+}
+
+.check strong {
+	position: absolute;
+	left: 0;
+	top: 0;
+	font-size: 12px;
+	color: #acc8ef;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	line-height: 15px;
+	font-weight: normal
+}
+
+.data {
+	min-height: 350px;
+	overflow: auto
+}
+
+.data table {
+	min-width: 100%;
+	border-collapse: collapse;
+}
+
+.data table td, .data table th {
+	border: 1px solid #bed4ed;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	padding: 0 3px;
+}
+
+.data table thead {
+	background: #e1ecff
+}
+
+a.add{
+	color: #59B883;
+	display: inline-block;
+	margin: 0 5px;
+}
+a.del{
+	color: #E28888;
+	display: inline-block;
+	margin: 0 5px;
+}
+
+/*基本信息*/
+.baseInfo {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 10px
+}
+
+.baseInfo .img {
+	float: left;
+	width: 205px;
+}
+
+.baseInfo .img .upFile {
+	height: 250px;
+	width: 200px;
+	line-height: 250px;
+	border: 1px solid #B5CFED;
+	text-align: center;
+	position: relative;
+}
+
+.baseInfo .img .upFile img {
+	width: 200px;
+	height: 220px;
+}
+
+.baseInfo .img .upFile p {
+	height: 30px;
+	line-height: 30px;
+	position: absolute;
+	bottom: 2px;
+	width: 100%;
+}
+
+.baseInfo .img .upFile a {
+	color: #84B2FC;
+}
+
+.baseInfo .img .des {
+	color: #ddd;
+	font-size: 12px;
+	height: 40px;
+	line-height: 40px;
+}
+
+.baseInfo .img .downFile {
+	margin-top: 30px;
+	margin-bottom: 10px;
+	height: 150px;
+	width: 200px;
+	line-height: 200px;
+	text-align: center;
+	position: relative;
+	border: 1px solid #B5CFED;
+}
+
+.baseInfo .img .downFile img {
+	width: 200px;
+	height: 150px;
+}
+
+.baseInfo .infoList {
+	margin-left: 205px;
+	width: 960px;
+}
+
+.baseInfo .infoList > div {
+	padding-top: 15px;
+	border-bottom: 1px solid #b0caeb
+}
+
+.baseInfo .infoList .list {
+	display: inline-block;
+}
+
+.baseInfo .infoList .list li {
+	height: 30px;
+	line-height: 30px;
+	margin-bottom: 15px
+}
+
+.baseInfo .infoList .list .searchName {
+	min-width: 90px;
+	text-align: right;
+}
+
+.baseInfo .infoList .list .searchInput {
+
+}
+
+.baseInfo .infoList .list .searchInput input {
+	outline: none;
+	border: 1px solid #b0caeb;
+	height: 25px;
+}
+
+.baseInfo .infoList .list .searchInput select {
+	width: 132px;
+	outline: none;
+	border: 1px solid #b0caeb;
+	height: 25px;
+}
+
+.baseInfo .opera {
+	padding-top: 20px;
+	margin-left: 300px
+}
+
+.baseInfo .opera button {
+	margin-right: 30px
+}
+
+/*附件信息*/
+.enclosure {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 10px
+}
+
+.enclosure .search {
+	height: 30px;
+	line-height: 30px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #b0caeb;
+}
+
+.enclosure .search span {
+	padding-right: 15px;
+	padding-left: 8px
+}
+
+.enclosure .search input {
+	width: 300px;
+	vertical-align: middle;
+}
+
+.enclosure .search button {
+	vertical-align: middle;
+}
+
+.enclosure .enclosureList {
+
+}
+
+.enclosure .enclosureList .model {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.enclosure .enclosureList .model > li {
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 20px;
+	margin-right: 10px;
+	width: 460px;
+	height: 310px;
+	border: 1px solid #b0caeb
+}
+
+.enclosure .enclosureList .model > li .left {
+	float: left;
+	padding-top: 30px;
+	width: 230px;
+	height: 210px;
+}
+
+.enclosure .enclosureList .model > li .left .img {
+	margin: 0 auto;
+	height: 200px;
+	width: 200px;
+	margin-bottom: 20px;
+	border: 1px solid #b0caeb
+}
+
+.enclosure .enclosureList .model > li  .opera {
+	text-align: center;
+}
+
+.enclosure .enclosureList .model > li  .opera button {
+	margin: 10px 15px 0 15px;
+	margin-top:20px;
+}
+
+.enclosure .enclosureList .model > li .right {
+	float: left;
+	padding-top: 30px;
+	width: 230px;
+	height: 210px;
+}
+
+.enclosure .enclosureList .model > li .right .modelList > li {
+	padding-bottom: 10px
+}
+
+.enclosure .enclosureList .model > li .right .modelList > li > span {
+	padding-left: 20px
+}
+
+.enclosure .enclosureList .model > li .right .modelList > li > strong {
+	color: #53D4B8;
+	display: inline-block;
+	height: 30px;
+	line-height: 30px;
+	vertical-align: middle;
+	margin: 0 20px;
+	cursor: pointer;
+	position: relative;
+}
+
+.enclosure .enclosureList .model > li .right .modelList > li > strong:hover {
+	text-decoration: underline;
+}
+
+.enclosure .enclosureList .model > li .right .modelList > li > strong > ul {
+	position: absolute;
+	background: #fff;
+	width: 360px;
+	min-height: 20px;
+	top: 28px;
+	left: -260px;
+	border: 1px solid #ddd;
+	display: none;
+}
+
+.enclosure .enclosureList .model > li .right .modelList > li > strong > ul > li {
+	height: 20px;
+	line-height: 20px;
+}
+
+.enclosure .enclosureList .model > li .right .modelList > li > strong:hover ul {
+	display: block;
+}
+
+.enclosure .enclosureList .model > li .addModel {
+	display: block;
+	line-height: 310px;
+	text-align: center;
+}
+
+.enclosure .enclosureList .model > li .addModel a {
+	color: #333
+}
+
+/*资金信息*/
+.capital {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 10px
+}
+
+.capital .search {
+	height: 30px;
+	line-height: 30px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #b0caeb;
+}
+
+.capital .search span {
+	padding-right: 15px;
+	padding-left: 8px
+}
+
+.capital .search input {
+	width: 300px;
+	vertical-align: middle;
+}
+
+.capital .search button {
+	vertical-align: middle;
+}
+
+.capital .capitalList {
+
+}
+
+.capital .capitalList .model {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.capital .capitalList .model > li {
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 20px;
+	margin-right: 10px;
+	width: 460px;
+	height: 310px;
+	border: 1px solid #b0caeb
+}
+
+.capital .capitalList .model > li .left {
+	float: left;
+	padding-top: 30px;
+	width: 230px;
+	height: 210px;
+}
+
+.capital .capitalList .model > li .left .img {
+	margin: 0 auto;
+	height: 200px;
+	width: 200px;
+	margin-top: 15px;
+	/*border: 1px solid #b0caeb*/
+}
+
+.capital .capitalList .model > li .left .img > div {
+	margin: auto;
+	margin-top: 20px;
+	width: 160px;
+	height: 160px;
+}
+
+.capital .capitalList .model > li .opera {
+	text-align: center;
+}
+
+.capital .capitalList .model > li .opera button {
+	margin: 10px 15px 0 15px
+}
+
+.capital .capitalList .model > li .right {
+	float: left;
+	padding-top: 30px;
+	width: 230px;
+	height: 210px;
+}
+
+.capital .capitalList .model > li .right .modelList > li {
+	padding-bottom: 10px
+}
+
+.capital .capitalList .model > li .right .modelList > li > span {
+	display: inline-block;
+	width: 63px;
+	text-align: right;
+	padding-right: 6px
+}
+
+.capital .capitalList .model > li .right .modelList > li > strong {
+	color: #53D4B8;
+	display: inline-block;
+	height: 30px;
+	line-height: 30px;
+	vertical-align: middle;
+	margin: 0 20px;
+	cursor: pointer;
+	position: relative;
+}
+
+.capital .capitalList .model > li .right .modelList > li > strong:hover {
+	text-decoration: underline;
+}
+
+.capital .capitalList .model > li .right .modelList > li > strong > ul {
+	position: absolute;
+	background: #fff;
+	width: 360px;
+	min-height: 20px;
+	top: 28px;
+	left: -260px;
+	border: 1px solid #ddd;
+	display: none;
+}
+
+.capital .capitalList .model > li .right .modelList > li > strong > ul > li {
+	height: 20px;
+	line-height: 20px;
+}
+
+.capital .capitalList .model > li .right .modelList > li > strong:hover ul {
+	display: block;
+}
+
+.capital .capitalList .model > li .addModel {
+	display: block;
+	line-height: 310px;
+	text-align: center;
+}
+
+.capital .capitalList .model > li .addModel a {
+	color: #333
+}
+
+/*折旧信息*/
+.depreciation {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 10px
+}
+
+.depreciation .search {
+	height: 30px;
+	line-height: 30px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #b0caeb;
+}
+
+.depreciation .search span {
+	padding-right: 15px;
+	padding-left: 8px
+}
+
+.depreciation .search input {
+	width: 300px;
+	vertical-align: middle;
+}
+
+.depreciation .search button {
+	vertical-align: middle;
+}
+
+.depreciation .depreciationList {
+	width: 472px;
+	float: left;
+}
+
+.depreciation .depreciationList .model {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.depreciation .depreciationList .model > li {
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 20px;
+	margin-right: 10px;
+	width: 460px;
+	height: 310px;
+	border: 1px solid #b0caeb
+}
+
+.depreciation .depreciationList .model > li .left {
+	float: left;
+	padding-top: 30px;
+	width: 230px;
+	height: 210px;
+}
+
+.depreciation .depreciationList .model > li .left .img {
+	margin: 0 auto;
+	height: 200px;
+	width: 200px;
+	margin-top: 15px;
+	/*border: 1px solid #b0caeb*/
+}
+
+.depreciation .depreciationList .model > li .left .img > div {
+	margin: auto;
+	margin-top: 20px;
+	width: 160px;
+	height: 160px;
+}
+
+.depreciation .depreciationList .model > li .opera {
+	text-align: center;
+}
+
+.depreciation .depreciationList .model > li .opera button {
+	margin: 10px 15px 0 15px
+}
+
+.depreciation .depreciationList .model > li .right {
+	float: left;
+	padding-top: 30px;
+	width: 230px;
+	height: 210px;
+}
+
+.depreciation .depreciationList .model > li .right .modelList > li {
+	padding-bottom: 10px
+}
+
+.depreciation .depreciationList .model > li .right .modelList > li > span {
+	display: inline-block;
+	width: 63px;
+	text-align: right;
+	padding-right: 6px
+}
+
+.depreciation .depreciationList .model > li .right .modelList > li > strong {
+	color: #53D4B8;
+	display: inline-block;
+	height: 30px;
+	line-height: 30px;
+	vertical-align: middle;
+	margin: 0 20px;
+	cursor: pointer;
+	position: relative;
+}
+
+.depreciation .depreciationList .model > li .right .modelList > li > strong:hover {
+	text-decoration: underline;
+}
+
+.depreciation .depreciationList .model > li .right .modelList > li > strong > ul {
+	position: absolute;
+	background: #fff;
+	width: 360px;
+	min-height: 20px;
+	top: 28px;
+	left: -260px;
+	border: 1px solid #ddd;
+	display: none;
+}
+
+.depreciation .depreciationList .model > li .right .modelList > li > strong > ul > li {
+	height: 20px;
+	line-height: 20px;
+}
+
+.depreciation .depreciationList .model > li .right .modelList > li > strong:hover ul {
+	display: block;
+}
+
+.depreciation .depreciationList .model > li .addModel {
+	display: block;
+	line-height: 310px;
+	text-align: center;
+}
+
+.depreciation .depreciationList .model > li .addModel a {
+	color: #333
+}
+
+.depreciation .table {
+	margin-left: 486px;
+	margin-top: 20px;
+	min-width: 580px;
+}
+
+.depreciation .table #depreciationAdd {
+	width: 100%;
+	height: 230px;
+	padding-bottom: 30px
+}
+
+.depreciation .table h4 {
+	line-height: 30px;
+	padding-left: 8px;
+}
+
+.depreciation .table .pager {
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+}
+
+.depreciation .table .pager > span {
+	display: inline-block;
+	vertical-align: middle;
+	letter-spacing: 3px;
+	margin: 0 5px;
+	cursor: pointer;
+}
+
+.depreciation .table .pager > span:hover {
+	color: #5E89B3;
+}
+
+.depreciation .table .pager > div {
+	display: inline-block;
+	vertical-align: top;
+	cursor: default;
+	max-width: 260px;
+}
+
+.depreciation .table .pager .pagerList {
+	display: inline-block;
+	vertical-align: top;
+	cursor: default;
+}
+
+.depreciation .table .pager .pagerList li {
+	display: inline-block;
+	min-width: 8px;
+	margin: 0 2px;
+	cursor: pointer;
+}
+
+.depreciation .table .pager .pagerList li:hover {
+	color: #5E89B3;
+}
+
+/*进口信息*/
+.imported {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 10px
+}
+
+.imported .search {
+	height: 30px;
+	line-height: 30px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #b0caeb;
+}
+
+.imported .search span {
+	padding-right: 15px;
+	padding-left: 8px
+}
+
+.imported .search input {
+	width: 300px;
+	vertical-align: middle;
+}
+
+.imported .search button {
+	vertical-align: middle;
+}
+
+.imported .importedList {
+
+}
+
+.imported .importedList .model {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.imported .importedList .model > li {
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 20px;
+	margin-right: 10px;
+	width: 460px;
+	height: 310px;
+	border: 1px solid #b0caeb
+}
+
+.imported .importedList .model > li .right {
+	/*float: left;*/
+	padding-top: 30px;
+	width: 460px;
+	height: 230px;
+}
+
+.imported .importedList .model > li .right .modelList {
+	display: inline-block;
+	vertical-align: top;
+	width: 225px;
+	height: 230px;
+}
+
+.imported .importedList .model > li .right .modelList > li {
+	padding-bottom: 10px
+}
+
+.imported .importedList .model > li .right .modelList > li > span {
+	display: inline-block;
+	width: 65px;
+	text-align: right;
+	line-height: 30px;
+	vertical-align: top;
+	padding-right: 8px;
+}
+
+.imported .importedList .model > li .right .modelList > li > strong {
+	color: #53D4B8;
+	display: inline-block;
+	height: 30px;
+	line-height: 30px;
+	vertical-align: middle;
+	margin: 0 20px;
+	cursor: pointer;
+	position: relative;
+}
+
+.imported .importedList .model > li .right .modelList > li > strong:hover {
+	text-decoration: underline;
+}
+
+.imported .importedList .model > li .right .modelList > li > strong > ul {
+	position: absolute;
+	background: #fff;
+	width: 360px;
+	min-height: 20px;
+	top: 28px;
+	left: -260px;
+	border: 1px solid #ddd;
+	display: none;
+}
+
+.imported .importedList .model > li .right .modelList > li > strong > ul > li {
+	height: 20px;
+	line-height: 20px;
+}
+
+.imported .importedList .model > li .right .modelList > li > strong:hover ul {
+	display: block;
+}
+
+.imported .importedList .model > li .addModel {
+	display: block;
+	line-height: 310px;
+	text-align: center;
+}
+
+.imported .importedList .model > li .addModel a {
+	color: #333
+}
+.imported .importedList .model > li .opera {
+	text-align: center;
+}
+
+.imported .importedList .model > li .opera button {
+	margin: 10px 15px 0 15px
+}
+
+/*流转信息*/
+.circulation {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 10px
+}
+
+.circulation .search {
+	height: 30px;
+	line-height: 30px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #b0caeb;
+}
+
+.circulation .search span {
+	padding-right: 15px;
+	padding-left: 8px
+}
+
+.circulation .search input {
+	width: 300px;
+	vertical-align: middle;
+}
+
+.circulation .search button {
+	vertical-align: middle;
+}
+
+.circulation .circulationList {
+
+}
+
+.circulation .circulationList .model {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.circulation .circulationList .model > li {
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 20px;
+	margin-right: 10px;
+	width: 460px;
+	height: 310px;
+	border: 1px solid #b0caeb
+}
+
+.circulation .circulationList .model > li .right {
+	float: left;
+	padding-top: 30px;
+	width: 460px;
+	height: 230px;
+}
+
+.circulation .circulationList .model > li .right .modelList {
+	display: inline-block;
+	vertical-align: top;
+	width: 225px;
+	height: 230px;
+}
+
+.circulation .circulationList .model > li .right .modelList > li {
+	padding-bottom: 10px
+}
+
+.circulation .circulationList .model > li .right .modelList > li > span {
+	display: inline-block;
+	width: 71px;
+	text-align: right;
+	line-height: 30px;
+	vertical-align: top;
+	padding-right: 8px;
+}
+
+.circulation .circulationList .model > li .right .modelList > li > strong {
+	color: #53D4B8;
+	display: inline-block;
+	height: 30px;
+	line-height: 30px;
+	vertical-align: middle;
+	margin: 0 20px;
+	cursor: pointer;
+	position: relative;
+}
+
+.circulation .circulationList .model > li .right .modelList > li > strong:hover {
+	text-decoration: underline;
+}
+
+.circulation .circulationList .model > li .right .modelList > li > strong > ul {
+	position: absolute;
+	background: #fff;
+	width: 150px;
+	min-height: 20px;
+	top: 28px;
+	left: -30px;
+	border: 1px solid #ddd;
+	display: none;
+}
+
+.circulation .circulationList .model > li .right .modelList > li > strong > ul > li {
+	height: 20px;
+	line-height: 20px;
+}
+
+.circulation .circulationList .model > li .right .modelList > li > strong:hover ul {
+	display: block;
+}
+
+.circulation .circulationList .model > li .addModel {
+	display: block;
+	line-height: 310px;
+	text-align: center;
+}
+
+.circulation .circulationList .model > li .addModel a {
+	color: #333
+}
+.circulation .circulationList .model > li .opera {
+	text-align: center;
+}
+
+.circulation .circulationList .model > li .opera button {
+	margin: 10px 15px 0 15px
+}
+
+
+/*报废信息*/
+.scrap {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 10px
+}
+
+.scrap .search {
+	height: 30px;
+	line-height: 30px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #b0caeb;
+}
+
+.scrap .search span {
+	padding-right: 15px;
+	padding-left: 8px
+}
+
+.scrap .search input {
+	width: 300px;
+	vertical-align: middle;
+}
+
+.scrap .search button {
+	vertical-align: middle;
+}
+
+.scrap .scrapList {
+
+}
+
+.scrap .scrapList .model {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.scrap .scrapList .model > li {
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 20px;
+	margin-right: 10px;
+	width: 460px;
+	height: 310px;
+	border: 1px solid #b0caeb
+}
+
+.scrap .scrapList .model > li .right {
+	/*float: left;*/
+	padding-top: 30px;
+	width: 460px;
+	height: 230px;
+}
+
+.scrap .scrapList .model > li .right .modelList {
+	display: inline-block;
+	vertical-align: top;
+	width: 225px;
+	height: 230px;
+}
+
+.scrap .scrapList .model > li .right .modelList > li {
+	padding-bottom: 10px
+}
+
+.scrap .scrapList .model > li .right .modelList > li > span {
+	display: inline-block;
+	width: 65px;
+	text-align: right;
+	line-height: 30px;
+	vertical-align: top;
+	padding-right: 8px;
+}
+
+.scrap .scrapList .model > li .right .modelList > li > strong {
+	color: #53D4B8;
+	display: inline-block;
+	height: 30px;
+	line-height: 30px;
+	vertical-align: middle;
+	margin: 0 20px;
+	cursor: pointer;
+	position: relative;
+}
+
+.scrap .scrapList .model > li .right .modelList > li > strong:hover {
+	text-decoration: underline;
+}
+
+.scrap .scrapList .model > li .right .modelList > li > strong > ul {
+	position: absolute;
+	background: #fff;
+	width: 260px;
+	min-height: 20px;
+	top: 28px;
+	left: -30px;
+	border: 1px solid #ddd;
+	display: none;
+}
+
+.scrap .scrapList .model > li .right .modelList > li > strong > ul > li {
+	height: 20px;
+	line-height: 20px;
+}
+
+.scrap .scrapList .model > li .right .modelList > li > strong:hover ul {
+	display: block;
+}
+
+.scrap .scrapList .model > li .addModel {
+	display: block;
+	line-height: 310px;
+	text-align: center;
+}
+
+.scrap .scrapList .model > li .addModel a {
+	color: #333
+}
+.scrap .scrapList .model > li .opera {
+	text-align: center;
+}
+
+.scrap .scrapList .model > li .opera button {
+	margin: 10px 15px 0 15px
+}
+
+
+
+/*保险信息*/
+.insurance {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 10px
+}
+
+.insurance .search {
+	height: 30px;
+	line-height: 30px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #b0caeb;
+}
+
+.insurance .search span {
+	padding-right: 15px;
+	padding-left: 8px
+}
+
+.insurance .search input {
+	width: 300px;
+	vertical-align: middle;
+}
+
+.insurance .search button {
+	vertical-align: middle;
+}
+
+.insurance .scrapList {
+
+}
+
+.insurance .insuranceList .model {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.insurance .insuranceList .model > li {
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 20px;
+	margin-right: 10px;
+	width: 460px;
+	height: 310px;
+	border: 1px solid #b0caeb
+}
+
+.insurance .insuranceList .model > li .right {
+	/*float: left;*/
+	padding-top: 30px;
+	width: 460px;
+	height: 230px;
+}
+
+.insurance .insuranceList .model > li .right .modelList {
+	display: inline-block;
+	vertical-align: top;
+	width: 225px;
+	height: 230px;
+}
+
+.insurance .insuranceList .model > li .right .modelList > li {
+	padding-bottom: 10px
+}
+
+.insurance .insuranceList .model > li .right .modelList > li > span {
+	display: inline-block;
+	width: 65px;
+	text-align: right;
+	line-height: 30px;
+	vertical-align: top;
+	padding-right: 8px;
+}
+
+.insurance .insuranceList .model > li .right .modelList > li > strong {
+	color: #53D4B8;
+	display: inline-block;
+	height: 30px;
+	line-height: 30px;
+	vertical-align: middle;
+	margin: 0 20px;
+	cursor: pointer;
+	position: relative;
+}
+
+.insurance .insuranceList .model > li .right .modelList > li > strong:hover {
+	text-decoration: underline;
+}
+
+.insurance .insuranceList .model > li .right .modelList > li > strong > ul {
+	position: absolute;
+	background: #fff;
+	width: 360px;
+	min-height: 20px;
+	top: 28px;
+	left: -60px;
+	border: 1px solid #ddd;
+	display: none;
+}
+
+.insurance .insuranceList .model > li .right .modelList > li > strong > ul > li {
+	height: 20px;
+	line-height: 20px;
+}
+
+.insurance .insuranceList .model > li .right .modelList > li > strong:hover ul {
+	display: block;
+}
+
+.insurance .insuranceList .model > li .addModel {
+	display: block;
+	line-height: 310px;
+	text-align: center;
+}
+
+.insurance .insuranceList .model > li .addModel a {
+	color: #333
+}
+.insurance .insuranceList .model > li .opera {
+	text-align: center;
+}
+
+.insurance .insuranceList .model > li .opera button {
+	margin: 5px 5px 0 5px
+}
+
+/*保险信息*/
+/*
+.insurance {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 10px
+}
+
+.insurance .search {
+	height: 30px;
+	line-height: 30px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #b0caeb;
+}
+
+.insurance .search span {
+	padding-right: 15px;
+	padding-left: 8px
+}
+
+.insurance .search input {
+	width: 300px;
+	vertical-align: middle;
+}
+
+.insurance .search button {
+	vertical-align: middle;
+}
+
+.insurance .insuranceList {
+
+}
+
+.insurance .insuranceList .model {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.insurance .insuranceList .model > li {
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 20px;
+	margin-right: 10px;
+	width: 460px;
+	height: 310px;
+	border: 1px solid #b0caeb
+}
+
+.insurance .insuranceList .model > li .right {
+
+	padding-top: 30px;
+	width: 460px;
+	height: 230px;
+}
+
+.insurance .insuranceList .model > li .right .modelList {
+	display: inline-block;
+	vertical-align: top;
+	width: 225px;
+	height: 230px;
+}
+
+.insurance .insuranceList .model > li .right .modelList > li {
+	padding-bottom: 10px
+}
+
+.insurance .insuranceList .model > li .right .modelList > li > span {
+	display: inline-block;
+	width: 65px;
+	text-align: right;
+	line-height: 30px;
+	vertical-align: top;
+	padding-right: 8px;
+}
+
+.insurance .insuranceList .model > li .right .modelList > li > strong {
+	color: #53D4B8;
+	display: inline-block;
+	height: 30px;
+	line-height: 30px;
+	vertical-align: middle;
+	margin: 0 20px;
+	cursor: pointer;
+	position: relative;
+}
+
+.insurance .insuranceList .model > li .right .modelList > li > strong:hover {
+	text-decoration: underline;
+}
+
+.insurance .insuranceList .model > li .right .modelList > li > strong > ul {
+	position: absolute;
+	background: #fff;
+	width: 160px;
+	min-height: 20px;
+	top: 28px;
+	left: -30px;
+	border: 1px solid #ddd;
+	display: none;
+}
+
+.insurance .insuranceList .model > li .right .modelList > li > strong > ul > li {
+	height: 20px;
+	line-height: 20px;
+}
+
+.insurance .insuranceList .model > li .right .modelList > li > strong:hover ul {
+	display: block;
+}
+
+.insurance .insuranceList .model > li .addModel {
+	display: block;
+	line-height: 310px;
+	text-align: center;
+}
+
+.insurance .insuranceList .model > li .addModel a {
+	color: #333
+}
+.insurance .insuranceList .model > li .opera {
+	text-align: center;
+}
+
+.insurance .insuranceList .model > li .opera button {
+	margin: 10px 15px 0 15px
+}
+*/
+
+/*维保信息*/
+.maintenance {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 10px
+}
+
+.maintenance .search {
+	height: 30px;
+	line-height: 30px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #b0caeb;
+}
+
+.maintenance .search span {
+	padding-right: 15px;
+	padding-left: 8px
+}
+
+.maintenance .search input {
+	width: 300px;
+	vertical-align: middle;
+}
+
+.maintenance .search button {
+	vertical-align: middle;
+}
+
+.maintenance .maintenanceList {
+	width: 472px;
+	float: left;
+}
+
+.maintenance .maintenanceList .model {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.maintenance .maintenanceList .model > li {
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 20px;
+	margin-right: 10px;
+	width: 460px;
+	height: 310px;
+	border: 1px solid #b0caeb
+}
+
+.maintenance .maintenanceList .model > li .right {
+	/*float: left;*/
+	padding-top: 30px;
+	width: 460px;
+	height: 230px;
+}
+
+.maintenance .maintenanceList .model > li .right .modelList {
+	display: inline-block;
+	vertical-align: top;
+	width: 225px;
+	height: 230px;
+}
+
+.maintenance .maintenanceList .model > li .right .modelList > li {
+	padding-bottom: 10px
+}
+
+.maintenance .maintenanceList .model > li .right .modelList > li > span {
+	display: inline-block;
+	width: 65px;
+	text-align: right;
+	line-height: 30px;
+	vertical-align: top;
+	padding-right: 8px;
+}
+
+.maintenance .maintenanceList .model > li .right .modelList > li > strong {
+	color: #53D4B8;
+	display: inline-block;
+	height: 30px;
+	line-height: 30px;
+	vertical-align: middle;
+	margin: 0 20px;
+	cursor: pointer;
+	position: relative;
+}
+
+.maintenance .maintenanceList .model > li .right .modelList > li > strong:hover {
+	text-decoration: underline;
+}
+
+.maintenance .maintenanceList .model > li .right .modelList > li > strong > ul {
+	position: absolute;
+	background: #fff;
+	width: 160px;
+	min-height: 20px;
+	top: 28px;
+	left: -30px;
+	border: 1px solid #ddd;
+	display: none;
+}
+
+.maintenance .maintenanceList .model > li .right .modelList > li > strong > ul > li {
+	height: 20px;
+	line-height: 20px;
+}
+
+.maintenance .maintenanceList .model > li .right .modelList > li > strong:hover ul {
+	display: block;
+}
+
+.maintenance .maintenanceList .model > li .addModel {
+	display: block;
+	line-height: 310px;
+	text-align: center;
+}
+
+.maintenance .maintenanceList .model > li .addModel a {
+	color: #333
+}
+.maintenance .maintenanceList .model > li .opera {
+	text-align: center;
+}
+
+.maintenance .maintenanceList .model > li .opera button {
+	margin: 10px 15px 0 15px
+}
+
+.maintenance .table {
+	margin-left: 486px;
+	margin-top: 20px;
+	min-width: 580px;
+}
+
+.maintenance .table #depreciationAdd {
+	width: 100%;
+	height: 230px;
+	padding-bottom: 30px
+}
+
+.maintenance .table h4 {
+	line-height: 30px;
+	padding-left: 8px;
+}
+
+.maintenance .table .pager {
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+}
+
+.maintenance .table .pager > span {
+	display: inline-block;
+	vertical-align: middle;
+	letter-spacing: 3px;
+	margin: 0 5px;
+	cursor: pointer;
+}
+
+.maintenance .table .pager > span:hover {
+	color: #5E89B3;
+}
+
+.maintenance .table .pager > div {
+	display: inline-block;
+	vertical-align: top;
+	cursor: default;
+	max-width: 260px;
+}
+
+.maintenance .table .pager .pagerList {
+	display: inline-block;
+	vertical-align: top;
+	cursor: default;
+}
+
+.maintenance .table .pager .pagerList li {
+	display: inline-block;
+	min-width: 8px;
+	margin: 0 2px;
+	cursor: pointer;
+}
+
+.maintenance .table .pager .pagerList li:hover {
+	color: #5E89B3;
+}
+
+/*计量信息*/
+.metering .importedList .model > li .right .modelList > li{
+	line-height: 30px;
+}
+.metering .importedList .model > li .right .modelList > li > span{
+	width: 80px;
+}
+.metering .importedList .model > li .right .modelList > li > strong{
+	margin: 0 10px
+}
+.metering .importedList .model > li .opera button {
+	margin: 10px 5px 0 5px;
+	width: 70px;
+}
+
+/*案卷信息*/
+.records {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 10px
+}
+
+.records .search {
+	height: 30px;
+	line-height: 30px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #b0caeb;
+}
+
+.records .search span {
+	padding-right: 15px;
+	padding-left: 8px
+}
+
+.records .search input {
+	width: 300px;
+	vertical-align: middle;
+}
+
+.records .search button {
+	vertical-align: middle;
+}
+
+.records .recordsList {
+
+}
+
+.records .recordsList .model {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.records .recordsList .model > li {
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 20px;
+	margin-right: 10px;
+	width: 460px;
+	height: 310px;
+	border: 1px solid #b0caeb
+}
+
+.records .recordsList .model > li .right {
+	/*float: left;*/
+	padding-top: 30px;
+	width: 460px;
+	height: 230px;
+}
+
+.records .recordsList .model > li .right .modelList {
+	display: inline-block;
+	vertical-align: top;
+	width: 460px;
+	height: 230px;
+}
+
+.records .recordsList .model > li .right .modelList > li {
+	display: inline-block;
+	width: 226px;
+	vertical-align: middle;
+	padding-bottom: 10px
+}
+
+.records .recordsList .model > li .right .modelList > li > span {
+	display: inline-block;
+	width: 65px;
+	text-align: right;
+	line-height: 30px;
+	vertical-align: top;
+	padding-right: 8px;
+}
+
+.records .recordsList .model > li .right .modelList > li > strong {
+	color: #53D4B8;
+	display: inline-block;
+	height: 30px;
+	line-height: 30px;
+	vertical-align: middle;
+	margin: 0 20px;
+	cursor: pointer;
+	position: relative;
+}
+
+.records .recordsList .model > li .right .modelList > li > strong:hover {
+	text-decoration: underline;
+}
+
+.records .recordsList .model > li .right .modelList > li > strong > ul {
+	position: absolute;
+	background: #fff;
+	width: 160px;
+	min-height: 20px;
+	top: 28px;
+	left: -30px;
+	border: 1px solid #ddd;
+	display: none;
+}
+
+.records .recordsList .model > li .right .modelList > li > strong > ul > li {
+	height: 20px;
+	line-height: 20px;
+}
+
+.records .recordsList .model > li .right .modelList > li > strong:hover ul {
+	display: block;
+}
+
+.records .recordsList .model > li .addModel {
+	display: block;
+	line-height: 310px;
+	text-align: center;
+}
+
+.records .recordsList .model > li .addModel a {
+	color: #333
+}
+.records .recordsList .model > li .opera {
+	text-align: center;
+}
+
+.records .recordsList .model > li .opera button {
+	margin: 10px 15px 0 15px
+}
+
+/*案卷信息/设备关联*/
+.recordsRelation {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 10px
+}
+
+.recordsRelation .search {
+	height: 30px;
+	line-height: 30px;
+	padding-bottom: 20px;
+}
+
+.recordsRelation .search span {
+	padding-right: 15px;
+	padding-left: 8px
+}
+
+.recordsRelation .search input {
+	width: 300px;
+	vertical-align: middle;
+}
+
+.recordsRelation .search button {
+	vertical-align: middle;
+}
+
+.recordsRelation .recordsRelationList {
+
+}
+
+.recordsRelation .recordsRelationList .model {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.recordsRelation .recordsRelationList .model > li {
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 20px;
+	margin-right: 10px;
+	width: 460px;
+	height: 310px;
+	border: 1px solid #b0caeb
+}
+
+.recordsRelation .recordsRelationList .model > li .left {
+	float: left;
+	padding-top: 30px;
+	width: 230px;
+	height: 230px;
+}
+.recordsRelation .recordsRelationList .model > li .left>span{
+	display: block;
+	width: 100%;
+	text-align:center;
+}
+.recordsRelation .recordsRelationList .model > li .left .img {
+	margin: 0 auto;
+	height: 155px;
+	width: 200px;
+	margin-bottom: 20px;
+	border: 1px solid #b0caeb
+}
+.recordsRelation .recordsRelationList .model > li .left .img img{
+	width: 100%;
+	height: 100%;
+}
+.recordsRelation .recordsRelationList .model > li .left .opera {
+	text-align: center;
+}
+
+.recordsRelation .recordsRelationList .model > li .left .opera button {
+	margin-top: 10px
+}
+
+.recordsRelation .recordsRelationList .model > li .right {
+	float: left;
+	padding-top: 30px;
+	width: 230px;
+	height: 230px;
+}
+
+.recordsRelation .recordsRelationList .model > li .right .modelList > li {
+	padding-bottom: 10px
+}
+
+.recordsRelation .recordsRelationList .model > li .right .modelList > li > span {
+	padding-left: 20px
+}
+
+.recordsRelation .recordsRelationList .model > li .right .modelList > li > strong {
+	color: #53D4B8;
+	display: inline-block;
+	height: 30px;
+	line-height: 30px;
+	vertical-align: middle;
+	margin: 0 20px;
+	cursor: pointer;
+	position: relative;
+}
+
+.recordsRelation .recordsRelationList .model > li .right .modelList > li > strong:hover {
+	text-decoration: underline;
+}
+
+.recordsRelation .recordsRelationList .model > li .right .modelList > li > strong > ul {
+	position: absolute;
+	background: #fff;
+	width: 160px;
+	min-height: 20px;
+	top: 28px;
+	left: -20px;
+	border: 1px solid #ddd;
+	display: none;
+}
+
+.recordsRelation .recordsRelationList .model > li .right .modelList > li > strong > ul > li {
+	height: 20px;
+	line-height: 20px;
+}
+
+.recordsRelation .recordsRelationList .model > li .right .modelList > li > strong:hover ul {
+	display: block;
+}
+
+.recordsRelation .recordsRelationList .model > li .addModel {
+	display: block;
+	line-height: 310px;
+	text-align: center;
+}
+
+.recordsRelation .recordsRelationList .model > li .addModel a {
+	color: #333
+}
+.recordsRelation .recordsRelationList .model > li .opera {
+	text-align: center;
+}
+
+.recordsRelation .recordsRelationList .model > li .opera button {
+	margin: 10px 15px 0 15px
+}
+
+.recordsRelation .table {
+	width: 100%;
+}
+
+.recordsRelation .table #depreciationAdd {
+	width: 100%;
+	height: 230px;
+	padding-bottom: 30px
+}
+
+.recordsRelation .table h4 {
+	line-height: 30px;
+	padding-left: 8px;
+}
+
+.recordsRelation .table .pager {
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+}
+
+.recordsRelation .table .pager > span {
+	display: inline-block;
+	vertical-align: middle;
+	letter-spacing: 3px;
+	margin: 0 5px;
+	cursor: pointer;
+}
+
+.recordsRelation .table .pager > span:hover {
+	color: #5E89B3;
+}
+
+.recordsRelation .table .pager > div {
+	display: inline-block;
+	vertical-align: top;
+	cursor: default;
+	max-width: 260px;
+}
+
+.recordsRelation .table .pager .pagerList {
+	display: inline-block;
+	vertical-align: top;
+	cursor: default;
+}
+
+.recordsRelation .table .pager .pagerList li {
+	display: inline-block;
+	min-width: 8px;
+	margin: 0 2px;
+	cursor: pointer;
+}
+
+.recordsRelation .table .pager .pagerList li:hover {
+	color: #5E89B3;
+}
+
+/*案卷信息/文件列表*/
+.fileList {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 10px
+}
+.fileList .opera{
+	height: 30px;
+	padding: 10px 0;
+}
+.fileList .table {
+	width: 100%;
+}
+
+.fileList .table #depreciationAdd {
+	width: 100%;
+	height: 230px;
+	padding-bottom: 30px
+}
+
+.fileList .table h4 {
+	line-height: 30px;
+	padding-left: 8px;
+}
+
+.fileList .table .pager {
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+}
+
+.fileList .table .pager > span {
+	display: inline-block;
+	vertical-align: middle;
+	letter-spacing: 3px;
+	margin: 0 5px;
+	cursor: pointer;
+}
+
+.fileList .table .pager > span:hover {
+	color: #5E89B3;
+}
+
+.fileList .table .pager > div {
+	display: inline-block;
+	vertical-align: top;
+	cursor: default;
+	max-width: 260px;
+}
+
+.fileList .table .pager .pagerList {
+	display: inline-block;
+	vertical-align: top;
+	cursor: default;
+}
+
+.fileList .table .pager .pagerList li {
+	display: inline-block;
+	min-width: 8px;
+	margin: 0 2px;
+	cursor: pointer;
+}
+
+.fileList .table .pager .pagerList li:hover {
+	color: #5E89B3;
+}
+
+/*案卷信息/案卷模版*/
+.fileModel {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 10px
+}
+
+.fileModel .search {
+	height: 30px;
+	line-height: 30px;
+	padding-bottom: 20px;
+}
+
+.fileModel .search span {
+	padding-right: 15px;
+	padding-left: 8px
+}
+
+.fileModel .search input {
+	width: 300px;
+	vertical-align: middle;
+}
+
+.fileModel .search button {
+	vertical-align: middle;
+}
+.fileModel .table {
+	width: 100%;
+}
+
+.fileModel .table #depreciationAdd {
+	width: 100%;
+	height: 230px;
+	padding-bottom: 30px
+}
+
+.fileModel .table h4 {
+	line-height: 30px;
+	padding-left: 8px;
+}
+
+.fileModel .table .pager {
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+}
+
+.fileModel .table .pager > span {
+	display: inline-block;
+	vertical-align: middle;
+	letter-spacing: 3px;
+	margin: 0 5px;
+	cursor: pointer;
+}
+
+.fileModel .table .pager > span:hover {
+	color: #5E89B3;
+}
+
+.fileModel .table .pager > div {
+	display: inline-block;
+	vertical-align: top;
+	cursor: default;
+	max-width: 260px;
+}
+
+.fileModel .table .pager .pagerList {
+	display: inline-block;
+	vertical-align: top;
+	cursor: default;
+}
+
+.fileModel .table .pager .pagerList li {
+	display: inline-block;
+	min-width: 8px;
+	margin: 0 2px;
+	cursor: pointer;
+}
+
+.fileModel .table .pager .pagerList li:hover {
+	color: #5E89B3;
+}
+
+
+
+
+.bg{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: #000;
+    opacity: 0.1;
+    filter:alpha(opacity=10);
+}
+.newData{
+    background:#fff;
+    width:600px;
+    height:230px;
+    position: absolute;
+    top:50px;
+    left:50%;
+    margin-left:-300px;
+    padding:20px
+}
+
+.newData .list{
+    width: 600px;
+}
+.newData .list>li{
+    line-height:30px;
+    padding-bottom:8px;
+    padding-left:10px;
+    font-size:14px;
+}
+.newData .list>li>div>span{
+    display: inline-block;
+    width:90px;
+    font-size:14px;
+}
+.newData .list>li>div input{
+    width:180px;
+    padding-left:8px;
+    height:28px!important;
+    border:1px solid #b0caeb;
+}
+
+.newData .inp
+{
+    width:180px;
+    padding-left:8px;
+    height:28px;
+    border:1px solid #b0caeb;
+}
+.newData .btn{
+    background:#5E89B3;
+    width:100px;
+    height:30px;
+    font-size:12px;
+    color:#ffffff;
+    border:none;
+    margin:10px 15px
+}
+.newData .width-480{
+    width: 485px!important;
+}
+
+
+.newData .filt{
+
+}
+.newData .filt ul li{
+	display:inline-block;
+	vertical-align:middle;
+	height:30px;
+	line-height:30px;
+	margin-bottom:20px;
+	margin-right:50px
+}
+.newData .filt ul li span{
+	padding-right:10px;
+}
+.newData .filt ul li>div{
+	display:inline-block;
+	vertical-align: middle;
+}
+.newData .filt ul li>div input{
+	border:1px solid #bed4ed;
+	width:158px;
+	height:28px;
+	text-indent:3px;
+}
+
+.newData .table{
+	min-height:300px;
+}
+.newData .table table{
+	min-width:100%;
+	border-collapse: collapse;
+}
+.newData .table table td,.table table th{
+	border:1px solid #bed4ed;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	padding:0 3px;
+}
+.newData .table table thead{
+	background: #e1ecff
+}
+.newData .table table tr.onsel{
+	color:#e7564f;
+}

@@ -1,0 +1,286 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <title>报废审批</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1">
+    <link rel="stylesheet" type="text/css" href="../../styles/common/base.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/common/common.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/mce/PageMceWriteOffAuditNew.css">
+    <script type="text/javascript" src="../../scripts/new_angular/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/angular.1.2.29.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/appDirectives.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/appServices.js"></script>
+
+    <script type="text/javascript" src="../../scripts/My97DatePicker/WdatePicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../scripts/My97DatePicker/skin/WdatePicker.css">
+    <script type="text/javascript" src="../../scripts/mce/PageMceWriteOffAuditNew.js"></script>
+</head>
+<body ng-controller="index" ng-click="clearFkDetailState();InputschangeState.changeState('a')">
+    <div class="content">
+    
+        <div class="filt">
+            <ul>
+                <li>
+                    <div>
+                        <span>单号</span>
+                        <input type="text" readonly ng-model="headInfo.CODE">
+                    </div>
+                </li>
+       
+                <li>
+                    <div>
+                        <span>申请日期</span>
+                        <input ng-readonly="headInfo.STATE > 1" type="text" class="clock" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',onpicked:function(){$(this).trigger('change')},isShowClear:false})"
+                               ng-model="headInfo.CREATE_DATE" ng-disabled="headInfo.ID != ''">
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>申请科室</span>
+                        <input type="text" readonly ng-model="headInfo.DEPT_ID_NAME">
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>申请人</span>
+                        <input type="text" readonly ng-model="headInfo.USER_ID_NAME">
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>财务月份</span>
+                        <input type="text" readonly ng-model="headInfo.FINANCE_CYCLE">
+                        
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>报废方式</span>
+                        <input type="text" readonly ng-model="headInfo.WRITE_OFF_TYPE_ID_NAME">
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>报废原因</span>
+                        <input type="text" readonly ng-model="headInfo.WRITE_OFF_CAUSE_ID_NAME">
+                    </div>
+                </li>
+                <li>
+                    <span>实物处置收益</span>
+                    <input type="text" ng-model="headInfo.INCOME" ng-readonly="headInfo.STATE > 1" class="inp">
+                </li>
+                <li>
+                    <div>
+                        <span>使用情况</span>
+                        <input ng-readonly="headInfo.STATE > 1" type="text" ng-model="headInfo.USAGE">
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>备注</span>
+                        <input ng-readonly="headInfo.STATE > 1" type="text" ng-model="headInfo.COMMENTS">
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="data">
+            <!--<div class="operation">
+                <button class="btn" ng-show="headInfo.STATE <= 1" ng-click="saveModel('1')">保存</button>
+                <button class="btn" ng-show="headInfo.STATE <= 1" ng-click="saveModel('2')">保存返回</button>
+               
+                <button class="btn fr" ng-click="goBack()">返回</button>
+
+            </div>-->
+            <div class="table">
+                <table cellpadding="0" border="0" cellspacing="0">
+                    <thead>
+                    <th>设备名称</th>
+                    <th>设备编号</th>
+                    <th>设备分类</th>
+                    <th>规格型号</th>
+                    <th>设备厂商</th>
+                    <th>存放地点</th>
+                    <th>原值</th>
+                    <th>净值</th>
+                    <th>残值</th>
+                    <th>启用日期</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="(k,v) in tableRows">
+          
+                            <td ng-bind="v.ASSETS_NAME"></td>
+                            <td ng-bind="v.ASSETS_CODE"></td>
+                            <td ng-bind="v.MACHINE_TYPE_ID_NAME"></td>
+                            <td ng-bind="v.SPEC"></td>
+                            <td ng-bind="v.PRD_ID_NAME"></td>
+                            <td ng-bind="v.STORE_ADDRESS"></td>
+                            <td ng-bind="v.ORIGINAL_VALUE"></td>
+                            <td ng-bind="v.NET_VALUE"></td>
+                            <td ng-bind="v.RUDIMENTAL_VALUE"></td>
+                            <td ng-bind="v.ENABLE_DATE"></td>
+                          
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+            <div class="data" style="margin-top:10px;">
+                <div class="operation" style="height:20px;">
+                    <span style="font-size: 12px; font-weight: bold; padding-left: 4px;">报废附件信息：</span>
+                </div>
+                <div class="table">
+                    <table cellpadding="0" border="0" cellspacing="0">
+                        <thead>
+                        <th>文件名称</th>
+                        <th>提交人</th>
+                        <th>上传时间</th>
+                        <th>操作</th>
+
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="(k,v) in attachRows">
+
+                                <td ng-bind="v.FILE_NAME"></td>
+                                <td ng-bind="v.USER_ID_NAME"></td>
+                                <td ng-bind="v.CREATE_DATE"></td>
+
+                                <td>
+                                    <button ng-click="FileDown(v)">下载</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+            <div class="data">
+                <div class="operation" style="height:20px;">
+                    <span style="font-size:12px;font-weight:bold;padding-left:4px;">鉴定参数：</span>
+                </div>
+                <div class="table">
+                    <table cellpadding="0" border="0" cellspacing="0">
+                        <tr>
+                            <td>
+                                <input ng-disabled="headInfo.STATE > 2" ng-checked="identityInfo.I01" ng-click="identityInfo.I01=!identityInfo.I01" type="checkbox" />
+                            </td>
+                            <td style="text-align:left">
+                                未达到报废标准，不建议报废
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input ng-disabled="headInfo.STATE > 2" ng-checked="identityInfo.I02" ng-click="identityInfo.I02=!identityInfo.I02" type="checkbox" />
+                            </td>
+                            <td style="text-align:left">
+                                使用年限过长，功能未受损伤，完全失去使用价值，或不能使用并无修复价值
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input ng-disabled="headInfo.STATE > 2" ng-checked="identityInfo.I03" ng-click="identityInfo.I03=!identityInfo.I03" type="checkbox" />
+                            </td>
+                            <td style="text-align:left">
+                                产品技术落后，质量差，耗能高，效率低，已属淘汰且不适用于继续使用，或技术指标已达不到使用要求
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input ng-disabled="headInfo.STATE > 2" ng-checked="identityInfo.I04" ng-click="identityInfo.I04=!identityInfo.I04" type="checkbox" />
+                            </td>
+                            <td style="text-align:left">
+                                严重损坏，无法修复，或虽能修复但累计修理费已接近或超过市场价值
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input ng-disabled="headInfo.STATE > 2" ng-checked="identityInfo.I05" ng-click="identityInfo.I05=!identityInfo.I05" type="checkbox" />
+                            </td>
+                            <td style="text-align:left">
+                                计量检测或应用质量检测不合格
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input ng-disabled="headInfo.STATE > 2" ng-checked="identityInfo.I06" ng-click="identityInfo.I06=!identityInfo.I06" type="checkbox" />
+                            </td>
+                            <td style="text-align:left">
+                                主要附件损坏，无法修复，而主体尚可使用的，可作部分报废
+                            </td>
+                        </tr>
+
+
+                    </table>
+                </div>
+            </div>
+
+
+        <div class="filt" style="margin-top:10px;">
+            <ul>
+                <li>
+                    <div>
+                        <span>鉴定人</span>
+                        <input type="text" readonly ng-model="headInfo.IDENTITY_USER_ID_NAME">
+                    </div>
+                </li>
+
+                <li>
+                    <div>
+                        <span>鉴定日期</span>
+                        <input type="text" readonly ng-model="headInfo.IDENTITY_TIME">
+                    </div>
+                </li>
+                <li>
+                    <div style="margin-right:30px">
+                        <span>鉴定意见</span>
+                        <input type="text" readonly ng-model="headInfo.IDENTITY_STATE_NAME">
+                    </div>
+                </li>              
+            </ul>
+            <ul>
+                <li>
+                    <div>
+                        <span>审批人</span>
+                        <my-param param="user" change="InputschangeState" param-obj="paramUser" show-str="user" authority="headInfo.STATE > 3?true:false"></my-param>
+                    </div>
+                </li>
+
+                <li>
+                    <div>
+                        <span>审批日期</span>
+                        <input ng-disabled="headInfo.STATE > 3" type="text" class="clock" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',onpicked:function(){$(this).trigger('change')},isShowClear:false})"
+                               ng-model="headInfo.AUDIT_TIME">
+                    </div>
+                </li>
+                <li>
+                    <div style="margin-right:30px">
+                        <span>审批意见</span>
+                        <input type="text" ng-readonly="headInfo.STATE > 3" style="width:400px;" ng-model="headInfo.SUMARRY">
+                    </div>
+                </li>
+            </ul>
+
+            <ul>
+                <li>
+                    <div class="operation">
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <button class="btn" ng-show="headInfo.STATE == 3" ng-click="saveModel('5')">同意报废</button>
+                        <button class="btn" ng-show="headInfo.STATE == 3" ng-click="saveModel('6')">不同意报废</button>
+                        <button class="btn" ng-click="goBack()">返回</button>
+
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+
+    </div>
+
+
+
+</body>
+</html>

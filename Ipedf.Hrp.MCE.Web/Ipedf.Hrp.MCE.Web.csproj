@@ -1,0 +1,1194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2A36A3D6-2B12-413C-9835-C3D32C1A3BB7}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ipedf.Hrp.Web</RootNamespace>
+    <AssemblyName>Ipedf.Hrp.MCE.Web</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Reference.Thirdpart\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Data.AdoDotNetInterop, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Reference.Thirdpart\CrystalDecisions.Data.AdoDotNetInterop.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Reference.Thirdpart\CrystalDecisions.ReportSource.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Reference.Thirdpart\CrystalDecisions.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Web, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Reference.Thirdpart\CrystalDecisions.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="fastJSON">
+      <HintPath>..\..\..\Reference.Thirdpart\fastJSON.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.Excel, Version=1.4.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Reference.Thirdpart\Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Ipedf.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Reference.Common\Ipedf.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Ipedf.Core.Utility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Reference.Common\Ipedf.Core.Utility.dll</HintPath>
+    </Reference>
+    <Reference Include="Ipedf.Core.Web, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Reference.Common\Ipedf.Core.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Ipedf.Hrp.MDM.BizLogic, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Ipedf.Hrp.MDM.BizLogic.dll</HintPath>
+    </Reference>
+    <Reference Include="Ipedf.Hrp.MDM.Entity, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Ipedf.Hrp.MDM.Entity.dll</HintPath>
+    </Reference>
+    <Reference Include="Ipedf.Hrp.MTR.BizLogic">
+      <HintPath>..\..\..\Reference.Common\Ipedf.Hrp.MTR.BizLogic.dll</HintPath>
+    </Reference>
+    <Reference Include="Ipedf.Hrp.MTR.DataAccess, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Reference.Common\Ipedf.Hrp.MTR.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Ipedf.Hrp.MTR.Entity, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Ipedf.Hrp.MTR.Entity.dll</HintPath>
+    </Reference>
+    <Reference Include="Ipedf.Hrp.PRV_MCE.Entity, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Ipedf.Hrp.PRV_MCE.Entity.dll</HintPath>
+    </Reference>
+    <Reference Include="Ipedf.Web.BizLogic.Oracle, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Reference.Common\Ipedf.Web.BizLogic.Oracle.dll</HintPath>
+    </Reference>
+    <Reference Include="Ipedf.Web.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Reference.Common\Ipedf.Web.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Ipedf.Web.Control, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Reference.Common\Ipedf.Web.Control.dll</HintPath>
+    </Reference>
+    <Reference Include="Ipedf.Web.Entity.Oracle, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Reference.Common\Ipedf.Web.Entity.Oracle.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.9.0, Culture=neutral, PublicKeyToken=b32731d11ce58905">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Reference.Thirdpart\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.0.5.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Reference.Thirdpart\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=1.2.4.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Reference.Thirdpart\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Extensions.Design" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="ThoughtWorks.QRCode">
+      <HintPath>..\..\..\Reference.Thirdpart\ThoughtWorks.QRCode.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataObject.txt" />
+    <Content Include="images\icon\imgDefault.png" />
+    <Content Include="modules\MCE_AssetCard\assetCard.html" />
+    <Content Include="modules\MCE_AssetCard\PageMceAssertCardList.html" />
+    <Content Include="modules\MCE_AssetCard\PageMceAssertTypeDept.html" />
+    <Content Include="modules\MCE_AssetCard\PageMceAssertTypeDetail.html" />
+    <Content Include="modules\MCE_AssetCard\PageMceAssertTypeList.html" />
+    <Content Include="modules\MCE_AssetCard\page\baseInfo.html" />
+    <Content Include="modules\MCE_AssetCard\page\capital.html" />
+    <Content Include="modules\MCE_AssetCard\page\circulation.html" />
+    <Content Include="modules\MCE_AssetCard\page\contract.html" />
+    <Content Include="modules\MCE_AssetCard\page\depreciation.html" />
+    <Content Include="modules\MCE_AssetCard\page\enclosure.html" />
+    <Content Include="modules\MCE_AssetCard\page\fileList.html" />
+    <Content Include="modules\MCE_AssetCard\page\fileModel.html" />
+    <Content Include="modules\MCE_AssetCard\page\imported.html" />
+    <Content Include="modules\MCE_AssetCard\page\inspection.html" />
+    <Content Include="modules\MCE_AssetCard\page\insurance.html" />
+    <Content Include="modules\MCE_AssetCard\page\maintenance.html" />
+    <Content Include="modules\MCE_AssetCard\page\metering.html" />
+    <Content Include="modules\MCE_AssetCard\page\records.html" />
+    <Content Include="modules\MCE_AssetCard\page\recordsRelation.html" />
+    <Content Include="modules\MCE_AssetCard\page\scrap.html" />
+    <Content Include="modules\MCE_CONTRACT\PageMceContractList.html" />
+    <Content Include="modules\MCE_CONTRACT\PageMceContractNew.html" />
+    <Content Include="modules\MCE_CONTRACT\PageMceContractPay.html" />
+    <Content Include="modules\MCE_DEPR\PageMceDeprList.html" />
+    <Content Include="modules\MCE_DEPR\PageMceDeprNew.html" />
+    <Content Include="modules\MCE_DEPR\PageMceDeprTypeList.html" />
+    <Content Include="modules\MCE_DEPR\PageMceDeprTypeNew.html" />
+    <Content Include="modules\MCE_INSTOCK\PageMceAOGList.html" />
+    <Content Include="modules\MCE_INSTOCK\PageMceAOGNew.html" />
+    <Content Include="modules\MCE_INSTOCK\PageMceInstockList.html" />
+    <Content Include="modules\MCE_INSTOCK\PageMceInstockNew.html" />
+    <Content Include="modules\MCE_METER\PageMceMeterCheckList.html" />
+    <Content Include="modules\MCE_METER\PageMceMeterCheckNew.html" />
+    <Content Include="modules\MCE_METER\PageMceMeterList.html" />
+    <Content Include="modules\MCE_METER\PageMceMeterNew.html" />
+    <Content Include="modules\MCE_METER\PageMceMeterTypeList.html" />
+    <Content Include="modules\MCE_METER\PageMceMeterTypeNew.html" />
+    <Content Include="modules\MCE_MT\PageMceMaintainList.html" />
+    <Content Include="modules\MCE_MT\PageMceMaintainNew.html" />
+    <Content Include="modules\MCE_MT\PageMceMTNExecList.html" />
+    <Content Include="modules\MCE_MT\PageMceMTNExecNew.html" />
+    <Content Include="modules\MCE_MT\PageMceMtnItemList.html" />
+    <Content Include="modules\MCE_MT\PageMceMtnItemNew.html" />
+    <Content Include="modules\MCE_MT\PageMceMTNPlanList.html" />
+    <Content Include="modules\MCE_MT\PageMceMTNPlanNew.html" />
+    <Content Include="modules\MCE_OUTSTOCK\PageMceBackList.html" />
+    <Content Include="modules\MCE_OUTSTOCK\PageMceBackNew.html" />
+    <Content Include="modules\MCE_OUTSTOCK\PageMceOutstockList.html" />
+    <Content Include="modules\MCE_OUTSTOCK\PageMceOutstockNew.html" />
+    <Content Include="modules\MCE_OUTSTOCK\PageMceTransferList.html" />
+    <Content Include="modules\MCE_OUTSTOCK\PageMceTransferNew.html" />
+    <Content Include="modules\MCE_PLAN\PageMcePurchaseDetail.html" />
+    <Content Include="modules\MCE_PLAN\PageMcePurchaseList.html" />
+    <Content Include="modules\MCE_PLAN\PageMcePurchaseNew.html" />
+    <Content Include="modules\MCE_PLAN\PageMcePurPlanList.html" />
+    <Content Include="modules\MCE_PLAN\PageMcePurPlanNew.html" />
+    <Content Include="modules\MCE_PRVMANAGE\PageMceAssetCheckDetail.html" />
+    <Content Include="modules\MCE_PRVMANAGE\PageMceGetAssetCheckList.html" />
+    <Content Include="modules\MCE_PRVMANAGE\PageMceGetPrvCheckList.html" />
+    <Content Include="modules\MCE_PRVMANAGE\PageMcePrvCheckDetail.html" />
+    <Content Include="modules\MCE_STOCKDATA\PageMceCheckList.html" />
+    <Content Include="modules\MCE_STOCKDATA\PageMceCheckNew.html" />
+    <Content Include="modules\MCE_STOCKDATA\PageMceSalesReturnList.html" />
+    <Content Include="modules\MCE_STOCKDATA\PageMceSalesReturnNew.html" />
+    <Content Include="modules\MCE_WriteOff\PageMceWriteOffAuditlist.html" />
+    <Content Include="modules\MCE_WriteOff\PageMceWriteOffAuditNew.html" />
+    <Content Include="modules\MCE_WriteOff\PageMceWriteOffIdentitylist.html" />
+    <Content Include="modules\MCE_WriteOff\PageMceWriteOffIdentityNew.html" />
+    <Content Include="modules\MCE_WriteOff\PageMceWriteOffList.html" />
+    <Content Include="modules\MCE_WriteOff\PageMceWriteOffNew.html" />
+    <Content Include="reportfile\PrintControl.cab" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Code\MCE\BarCodeHelper.cs" />
+    <Compile Include="Code\MCE\GridData.cs" />
+    <Compile Include="Code\MCE\JsonHelper.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_CONTRACT\Srv_MCE_GetMCEContractDetail.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEContractDetail.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_CONTRACT\Srv_MCE_GetMCEContractList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEContractList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_CONTRACT\Srv_MCE_GetMCEContractPayList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEContractPayList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_CONTRACT\Srv_MCE_MCEContractOperate.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEContractOperate.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_CONTRACT\Srv_MCE_MCEContractPay.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEContractPay.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_CONTRACT\Srv_MCE_MCEContractSave.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEContractSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DEPR\Srv_MCE_GetMCEAssetsDeprHistoryList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEAssetsDeprHistoryList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DEPR\Srv_MCE_GetMCEDeprCalc.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEDeprCalc.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DEPR\Srv_MCE_GetMCEDeprDetail.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEDeprDetail.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DEPR\Srv_MCE_GetMCEDeprList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEDeprList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DEPR\Srv_MCE_GetMCEDeprTypeDetail.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEDeprTypeDetail.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DEPR\Srv_MCE_GetMCEDeprTypeList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEDeprTypeList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DEPR\Srv_MCE_MCEDeprOperate.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEDeprOperate.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DEPR\Srv_MCE_MCEDeprSave.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEDeprSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DEPR\Srv_MCE_MCEDeprTypeDelete.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEDeprTypeDelete.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DEPR\Srv_MCE_MCEDeprTypeSave.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEDeprTypeSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_FileUpload.ashx.cs">
+      <DependentUpon>Srv_MCE_FileUpload.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_GetMCEAssetsAffixList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEAssetsAffixList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_GetMCEAssetsCapitalList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEAssetsCapitalList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_GetMCEAssetsComtractList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEAssetsComtractList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_GetMCEAssetsDeprAllocList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEAssetsDeprAllocList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_GetMCEAssetsDeprTypeList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEAssetsDeprTypeList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_GetMCEAssetsDetail.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEAssetsDetail.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_GetMCEAssetsImportionList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEAssetsImportionList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_GetMCEAssetsInsuranceList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEAssetsInsuranceList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_GetMCEAssetsList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEAssetsList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_GetMCEAssetsMeterList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEAssetsMeterList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_GetMCEAssetsWriteOffList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEAssetsWriteOffList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_GetMCETypeDeptList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCETypeDeptList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_GetMCETypeDetail.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCETypeDetail.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_GetMCETypeList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCETypeList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_GetMCETypeTree.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCETypeTree.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsAffixAudit.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsAffixAudit.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsAffixDelete.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsAffixDelete.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsAffixSave.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsAffixSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsCapitalAudit.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsCapitalAudit.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsCapitalDelete.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsCapitalDelete.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsCapitalSave.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsCapitalSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsComtractAudit.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsComtractAudit.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsComtractContinue.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsComtractContinue.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsComtractDelete.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsComtractDelete.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsComtractSave.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsComtractSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsComtractStop.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsComtractStop.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsDeprAllocAudit.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsDeprAllocAudit.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsDeprAllocDelete.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsDeprAllocDelete.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsDeprAllocSave.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsDeprAllocSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetseAudit.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetseAudit.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetseDelete.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetseDelete.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetseSave.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetseSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsIMPORTATIONAudit.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsIMPORTATIONAudit.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsIMPORTATIONDelete.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsIMPORTATIONDelete.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsIMPORTATIONSave.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsIMPORTATIONSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsInsuranceAudit.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsInsuranceAudit.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsInsuranceContinue.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsInsuranceContinue.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsInsuranceDelete.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsInsuranceDelete.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsInsuranceExpire.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsInsuranceExpire.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsInsuranceSave.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsInsuranceSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsMeterAudit.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsMeterAudit.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsMeterContinue.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsMeterContinue.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsMeterDelete.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsMeterDelete.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsMeterExpire.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsMeterExpire.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsMeterSave.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsMeterSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsWriteOffAudit.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsWriteOffAudit.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsWriteOffDelete.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsWriteOffDelete.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsWriteOffSave.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsWriteOffSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_MCETypeDelete.ashx.cs">
+      <DependentUpon>Srv_MCE_MCETypeDelete.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_MCETypeDeptDelete.ashx.cs">
+      <DependentUpon>Srv_MCE_MCETypeDeptDelete.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_MCETypeDeptSave.ashx.cs">
+      <DependentUpon>Srv_MCE_MCETypeDeptSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_DICT\Srv_MCE_MCETypeSave.ashx.cs">
+      <DependentUpon>Srv_MCE_MCETypeSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_INSTOCK\Srv_MCE_GetMCEAOGDetail.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEAOGDetail.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_INSTOCK\Srv_MCE_GetMCEAOGList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEAOGList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_INSTOCK\Srv_MCE_GetMCEInstockDetail.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEInstockDetail.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_INSTOCK\Srv_MCE_GetMCEInstockList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEInstockList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_INSTOCK\Srv_MCE_GetMCEInstockRefAOG.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEInstockRefAOG.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_INSTOCK\Srv_MCE_GetMCEStockList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEStockList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_INSTOCK\Srv_MCE_MCEAOGOperate.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAOGOperate.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_INSTOCK\Srv_MCE_MCEAOGSave.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAOGSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_INSTOCK\Srv_MCE_MCEInstockOperate.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEInstockOperate.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_INSTOCK\Srv_MCE_MCEInstockSave.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEInstockSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_METER\Srv_MCE_GetMCEMeterCheckDetail.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEMeterCheckDetail.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_METER\Srv_MCE_GetMCEMeterCheckList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEMeterCheckList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_METER\Srv_MCE_GetMCEMeterDetail.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEMeterDetail.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_METER\Srv_MCE_GetMCEMeterList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEMeterList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_METER\Srv_MCE_GetMCEMeterTypeDetail.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEMeterTypeDetail.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_METER\Srv_MCE_GetMCEMeterTypeList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEMeterTypeList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_METER\Srv_MCE_MCEMeterCheckOperate.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEMeterCheckOperate.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_METER\Srv_MCE_MCEMeterCheckSave.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEMeterCheckSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_METER\Srv_MCE_MCEMeterOperate.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEMeterOperate.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_METER\Srv_MCE_MCEMeterSave.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEMeterSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_METER\Srv_MCE_MCEMeterTypeDelete.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEMeterTypeDelete.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_METER\Srv_MCE_MCEMeterTypeSave.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEMeterTypeSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_MT\Srv_MCE_GetMCEAssetsMtnHistoryList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEAssetsMtnHistoryList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_MT\Srv_MCE_GetMCEAssetsMtnList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEAssetsMtnList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_MT\Srv_MCE_GetMCEMaintainDetail.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEMaintainDetail.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_MT\Srv_MCE_GetMCEMaintainList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEMaintainList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_MT\Srv_MCE_GetMCEMTNExecDetail.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEMTNExecDetail.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_MT\Srv_MCE_GetMCEMTNExecList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEMTNExecList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_MT\Srv_MCE_GetMCEMTNItemDetail.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEMTNItemDetail.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_MT\Srv_MCE_GetMCEMTNItemList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEMTNItemList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_MT\Srv_MCE_GetMCEMTNPlanDetail.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEMTNPlanDetail.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_MT\Srv_MCE_GetMCEMTNPlanList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEMTNPlanList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_MT\Srv_MCE_MCEMaintainOperate.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEMaintainOperate.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_MT\Srv_MCE_MCEMaintainSave.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEMaintainSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_MT\Srv_MCE_MCEMTNExecOperate.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEMTNExecOperate.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_MT\Srv_MCE_MCEMTNExecSave.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEMTNExecSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_MT\Srv_MCE_MCEMTNItemDelete.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEMTNItemDelete.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_MT\Srv_MCE_MCEMTNItemSave.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEMTNItemSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_MT\Srv_MCE_MCEMTNPlanOperate.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEMTNPlanOperate.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_MT\Srv_MCE_MCEMTNPlanSave.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEMTNPlanSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_OUTSTOCK\Srv_MCE_GetMCEBackDetail.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEBackDetail.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_OUTSTOCK\Srv_MCE_GetMCEBackList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEBackList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_OUTSTOCK\Srv_MCE_GetMCEOutStockBackList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEOutStockBackList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_OUTSTOCK\Srv_MCE_GetMCEOutstockDetail.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEOutstockDetail.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_OUTSTOCK\Srv_MCE_GetMCEOutstockList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEOutstockList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_OUTSTOCK\Srv_MCE_GetMCETransferDetail.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCETransferDetail.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_OUTSTOCK\Srv_MCE_GetMCETransferList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCETransferList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_OUTSTOCK\Srv_MCE_MCEBackOperate.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEBackOperate.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_OUTSTOCK\Srv_MCE_MCEBackSave.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEBackSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_OUTSTOCK\Srv_MCE_MCEOutstockOperate.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEOutstockOperate.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_OUTSTOCK\Srv_MCE_MCEOutstockSave.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEOutstockSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_OUTSTOCK\Srv_MCE_MCETransferOperate.ashx.cs">
+      <DependentUpon>Srv_MCE_MCETransferOperate.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_OUTSTOCK\Srv_MCE_MCETransferSave.ashx.cs">
+      <DependentUpon>Srv_MCE_MCETransferSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_PLAN\Srv_MCE_GetMCEAOGRefPurPlan.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEAOGRefPurPlan.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_PLAN\Srv_MCE_GetMCEPurchaseList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEPurchaseList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_PLAN\Srv_MCE_GetMCEPurPlanDetail.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEPurPlanDetail.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_PLAN\Srv_MCE_GetMCEPurPlanList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEPurPlanList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_PLAN\Srv_MCE_GetPurchaseDetail.ashx.cs">
+      <DependentUpon>Srv_MCE_GetPurchaseDetail.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_PLAN\Srv_MCE_MCEPurchaseOperate.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEPurchaseOperate.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_PLAN\Srv_MCE_MCEPurchaseSave.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEPurchaseSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_PLAN\Srv_MCE_MCEPurPlanOperate.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEPurPlanOperate.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_PLAN\Srv_MCE_MCEPurPlanSave.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEPurPlanSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_PRV\Srv_MCE_CancelPrvAudit.ashx.cs">
+      <DependentUpon>Srv_MCE_CancelPrvAudit.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_PRV\Srv_MCE_GetAccountInfo.ashx.cs">
+      <DependentUpon>Srv_MCE_GetAccountInfo.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_PRV\Srv_MCE_GetAssetCheckDetail.ashx.cs">
+      <DependentUpon>Srv_MCE_GetAssetCheckDetail.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_PRV\Srv_MCE_GetAssetCheckList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetAssetCheckList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_PRV\Srv_MCE_GetEnterPriseInfo.ashx.cs">
+      <DependentUpon>Srv_MCE_GetEnterPriseInfo.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_PRV\Srv_MCE_GetPrvCertList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetPrvCertList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_PRV\Srv_MCE_GetPrvCheckList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetPrvCheckList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_PRV\Srv_MCE_SetAssetCheckStatus.ashx.cs">
+      <DependentUpon>Srv_MCE_SetAssetCheckStatus.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_PRV\Srv_MCE_SetPrvInfo.ashx.cs">
+      <DependentUpon>Srv_MCE_SetPrvInfo.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_ROLL\Srv_MCE_GetMCEAssetsRollEquipList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEAssetsRollEquipList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_ROLL\Srv_MCE_GetMCEAssetsRollFileDetail.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEAssetsRollFileDetail.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_ROLL\Srv_MCE_GetMCEAssetsRollFillList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEAssetsRollFillList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_ROLL\Srv_MCE_GetMCEAssetsRollList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEAssetsRollList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_ROLL\Srv_MCE_GetMCEAssetsRollTemplateDetail.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEAssetsRollTemplateDetail.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_ROLL\Srv_MCE_GetMCEAssetsRollTemplateList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEAssetsRollTemplateList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_ROLL\Srv_MCE_GetMCEAssetsUserInfo.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEAssetsUserInfo.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_ROLL\Srv_MCE_MCEAssetsRollAudit.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsRollAudit.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_ROLL\Srv_MCE_MCEAssetsRollDelete.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsRollDelete.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_ROLL\Srv_MCE_MCEAssetsRollEquipDelete.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsRollEquipDelete.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_ROLL\Srv_MCE_MCEAssetsRollEquipSave.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsRollEquipSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_ROLL\Srv_MCE_MCEAssetsRollFileDelete.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsRollFileDelete.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_ROLL\Srv_MCE_MCEAssetsRollFileSave.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsRollFileSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_ROLL\Srv_MCE_MCEAssetsRollFileSaveAsTemplate.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsRollFileSaveAsTemplate.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_ROLL\Srv_MCE_MCEAssetsRollSave.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEAssetsRollSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_STOCKDATA\Srv_MCE_GetMCEAssetsCirculation_Info.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEAssetsCirculation_Info.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_STOCKDATA\Srv_MCE_GetMCEBackReturnList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEBackReturnList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_STOCKDATA\Srv_MCE_GetMCECheckDetail.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCECheckDetail.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_STOCKDATA\Srv_MCE_GetMCECheckList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCECheckList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_STOCKDATA\Srv_MCE_GetMCECheckType.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCECheckType.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_STOCKDATA\Srv_MCE_GetMCESalesReturnDetail.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCESalesReturnDetail.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_STOCKDATA\Srv_MCE_GetMCESalesReturnList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCESalesReturnList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_STOCKDATA\Srv_MCE_MCECheckOperate.ashx.cs">
+      <DependentUpon>Srv_MCE_MCECheckOperate.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_STOCKDATA\Srv_MCE_MCECheckSave.ashx.cs">
+      <DependentUpon>Srv_MCE_MCECheckSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_STOCKDATA\Srv_MCE_MCECheckTypeSave.ashx.cs">
+      <DependentUpon>Srv_MCE_MCECheckTypeSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_STOCKDATA\Srv_MCE_MCEGenerate_Detail.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEGenerate_Detail.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_STOCKDATA\Srv_MCE_MCESalesReturnOperate.ashx.cs">
+      <DependentUpon>Srv_MCE_MCESalesReturnOperate.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_STOCKDATA\Srv_MCE_MCESalesReturnSave.ashx.cs">
+      <DependentUpon>Srv_MCE_MCESalesReturnSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_WRITEOFF\Srv_MCE_GetMCEWriteOffList.ashx.cs">
+      <DependentUpon>Srv_MCE_GetMCEWriteOffList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_WRITEOFF\Srv_MCE_GetWriteOffDetail.ashx.cs">
+      <DependentUpon>Srv_MCE_GetWriteOffDetail.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_WRITEOFF\Srv_MCE_MCEWriteOffAudit.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEWriteOffAudit.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_WRITEOFF\Srv_MCE_MCEWriteOffIdentity.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEWriteOffIdentity.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_WRITEOFF\Srv_MCE_MCEWriteOffOperate.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEWriteOffOperate.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_WRITEOFF\Srv_MCE_MCEWriteOffSave.ashx.cs">
+      <DependentUpon>Srv_MCE_MCEWriteOffSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="service\MCE\MCE_WRITEOFF\Srv_MCE_WriteOffFileUpload.ashx.cs">
+      <DependentUpon>Srv_MCE_WriteOffFileUpload.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\PRV_MCE_Web_Service\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Properties\PublishProfiles\Pub_MTR.pubxml" />
+    <Content Include="scripts\echarts\echarts.common.min.js" />
+    <Content Include="scripts\MCE\PageMceAOGList.js" />
+    <Content Include="scripts\MCE\PageMceAOGNew.js" />
+    <Content Include="scripts\MCE\PageMceAssetCheckDetail.js" />
+    <Content Include="scripts\MCE\PageMceBackList.js" />
+    <Content Include="scripts\MCE\PageMceBackNew.js" />
+    <Content Include="scripts\MCE\PageMceCheckList.js" />
+    <Content Include="scripts\MCE\PageMceCheckNew.js" />
+    <Content Include="scripts\MCE\PageMceContractList.js" />
+    <Content Include="scripts\MCE\PageMceContractNew.js" />
+    <Content Include="scripts\MCE\PageMceContractPay.js" />
+    <Content Include="scripts\MCE\PageMceDeprList.js" />
+    <Content Include="scripts\MCE\PageMceDeprNew.js" />
+    <Content Include="scripts\MCE\PageMceDeprTypeList.js" />
+    <Content Include="scripts\MCE\PageMceDeprTypeNew.js" />
+    <Content Include="scripts\MCE\PageMceGetAssetCheckList.js" />
+    <Content Include="scripts\MCE\PageMceGetPrvCheckList.js" />
+    <Content Include="scripts\MCE\PageMceInstockList.js" />
+    <Content Include="scripts\MCE\PageMceInstockNew.js" />
+    <Content Include="scripts\MCE\PageMceMaintainList.js" />
+    <Content Include="scripts\MCE\PageMceMaintainNew.js" />
+    <Content Include="scripts\MCE\PageMceMeterCheckList.js" />
+    <Content Include="scripts\MCE\PageMceMeterCheckNew.js" />
+    <Content Include="scripts\MCE\PageMceMeterList.js" />
+    <Content Include="scripts\MCE\PageMceMeterNew.js" />
+    <Content Include="scripts\MCE\PageMceMeterTypeList.js" />
+    <Content Include="scripts\MCE\PageMceMeterTypeNew.js" />
+    <Content Include="scripts\MCE\PageMceMTNExecList.js" />
+    <Content Include="scripts\MCE\PageMceMTNExecNew.js" />
+    <Content Include="scripts\MCE\PageMceMtnItemList.js" />
+    <Content Include="scripts\MCE\PageMceMtnItemNew.js" />
+    <Content Include="scripts\MCE\PageMceMTNPlanList.js" />
+    <Content Include="scripts\MCE\PageMceMTNPlanNew.js" />
+    <Content Include="scripts\MCE\PageMceOutstockList.js" />
+    <Content Include="scripts\MCE\PageMceOutstockNew.js" />
+    <Content Include="scripts\MCE\PageMcePrvCheckDetail.js" />
+    <Content Include="scripts\MCE\PageMcePurchaseDetail.js" />
+    <Content Include="scripts\MCE\PageMcePurchaseList.js" />
+    <Content Include="scripts\MCE\PageMcePurchaseNew.js" />
+    <Content Include="scripts\MCE\PageMcePurPlanList.js" />
+    <Content Include="scripts\MCE\PageMcePurPlanNew.js" />
+    <Content Include="scripts\MCE\PageMceSalesReturnList.js" />
+    <Content Include="scripts\MCE\PageMceSalesReturnNew.js" />
+    <Content Include="scripts\MCE\PageMceTransferList.js" />
+    <Content Include="scripts\MCE\PageMceTransferNew.js" />
+    <Content Include="scripts\MCE\PageMceWriteOffAuditList.js" />
+    <Content Include="scripts\MCE\PageMceWriteOffAuditNew.js" />
+    <Content Include="scripts\MCE\PageMceWriteOffIdentityList.js" />
+    <Content Include="scripts\MCE\PageMceWriteOffIdentityNew.js" />
+    <Content Include="scripts\MCE\PageMceWriteOffList.js" />
+    <Content Include="scripts\MCE\PageMceWriteOffNew.js" />
+    <Content Include="scripts\MCE_AssetCard\assetCard.js" />
+    <Content Include="scripts\MCE_AssetCard\PageMceAssertCardList.js" />
+    <Content Include="scripts\MCE_AssetCard\PageMceAssertTypeDept.js" />
+    <Content Include="scripts\MCE_AssetCard\PageMceAssertTypeDetail.js" />
+    <Content Include="scripts\MCE_AssetCard\PageMceAssertTypeList.js" />
+    <Content Include="styles\MCE\PageMceAOGList.css" />
+    <Content Include="styles\MCE\PageMceAOGNew.css" />
+    <Content Include="styles\MCE\PageMceAssetCheckDetail.css" />
+    <Content Include="styles\MCE\PageMceBackList.css" />
+    <Content Include="styles\MCE\PageMceBackNew.css" />
+    <Content Include="styles\MCE\PageMceCheckList.css" />
+    <Content Include="styles\MCE\PageMceCheckNew.css" />
+    <Content Include="styles\MCE\PageMceContractList.css" />
+    <Content Include="styles\MCE\PageMceContractNew.css" />
+    <Content Include="styles\MCE\PageMceContractPay.css" />
+    <Content Include="styles\MCE\PageMceDeprList.css" />
+    <Content Include="styles\MCE\PageMceDeprNew.css" />
+    <Content Include="styles\MCE\PageMceDeprTypeList.css" />
+    <Content Include="styles\MCE\PageMceDeprTypeNew.css" />
+    <Content Include="styles\MCE\PageMceGetAssetCheckList.css" />
+    <Content Include="styles\MCE\PageMceGetPrvCheckList.css" />
+    <Content Include="styles\MCE\PageMceInstockList.css" />
+    <Content Include="styles\MCE\PageMceInstockNew.css" />
+    <Content Include="styles\MCE\PageMceMaintainList.css" />
+    <Content Include="styles\MCE\PageMceMaintainNew.css" />
+    <Content Include="styles\MCE\PageMceMeterCheckList.css" />
+    <Content Include="styles\MCE\PageMceMeterCheckNew.css" />
+    <Content Include="styles\MCE\PageMceMeterList.css" />
+    <Content Include="styles\MCE\PageMceMeterNew.css" />
+    <Content Include="styles\MCE\PageMceMeterTypeList.css" />
+    <Content Include="styles\MCE\PageMceMeterTypeNew.css" />
+    <Content Include="styles\MCE\PageMceMTNExecList.css" />
+    <Content Include="styles\MCE\PageMceMTNExecNew.css" />
+    <Content Include="styles\MCE\PageMceMtnItemList.css" />
+    <Content Include="styles\MCE\PageMceMtnItemNew.css" />
+    <Content Include="styles\MCE\PageMceMTNPlanList.css" />
+    <Content Include="styles\MCE\PageMceMTNPlanNew.css" />
+    <Content Include="styles\MCE\PageMceOutstockList.css" />
+    <Content Include="styles\MCE\PageMceOutstockNew.css" />
+    <Content Include="styles\MCE\PageMcePrvCheckDetail.css" />
+    <Content Include="styles\MCE\PageMcePurchaseDetail.css" />
+    <Content Include="styles\MCE\PageMcePurchaseList.css" />
+    <Content Include="styles\MCE\PageMcePurchaseNew.css" />
+    <Content Include="styles\MCE\PageMcePurPlanList.css" />
+    <Content Include="styles\MCE\PageMcePurPlanNew.css" />
+    <Content Include="styles\MCE\PageMceSalesReturnList.css" />
+    <Content Include="styles\MCE\PageMceSalesReturnNew.css" />
+    <Content Include="styles\MCE\PageMceTransferList.css" />
+    <Content Include="styles\MCE\PageMceTransferNew.css" />
+    <Content Include="styles\MCE\PageMceWriteOffAuditList.css" />
+    <Content Include="styles\MCE\PageMceWriteOffAuditNew.css" />
+    <Content Include="styles\MCE\PageMceWriteOffIdentityList.css" />
+    <Content Include="styles\MCE\PageMceWriteOffIdentityNew.css" />
+    <Content Include="styles\MCE\PageMceWriteOffList.css" />
+    <Content Include="styles\MCE\PageMceWriteOffNew.css" />
+    <Content Include="styles\MCE_AssetCard\assetCard.css" />
+    <Content Include="styles\MCE_AssetCard\PageMceAssertCardList.css" />
+    <Content Include="styles\MCE_AssetCard\PageMceAssertTypeDept.css" />
+    <Content Include="styles\MCE_AssetCard\PageMceAssertTypeDetail.css" />
+    <Content Include="styles\MCE_AssetCard\PageMceAssertTypeList.css" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="service\MCE\MCE_PRV\Srv_MCE_GetPrvCheckList.ashx" />
+    <Content Include="service\MCE\MCE_PRV\Srv_MCE_GetAccountInfo.ashx" />
+    <Content Include="service\MCE\MCE_PRV\Srv_MCE_GetEnterPriseInfo.ashx" />
+    <Content Include="service\MCE\MCE_PRV\Srv_MCE_GetPrvCertList.ashx" />
+    <Content Include="service\MCE\MCE_PRV\Srv_MCE_SetPrvInfo.ashx" />
+    <Content Include="service\MCE\MCE_PRV\Srv_MCE_CancelPrvAudit.ashx" />
+    <Content Include="service\MCE\MCE_PRV\Srv_MCE_GetAssetCheckList.ashx" />
+    <Content Include="service\MCE\MCE_PRV\Srv_MCE_GetAssetCheckDetail.ashx" />
+    <Content Include="service\MCE\MCE_PRV\Srv_MCE_SetAssetCheckStatus.ashx" />
+    <Content Include="service\MCE\MCE_PLAN\Srv_MCE_GetMCEPurchaseList.ashx" />
+    <Content Include="service\MCE\MCE_PLAN\Srv_MCE_MCEPurchaseSave.ashx" />
+    <Content Include="service\MCE\MCE_PLAN\Srv_MCE_GetPurchaseDetail.ashx" />
+    <Content Include="service\MCE\MCE_PLAN\Srv_MCE_MCEPurchaseOperate.ashx" />
+    <Content Include="service\MCE\MCE_PLAN\Srv_MCE_GetMCEPurPlanList.ashx" />
+    <Content Include="service\MCE\MCE_PLAN\Srv_MCE_GetMCEPurPlanDetail.ashx" />
+    <Content Include="service\MCE\MCE_PLAN\Srv_MCE_MCEPurPlanSave.ashx" />
+    <Content Include="service\MCE\MCE_PLAN\Srv_MCE_MCEPurPlanOperate.ashx" />
+    <Content Include="service\MCE\MCE_PLAN\Srv_MCE_GetMCEAOGRefPurPlan.ashx" />
+    <Content Include="service\MCE\MCE_INSTOCK\Srv_MCE_GetMCEInstockRefAOG.ashx" />
+    <Content Include="service\MCE\MCE_WRITEOFF\Srv_MCE_GetMCEWriteOffList.ashx" />
+    <Content Include="service\MCE\MCE_WRITEOFF\Srv_MCE_GetWriteOffDetail.ashx" />
+    <Content Include="service\MCE\MCE_WRITEOFF\Srv_MCE_MCEWriteOffSave.ashx" />
+    <Content Include="service\MCE\MCE_WRITEOFF\Srv_MCE_MCEWriteOffOperate.ashx" />
+    <Content Include="service\MCE\MCE_WRITEOFF\Srv_MCE_WriteOffFileUpload.ashx" />
+    <Content Include="service\MCE\MCE_WRITEOFF\Srv_MCE_MCEWriteOffIdentity.ashx" />
+    <Content Include="service\MCE\MCE_WRITEOFF\Srv_MCE_MCEWriteOffAudit.ashx" />
+    <Content Include="service\MCE\MCE_MT\Srv_MCE_GetMCEMaintainList.ashx" />
+    <Content Include="service\MCE\MCE_MT\Srv_MCE_GetMCEMaintainDetail.ashx" />
+    <Content Include="service\MCE\MCE_MT\Srv_MCE_MCEMaintainSave.ashx" />
+    <Content Include="service\MCE\MCE_MT\Srv_MCE_MCEMaintainOperate.ashx" />
+    <Content Include="service\MCE\MCE_MT\Srv_MCE_GetMCEMTNItemList.ashx" />
+    <Content Include="service\MCE\MCE_MT\Srv_MCE_GetMCEMTNItemDetail.ashx" />
+    <Content Include="service\MCE\MCE_MT\Srv_MCE_MCEMTNItemSave.ashx" />
+    <Content Include="service\MCE\MCE_MT\Srv_MCE_MCEMTNItemDelete.ashx" />
+    <Content Include="service\MCE\MCE_MT\Srv_MCE_GetMCEMTNPlanList.ashx" />
+    <Content Include="service\MCE\MCE_MT\Srv_MCE_GetMCEMTNPlanDetail.ashx" />
+    <Content Include="service\MCE\MCE_MT\Srv_MCE_MCEMTNPlanSave.ashx" />
+    <Content Include="service\MCE\MCE_MT\Srv_MCE_MCEMTNPlanOperate.ashx" />
+    <Content Include="service\MCE\MCE_MT\Srv_MCE_GetMCEMTNExecList.ashx" />
+    <Content Include="service\MCE\MCE_MT\Srv_MCE_GetMCEMTNExecDetail.ashx" />
+    <Content Include="service\MCE\MCE_MT\Srv_MCE_MCEMTNExecSave.ashx" />
+    <Content Include="service\MCE\MCE_MT\Srv_MCE_MCEMTNExecOperate.ashx" />
+    <Content Include="service\MCE\MCE_METER\Srv_MCE_GetMCEMeterTypeList.ashx" />
+    <Content Include="service\MCE\MCE_METER\Srv_MCE_GetMCEMeterTypeDetail.ashx" />
+    <Content Include="service\MCE\MCE_METER\Srv_MCE_MCEMeterTypeSave.ashx" />
+    <Content Include="service\MCE\MCE_METER\Srv_MCE_MCEMeterTypeDelete.ashx" />
+    <Content Include="service\MCE\MCE_METER\Srv_MCE_GetMCEMeterList.ashx" />
+    <Content Include="service\MCE\MCE_METER\Srv_MCE_GetMCEMeterDetail.ashx" />
+    <Content Include="service\MCE\MCE_METER\Srv_MCE_MCEMeterSave.ashx" />
+    <Content Include="service\MCE\MCE_METER\Srv_MCE_MCEMeterOperate.ashx" />
+    <Content Include="service\MCE\MCE_METER\Srv_MCE_GetMCEMeterCheckList.ashx" />
+    <Content Include="service\MCE\MCE_METER\Srv_MCE_GetMCEMeterCheckDetail.ashx" />
+    <Content Include="service\MCE\MCE_METER\Srv_MCE_MCEMeterCheckSave.ashx" />
+    <Content Include="service\MCE\MCE_METER\Srv_MCE_MCEMeterCheckOperate.ashx" />
+    <Content Include="service\MCE\MCE_CONTRACT\Srv_MCE_GetMCEContractList.ashx" />
+    <Content Include="service\MCE\MCE_CONTRACT\Srv_MCE_GetMCEContractDetail.ashx" />
+    <Content Include="service\MCE\MCE_CONTRACT\Srv_MCE_MCEContractSave.ashx" />
+    <Content Include="service\MCE\MCE_CONTRACT\Srv_MCE_MCEContractOperate.ashx" />
+    <Content Include="service\MCE\MCE_CONTRACT\Srv_MCE_GetMCEContractPayList.ashx" />
+    <Content Include="service\MCE\MCE_CONTRACT\Srv_MCE_MCEContractPay.ashx" />
+    <None Include="Web References\PRV_MCE_Web_Service\PRV_Web_Service.disco" />
+    <Content Include="web.config" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_GetMCETypeList.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_MCETypeSave.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_MCETypeDelete.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_GetMCEAssetsList.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_GetMCETypeDetail.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_FileUpload.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetseSave.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_GetMCEAssetsDetail.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetseAudit.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetseDelete.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_GetMCEAssetsAffixList.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsAffixSave.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsAffixAudit.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsAffixDelete.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_GetMCEAssetsCapitalList.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsCapitalSave.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsCapitalAudit.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsCapitalDelete.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_GetMCEAssetsDeprAllocList.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsDeprAllocSave.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_GetMCEAssetsDeprTypeList.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsDeprAllocAudit.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsDeprAllocDelete.ashx" />
+    <Content Include="service\MCE\MCE_DEPR\Srv_MCE_GetMCEAssetsDeprHistoryList.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_GetMCEAssetsImportionList.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsIMPORTATIONSave.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsIMPORTATIONAudit.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsIMPORTATIONDelete.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_GetMCEAssetsComtractList.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsComtractSave.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsComtractAudit.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsComtractDelete.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsComtractStop.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsComtractContinue.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_GetMCEAssetsInsuranceList.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsInsuranceSave.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsInsuranceAudit.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsInsuranceDelete.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsInsuranceExpire.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsInsuranceContinue.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_GetMCEAssetsMeterList.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsMeterSave.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsMeterAudit.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsMeterDelete.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsMeterExpire.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsMeterContinue.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_GetMCEAssetsWriteOffList.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsWriteOffSave.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsWriteOffAudit.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_MCEAssetsWriteOffDelete.ashx" />
+    <Content Include="service\MCE\MCE_ROLL\Srv_MCE_GetMCEAssetsRollList.ashx" />
+    <Content Include="service\MCE\MCE_ROLL\Srv_MCE_GetMCEAssetsUserInfo.ashx" />
+    <Content Include="service\MCE\MCE_ROLL\Srv_MCE_MCEAssetsRollSave.ashx" />
+    <Content Include="service\MCE\MCE_ROLL\Srv_MCE_GetMCEAssetsRollFillList.ashx" />
+    <Content Include="service\MCE\MCE_ROLL\Srv_MCE_MCEAssetsRollFileSave.ashx" />
+    <Content Include="service\MCE\MCE_ROLL\Srv_MCE_MCEAssetsRollFileDelete.ashx" />
+    <Content Include="service\MCE\MCE_ROLL\Srv_MCE_MCEAssetsRollAudit.ashx" />
+    <Content Include="service\MCE\MCE_ROLL\Srv_MCE_GetMCEAssetsRollEquipList.ashx" />
+    <Content Include="service\MCE\MCE_ROLL\Srv_MCE_MCEAssetsRollEquipSave.ashx" />
+    <Content Include="service\MCE\MCE_ROLL\Srv_MCE_MCEAssetsRollEquipDelete.ashx" />
+    <Content Include="service\MCE\MCE_ROLL\Srv_MCE_MCEAssetsRollDelete.ashx" />
+    <Content Include="service\MCE\MCE_ROLL\Srv_MCE_MCEAssetsRollFileSaveAsTemplate.ashx" />
+    <Content Include="service\MCE\MCE_ROLL\Srv_MCE_GetMCEAssetsRollTemplateList.ashx" />
+    <Content Include="service\MCE\MCE_ROLL\Srv_MCE_GetMCEAssetsRollTemplateDetail.ashx" />
+    <Content Include="service\MCE\MCE_STOCKDATA\Srv_MCE_GetMCEAssetsCirculation_Info.ashx" />
+    <Content Include="service\MCE\MCE_MT\Srv_MCE_GetMCEAssetsMtnList.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_GetMCETypeTree.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_GetMCETypeDeptList.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_MCETypeDeptSave.ashx" />
+    <Content Include="service\MCE\MCE_DICT\Srv_MCE_MCETypeDeptDelete.ashx" />
+    <Content Include="service\MCE\MCE_ROLL\Srv_MCE_GetMCEAssetsRollFileDetail.ashx" />
+    <Content Include="service\MCE\MCE_MT\Srv_MCE_GetMCEAssetsMtnHistoryList.ashx" />
+    <Content Include="service\MCE\MCE_INSTOCK\Srv_MCE_GetMCEAOGList.ashx" />
+    <Content Include="service\MCE\MCE_INSTOCK\Srv_MCE_GetMCEAOGDetail.ashx" />
+    <Content Include="service\MCE\MCE_INSTOCK\Srv_MCE_MCEAOGSave.ashx" />
+    <Content Include="service\MCE\MCE_INSTOCK\Srv_MCE_MCEAOGOperate.ashx" />
+    <Content Include="service\MCE\MCE_INSTOCK\Srv_MCE_GetMCEInstockList.ashx" />
+    <Content Include="service\MCE\MCE_INSTOCK\Srv_MCE_GetMCEStockList.ashx" />
+    <Content Include="service\MCE\MCE_INSTOCK\Srv_MCE_GetMCEInstockDetail.ashx" />
+    <Content Include="service\MCE\MCE_INSTOCK\Srv_MCE_MCEInstockSave.ashx" />
+    <Content Include="service\MCE\MCE_INSTOCK\Srv_MCE_MCEInstockOperate.ashx" />
+    <Content Include="service\MCE\MCE_OUTSTOCK\Srv_MCE_GetMCEOutstockList.ashx" />
+    <Content Include="service\MCE\MCE_OUTSTOCK\Srv_MCE_GetMCEOutstockDetail.ashx" />
+    <Content Include="service\MCE\MCE_OUTSTOCK\Srv_MCE_MCEOutstockSave.ashx" />
+    <Content Include="service\MCE\MCE_OUTSTOCK\Srv_MCE_MCEOutstockOperate.ashx" />
+    <Content Include="service\MCE\MCE_OUTSTOCK\Srv_MCE_GetMCETransferList.ashx" />
+    <Content Include="service\MCE\MCE_OUTSTOCK\Srv_MCE_GetMCETransferDetail.ashx" />
+    <Content Include="service\MCE\MCE_OUTSTOCK\Srv_MCE_MCETransferSave.ashx" />
+    <Content Include="service\MCE\MCE_OUTSTOCK\Srv_MCE_MCETransferOperate.ashx" />
+    <Content Include="service\MCE\MCE_OUTSTOCK\Srv_MCE_GetMCEBackList.ashx" />
+    <Content Include="service\MCE\MCE_OUTSTOCK\Srv_MCE_GetMCEOutStockBackList.ashx" />
+    <Content Include="service\MCE\MCE_OUTSTOCK\Srv_MCE_GetMCEBackDetail.ashx" />
+    <Content Include="service\MCE\MCE_OUTSTOCK\Srv_MCE_MCEBackSave.ashx" />
+    <Content Include="service\MCE\MCE_OUTSTOCK\Srv_MCE_MCEBackOperate.ashx" />
+    <Content Include="service\MCE\MCE_STOCKDATA\Srv_MCE_GetMCESalesReturnList.ashx" />
+    <Content Include="service\MCE\MCE_STOCKDATA\Srv_MCE_GetMCEBackReturnList.ashx" />
+    <Content Include="service\MCE\MCE_STOCKDATA\Srv_MCE_GetMCESalesReturnDetail.ashx" />
+    <Content Include="service\MCE\MCE_STOCKDATA\Srv_MCE_MCESalesReturnSave.ashx" />
+    <Content Include="service\MCE\MCE_STOCKDATA\Srv_MCE_MCESalesReturnOperate.ashx" />
+    <Content Include="service\MCE\MCE_DEPR\Srv_MCE_GetMCEDeprTypeList.ashx" />
+    <Content Include="service\MCE\MCE_DEPR\Srv_MCE_GetMCEDeprTypeDetail.ashx" />
+    <Content Include="service\MCE\MCE_DEPR\Srv_MCE_MCEDeprTypeSave.ashx" />
+    <Content Include="service\MCE\MCE_DEPR\Srv_MCE_MCEDeprTypeDelete.ashx" />
+    <Content Include="service\MCE\MCE_DEPR\Srv_MCE_GetMCEDeprList.ashx" />
+    <Content Include="service\MCE\MCE_DEPR\Srv_MCE_GetMCEDeprCalc.ashx" />
+    <Content Include="service\MCE\MCE_DEPR\Srv_MCE_GetMCEDeprDetail.ashx" />
+    <Content Include="service\MCE\MCE_DEPR\Srv_MCE_MCEDeprSave.ashx" />
+    <Content Include="service\MCE\MCE_DEPR\Srv_MCE_MCEDeprOperate.ashx" />
+    <Content Include="service\MCE\MCE_STOCKDATA\Srv_MCE_GetMCECheckList.ashx" />
+    <Content Include="service\MCE\MCE_STOCKDATA\Srv_MCE_MCECheckSave.ashx" />
+    <Content Include="service\MCE\MCE_STOCKDATA\Srv_MCE_GetMCECheckDetail.ashx" />
+    <Content Include="service\MCE\MCE_STOCKDATA\Srv_MCE_GetMCECheckType.ashx" />
+    <Content Include="service\MCE\MCE_STOCKDATA\Srv_MCE_MCECheckTypeSave.ashx" />
+    <Content Include="service\MCE\MCE_STOCKDATA\Srv_MCE_MCEGenerate_Detail.ashx" />
+    <Content Include="service\MCE\MCE_STOCKDATA\Srv_MCE_MCECheckOperate.ashx" />
+    <None Include="Web References\PRV_MCE_Web_Service\PRV_Web_Service.wsdl" />
+    <None Include="Web References\PRV_MCE_Web_Service\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="reportfile\PRV\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ipedf.Hrp.MCE.BizLogic\Ipedf.Hrp.MCE.BizLogic.csproj">
+      <Project>{dd4b5ce3-52aa-4388-99fa-31d646d7f25b}</Project>
+      <Name>Ipedf.Hrp.MCE.BizLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ipedf.Hrp.MCE.DataAccess\Ipedf.Hrp.MCE.DataAccess.csproj">
+      <Project>{39fab5c5-be72-4401-bec8-f0b7f1a7a6cd}</Project>
+      <Name>Ipedf.Hrp.MCE.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ipedf.Hrp.MCE.Entity\Ipedf.Hrp.MCE.Entity.csproj">
+      <Project>{d23c1013-a3f1-4855-9214-8fa0caa87528}</Project>
+      <Name>Ipedf.Hrp.MCE.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ipedf.Hrp.MCE.Web.Utility\Ipedf.Hrp.MCE.Web.Utility.csproj">
+      <Project>{9265f4e0-b166-4f9d-94cf-90b2f84c22f1}</Project>
+      <Name>Ipedf.Hrp.MCE.Web.Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost/hrp_shell_hnsprv_mce/service/prv/PRV_web/PRV_Web_Service.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\PRV_MCE_Web_Service\</RelPath>
+      <UpdateFromURL>http://localhost/hrp_shell_hnsprv_mce/service/prv/PRV_web/PRV_Web_Service.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Ipedf_Hrp_MCE_Web_PRV_MCE_Web_Service_PRV_Web_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3785</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/Ipedf.Hrp.MTR.Web</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

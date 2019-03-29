@@ -1,0 +1,258 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <title>资产退货->资产退货新增</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1">
+    <link rel="stylesheet" type="text/css" href="../../styles/common/base.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/common/common.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/mce/PageMceSalesReturnNew.css">
+    <script type="text/javascript" src="../../scripts/new_angular/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/angular.1.2.29.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/appDirectives.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/appServices.js"></script>
+
+    <script type="text/javascript" src="../../scripts/My97DatePicker/WdatePicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../scripts/My97DatePicker/skin/WdatePicker.css">
+    <script type="text/javascript" src="../../scripts/mce/PageMceSalesReturnNew.js"></script>
+</head>
+<body ng-controller="index" ng-click="clearFkDetailState();InputschangeState.changeState('a')">
+    <div class="content">
+        <div class="filt">
+            <ul>
+                <li>
+                    <div>
+                        <span>单号</span>
+                        <input type="text" readonly ng-model="headInfo.CODE">
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>退货日期</span>
+                        <input ng-readonly="headInfo.STATE > 1" type="text" class="clock" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',onpicked:function(){$(this).trigger('change')},isShowClear:false})"
+                               ng-model="headInfo.CREATE_DATE" ng-disabled="headInfo.ID != ''">
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>供应商</span>
+                        <my-param param="prv" change="InputschangeState" param-obj="paramPrv" show-str="prv" authority="headInfo.STATE > 1?true:false"></my-param>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>退货人</span>
+                        <my-param param="user" change="InputschangeState" param-obj="paramUser" show-str="user" authority="headInfo.STATE > 1?true:false"></my-param>
+                    </div>
+                </li>
+    
+                <li>
+                    <div>
+                        <span>退货仓库</span>
+                        <my-param param="stock" change="InputschangeState" param-obj="paramStock" show-str="stock" authority="headInfo.STATE > 1?true:false"></my-param>
+                    </div>
+                <li>
+                    <div>
+                        <span>金额合计</span>
+                        <input ng-readonly="true" type="text" ng-model="headInfo.TOTAL_MONEY">
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="data">
+            <div class="operation">
+                <button class="btn" ng-show="headInfo.STATE <= 1" ng-click="delModel()">删除</button>
+                <button class="btn" ng-show="headInfo.STATE <= 1" ng-click="saveModel('1')">保存</button>
+                <button class="btn" ng-show="headInfo.STATE <= 1" ng-click="saveModel('2')">保存返回</button>
+                <button class="btn" ng-show="headInfo.STATE == 1" ng-click="submitModel()">提交</button>
+                <button class="btn" ng-show="headInfo.STATE == 2" ng-click="auditModel()">审核</button>
+
+                <button class="btn fr" ng-click="goBack()">返回</button>
+                <button class="btn fr" ng-click="openNew()" ng-show="headInfo.STATE <= 1">引入退库单</button>
+                <button class="btn fr" ng-click="openAssetNew()" ng-show="headInfo.STATE <= 1">引入资产卡片</button>
+            </div>
+            <div class="table">
+                <table cellpadding="0" border="0" cellspacing="0">
+                    <thead>
+                    <th ng-click="checkAll()">全选/全不选</th>
+                    <th>设备名称</th>
+                    <th>规格型号</th>
+                    <th>资产编号</th>
+
+                    <th>金额</th>
+                    <th>价格</th>
+                    <th>生产日期</th>
+                    <th>生产厂家</th>
+
+                    <th>备注</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="(k,v) in tableRows">
+                            <td>
+                                <div class="check" ng-click="v.checked = !v.checked" ng-show="headInfo.STATE <= 1">
+                                    <span></span>
+                                    <strong ng-show="v.checked">✔</strong>
+                                </div>
+                            </td>
+                            <td>
+                                <input ng-readonly="true" type="text" ng-model="v.ASSETS_NAME"  class="inp">
+
+                            </td>
+                            <td>
+                                <input ng-readonly="true" type="text" ng-model="v.SPEC" class="inp">
+                            </td>
+                            <td>
+                                <input ng-readonly="true" type="text" ng-model="v.ASSETS_CODE" class="inp">
+                            </td>
+
+                            <td>
+                                <input ng-readonly="true" type="text" ng-model="v.MONEY" class="inp">
+                            </td>
+                            <td>
+                                <input ng-readonly="true" type="text" ng-model="v.PRICE" class="inp">
+                            </td>
+                            <td>
+                                <input ng-readonly="true" type="text" ng-model="v.PRD_DATE" class="inp">
+                            </td>
+                            <td>
+                                <input ng-readonly="true" type="text" ng-model="v.PRD_ID_NAME" class="inp">
+                            </td>
+
+                            <td>
+                                <input ng-readonly="headInfo.STATE > 1" type="text" ng-model="v.COMMENTS"  class="inp">
+                            </td>
+                          
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    
+    </div>
+
+
+
+
+    <div class="bg" ng-show="newState.state"></div>
+    <div class="new_data" ng-show="newState.state">
+
+        <div class="filt">
+            <ul>
+                <li>
+                    <div>
+                        <span>关键字</span>
+                        <input type="text" class="inp" ng-model="paramSalesReturnObj.code" placeholder="单号">
+                    </div>
+                </li>
+
+                <li>
+
+                    <button class="btn" ng-click="getModelSalesReturnList(1)">查询</button>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="data" style="height:385px;">
+            <div class="table">
+                <table border="0" cellpadding="0" cellspacing="0">
+                    <thead>
+                    <th ng-click="checkAllAssett()">全选/全不选</th>
+                    <th>单号</th>
+                    <th>退库日期</th>
+                    <th>退库科室</th>
+                    <th>退库人</th>
+                    <th>入库科室</th>
+                    <th>入库人</th>
+                    <th>入库仓库</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="(key,value) in modelSalesReturnList">
+                            <td>
+                                <input type="checkbox" ng-checked="value.checked" ng-click="value.checked=!value.checked">
+                            </td>
+                            <td ng-bind="value.CODE">00001</td>
+                            <td ng-bind="value.CREATE_DATE">长沙迅捷</td>
+                            <td ng-bind="value.RETURN_DEPT_ID_NAME">张三</td>
+                            <td ng-bind="value.RETURN_USER_ID_NAME">13213131313</td>
+                            <td ng-bind="value.DEPT_ID_NAME">336866846436</td>
+                            <td ng-bind="value.USER_ID_NAME">13861</td>
+                            <td ng-bind="value.STOCK_ID_NAME">13861</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <mainpager my-pager="mainSalesReturnPager" my-search="getModelSalesReturnList(curIndex)"></mainpager>
+            </div>
+        </div>
+
+        <div class="in">
+            <button class="btn" ng-click="addInfo()">添加</button>
+            <button class="btn" ng-click="newState.state = false">取消</button>
+        </div>
+    </div>
+
+
+
+
+    <div class="bg" ng-show="newAssetState.state"></div>
+    <div class="new_data" ng-show="newAssetState.state">
+
+        <div class="filt">
+            <ul>
+                <li>
+                    <div>
+                        <span>关键字</span>
+                        <input type="text" class="inp" ng-model="paramAssetObj.condition" placeholder="资产编号、资产名称、规格类型、使用科室">
+                    </div>
+                </li>
+
+                <li>
+
+                    <button class="btn" ng-click="getModelAssetList(1)">查询</button>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="data" style="height:385px;">
+            <div class="table">
+                <table border="0" cellpadding="0" cellspacing="0">
+                    <thead>
+                    <th ng-click="checkAllAssett()">全选/全不选</th>
+                    <th>资产类别</th>
+                    <th>设备编号</th>
+                    <th>设备名称</th>
+                    <th>生产厂家</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="(key,value) in modelAssetList">
+                            <td>
+                                <input type="checkbox" ng-checked="value.checked" ng-click="value.checked=!value.checked">
+                            </td>
+                            <td ng-bind="value.MACHINE_TYPE_ID_NAME">00001</td>
+                            <td ng-bind="value.ASSETS_CODE">长沙迅捷</td>
+                            <td ng-bind="value.ASSETS_NAME">张三</td>
+                            <td ng-bind="value.PRD_ID_NAME">张三</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <mainpager my-pager="mainAssetPager" my-search="getModelAssetList(curIndex)"></mainpager>
+            </div>
+        </div>
+
+        <div class="in">
+            <button class="btn" ng-click="addAssetInfo()">添加</button>
+            <button class="btn" ng-click="newAssetState.state = false">取消</button>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+</html>

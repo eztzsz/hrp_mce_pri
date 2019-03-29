@@ -1,0 +1,91 @@
+<!--<title>报废信息</title>-->
+<div class="scrap" ng-controller="scrap">
+    <div class="search">
+        <span>关键字</span>
+        <input type="text" class="inp" placeholder="报废单号" ng-model="paramWriteOfObj.condition">
+        <button class="btn" ng-click="getWriteOffList()">查询</button>
+    </div>
+    <div class="scrapList">
+        <ul class="model">
+            <li ng-repeat="v in writeOffList" class="item">
+                <div class="right">
+                    <ul class="modelList">
+                        <li>
+                            <span>报废单号</span>
+                            <input type="text" style="font-size:10px;" ng-model="v.code" ng-disabled="true" class="inp">
+                        </li>
+                        <li>
+                            <span>财务月份</span>
+                            <input ng-disabled="v.audit_state!=1" type="text" ng-model="v.finance_cycle" class="inp"
+                                   onfocus="WdatePicker({dateFmt:'yyyyMM',onpicked:function(){$(this).trigger('change')},isShowClear:false})">
+                        </li>
+                        <li>
+                            <span>报废日期</span>
+                            <input ng-disabled="v.audit_state!=1" type="text" ng-model="v.create_date" class="inp"
+                                   onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',onpicked:function(){$(this).trigger('change')},isShowClear:false})">
+                        </li>
+                        <li>
+                            <span>报废方式</span>
+                            <select style="border-color: rgb(190, 212, 237);" ng-disabled="v.audit_state!=1" ng-model="v.write_off_type_id" ng-options="c.id as c.name for c in writeOffTypeList">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                        <li>
+                            <span>报废原因</span>
+                            <select style="border-color: rgb(190, 212, 237);" ng-disabled="v.audit_state!=1" ng-model="v.write_off_cause_id" ng-options="c.id as c.name for c in writeOffCauseList">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                        <li>
+                            <span>附件</span>
+                            <strong>
+                                查看
+                                <ul>
+                                    <li ng-repeat="(key,value) in v.listFileName">
+                                        <a href="javascript:void(0);" ng-click="FileDown(value)">{{value.fileName}}</a>
+                                    </li>
+                                </ul>
+                            </strong>
+                            <!--<strong ng-show="v.audit_state  ==1" ng-click="getFile(v,'writeoff')">上传</strong>-->
+                        </li>
+                    </ul>
+                    <ul class="modelList">
+                        <li>
+                            <span>原值</span>
+                            <input type="text" ng-model="v.original_value" ng-disabled="true" class="inp">
+                        </li>
+                        <li>
+                            <span>净值</span>
+                            <input type="text" ng-model="v.net_value" ng-disabled="true" class="inp">
+                        </li>
+                        <li>
+                            <span>残值</span>
+                            <input type="text" ng-model="v.rudimental_value" ng-readonly="v.audit_state!=1" class="inp">
+                        </li>
+                        <li>
+                            <span>备注</span>
+                            <input type="text" ng-model="v.comments" ng-readonly="v.audit_state!=1" class="inp">
+                        </li>
+                        <li>
+                            <span>实物处置收益</span>
+                            <input type="text" ng-model="v.income" ng-readonly="v.audit_state!=1" class="inp">
+                        </li>
+                    </ul>
+                </div>
+                <div class="opera">
+                    <button  class="btn">详情</button>
+                    <!--<button ng-show="v.audit_state  ==1" ng-click="saveModel(v)" class="btn">保存</button>
+                    <button ng-show="v.audit_state  ==1" ng-click="auditModel(v)" class="btn">审核</button>
+                    <button ng-show="v.audit_state  ==1" ng-click="delModel(v)" class="btn">删除</button>-->
+                </div>
+            </li>
+            <!--<li>
+                <div ng-click="addModel()" class="addModel">
+                    <a href="javascript:void(0);">+新增报废信息</a>
+                </div>
+
+            </li>-->
+        </ul>
+     
+    </div>
+</div>

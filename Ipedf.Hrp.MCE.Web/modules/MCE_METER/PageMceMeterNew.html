@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <title>计量管理->计量台账新增</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1">
+    <link rel="stylesheet" type="text/css" href="../../styles/common/base.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/common/common.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/mce/PageMceMeterNew.css">
+    <script type="text/javascript" src="../../scripts/new_angular/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/angular.1.2.29.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/appDirectives.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/appServices.js"></script>
+
+    <script type="text/javascript" src="../../scripts/My97DatePicker/WdatePicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../scripts/My97DatePicker/skin/WdatePicker.css">
+
+    <script type="text/javascript" src="../../scripts/mce/PageMceMeterNew.js"></script>
+
+</head>
+
+
+<body ng-controller="index" ng-click="InputschangeState.changeState('a')">
+    <div class="content">
+        <ul class="list clearfix">
+            <li class="fl">
+                <div>
+                    <span>计量单号</span>
+                    <input type="text" ng-disabled="true" class="inp" ng-model="headInfo.CODE">
+                </div>
+            </li>
+
+            <li class="fl">
+                <div>
+                    <span>设备名称</span>
+                    <my-param param="asset" change="InputschangeState" param-obj="paramAsset" show-str="asset" authority="headInfo.STATE > 1?true:false"></my-param>
+                    <!--<my-param param="asset" change="InputschangeState" param-obj="paramAsset" show-str="asset" authority="headInfo.STATE > 1?true:false"></my-param>-->
+                </div>
+            </li>
+            <li class="fl">
+                <div>
+                    <span>设备编号</span>
+                    <input type="text" ng-disabled="true" class="inp" ng-model="headInfo.ASSETS_CODE">
+                </div>
+            </li>
+            <li class="fl">
+                <div>
+                    <span>规格型号</span>
+                    <input type="text" ng-disabled="true" class="inp" ng-model="headInfo.SPEC">
+                </div>
+            </li>
+            <li class="fl">
+                <div>
+                    <span>生产厂家</span>
+                    <input type="text" ng-disabled="true" class="inp" ng-model="headInfo.PRD_ID_NAME">
+                </div>
+            </li>
+            <li class="fl">
+                <div>
+                    <span>计量单位</span>
+                    <input type="text" ng-disabled="true" class="inp" ng-model="headInfo.UNIT_ID_NAME">
+                </div>
+            </li>
+            <li class="fl">
+                <div>
+                    <span>领用科室</span>
+                    <input type="text" ng-disabled="true" class="inp" ng-model="headInfo.USING_DEPT_ID_NAME">
+                </div>
+            </li>
+            <li class="fl">
+                <div>
+                    <span>出厂编号 </span>
+                    <input type="text" ng-disabled="true" class="inp" ng-model="headInfo.PRD_CODE">
+                </div>
+            </li>
+
+
+            <li class="fl">
+                <div>
+                    <span>计量周期(月)</span>
+                    <input type="text" ng-readonly="headInfo.STATE > 1" class="inp" ng-model="headInfo.IDENTIFICATION_CYCLE">
+                </div>
+            </li>
+
+            <li class="fl">
+                <div>
+                    <span>计量负责人</span>
+                    <my-param param="user" change="InputschangeState" param-obj="paramUser" show-str="user" authority="headInfo.STATE > 1?true:false"></my-param>
+                </div>
+            </li>
+
+
+            <li class="fl">
+                <div>
+                     <span>计量分类</span>
+                    <select ng-disabled="headInfo.STATE > 1" ng-model="headInfo.METER_TYPE" ng-options="c.ID as c.NAME for c in meterTypeList">
+                        <option value="">请选择</option>
+                    </select>
+                </div>
+            </li>
+
+            <li class="fl">
+                <div>
+                    <span>检定方式</span>
+                    <select ng-disabled="headInfo.STATE > 1" ng-model="headInfo.IDENTIFICATION_TYPE">
+                        <option value="">请选择</option>
+                        <option value="1">院内</option>
+                        <option value="2">外包</option>
+                        </select>
+</div>
+            </li>
+
+
+            <li class="fl">
+                <div>
+                    <span>是否强检</span>
+                    <select ng-disabled="headInfo.STATE > 1" ng-model="headInfo.IS_FORCE_SENSE">
+                        <option value="">请选择</option>
+                        <option value="1">是</option>
+                        <option value="2">否</option>
+                        </select>
+</div>
+            </li>
+
+            <li class="fl">
+                <div>
+                    <span>下次待检日</span>
+                    <input ng-disabled="headInfo.STATE > 1" type="text" class="clock" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',onpicked:function(){$(this).trigger('change')},isShowClear:false})"
+                           ng-model="headInfo.NEXT_IDENTIFICATION">
+                </div>
+            </li>
+
+
+            <li class="fl">
+                <div>
+                    <span>提前提醒天数</span>
+                    <input type="text" ng-readonly="headInfo.STATE > 1" class="inp" ng-model="headInfo.EARLY_WARNING_DAYS">
+                </div>
+            </li>
+            <li class="fl">
+                <div>
+                    <span>备注</span>
+                    <textarea ng-readonly="headInfo.STATE > 1" style="width:870px;height:50px;resize: none;line-height:16px;text-indent:1em;border: 1px solid #bed4ed"
+                              ng-model="headInfo.COMMENTS"></textarea>
+                </div>
+            </li>
+
+        </ul>
+
+        <div style="margin-top:10px;">
+            <button class="btn" ng-show="headInfo.STATE <= 1" ng-click="saveModel('1')">保存</button>
+            <button class="btn" ng-show="headInfo.STATE <= 1" ng-click="saveModel('2')">保存返回</button>
+            <button class="btn" ng-show="headInfo.STATE == 1" ng-click="submitModel()">提交</button>
+            <button class="btn" ng-show="headInfo.STATE == 2" ng-click="auditModel()">审核</button>
+            <button class="btn" ng-click="goBack()">返回</button>
+        </div>
+    </div>
+
+
+
+</body>
+
+
+</html>

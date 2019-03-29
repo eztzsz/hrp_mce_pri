@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D23C1013-A3F1-4855-9214-8FA0CAA87528}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ipedf.Hrp.Entity</RootNamespace>
+    <AssemblyName>Ipedf.Hrp.MCE.Entity</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ipedf.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Reference.Common\Ipedf.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Ipedf.Core.Web, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Reference.Common\Ipedf.Core.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MCE_DEPR\EntityObject_MCE_B_ASSETS_DEPR.cs" />
+    <Compile Include="MCE_DEPR\EntityObject_MCE_B_ASSETS_DEPR_D.cs" />
+    <Compile Include="MCE_DEPR\EntityObject_V_MCE_ASSETS_DEPR_D.cs" />
+    <Compile Include="MCE_DICT\EntityObject_MCE_B_ASSETS.cs" />
+    <Compile Include="MCE_DICT\EntityObject_MCE_B_ASSETS_AFFIX.cs" />
+    <Compile Include="MCE_DICT\EntityObject_MCE_B_ASSETS_CAPITAL_ALLOT.cs" />
+    <Compile Include="MCE_DICT\EntityObject_MCE_B_ASSETS_CONTRACT.cs" />
+    <Compile Include="MCE_DICT\EntityObject_MCE_B_ASSETS_CONTRACT_D.cs" />
+    <Compile Include="MCE_DICT\EntityObject_MCE_B_ASSETS_CONTRACT_PAY.cs" />
+    <Compile Include="MCE_DICT\EntityObject_MCE_B_ASSETS_DEPR_ALLOT.cs" />
+    <Compile Include="MCE_DICT\EntityObject_MCE_B_ASSETS_IMPORTATION.cs" />
+    <Compile Include="MCE_DICT\EntityObject_MCE_B_ASSETS_INSURANCE.cs" />
+    <Compile Include="MCE_DICT\EntityObject_MCE_B_ASSETS_METER.cs" />
+    <Compile Include="MCE_DICT\EntityObject_MCE_B_ASSETS_METER_CHECK.cs" />
+    <Compile Include="MCE_DICT\EntityObject_MCE_B_ASSETS_METER_TYPE.cs" />
+    <Compile Include="MCE_DICT\EntityObject_MCE_B_ASSETS_WRITE_OFF.cs" />
+    <Compile Include="MCE_DICT\EntityObject_MCE_B_ASSETS_WRITE_OFF_ATTACH.cs" />
+    <Compile Include="MCE_DICT\EntityObject_MCE_B_ASSETS_WRITE_OFF_D.cs" />
+    <Compile Include="MCE_DICT\EntityObject_MCE_D_DEPR_TYPE.cs" />
+    <Compile Include="MCE_DICT\EntityObject_MCE_D_MCE_TYPE.cs" />
+    <Compile Include="MCE_DICT\EntityObject_MCE_D_TYPE_DEPT.cs" />
+    <Compile Include="MCE_DICT\EntityObject_V_MCE_QUERY_CONTRACT_PAY.cs" />
+    <Compile Include="MCE_INSTOCK\EntityObject_MCE_B_AOG.cs" />
+    <Compile Include="MCE_INSTOCK\EntityObject_MCE_B_AOG_D.cs" />
+    <Compile Include="MCE_INSTOCK\EntityObject_MCE_B_ASSETS_INSTOCK.cs" />
+    <Compile Include="MCE_INSTOCK\EntityObject_MCE_B_ASSETS_INSTOCK_D.cs" />
+    <Compile Include="MCE_JSON\EntityObject_MCE_Check.cs" />
+    <Compile Include="MCE_JSON\EntityObject_MCE_Circulation.cs" />
+    <Compile Include="MCE_JSON\EntityObject_MCE_Depr.cs" />
+    <Compile Include="MCE_JSON\EntityObject_MCE_JSON.cs" />
+    <Compile Include="MCE_JSON\EntityObject_MCE_MAINTAIN.cs" />
+    <Compile Include="MCE_JSON\EntityObject_MCE_Meter.cs" />
+    <Compile Include="MCE_JSON\EntityObject_MCE_WriteOff.cs" />
+    <Compile Include="MCE_JSON\JsonMCE_Contract.cs" />
+    <Compile Include="MCE_MT\EntityObject_MCE_B_ASSETS_MT_APPLY.cs" />
+    <Compile Include="MCE_MT\EntityObject_MCE_B_ASSETS_MT_APPLY_EN.cs" />
+    <Compile Include="MCE_MT\EntityObject_MCE_B_ASSETS_MT_EXEC.cs" />
+    <Compile Include="MCE_MT\EntityObject_MCE_B_ASSETS_MT_EXEC_D.cs" />
+    <Compile Include="MCE_MT\EntityObject_MCE_B_ASSETS_MT_ITEM.cs" />
+    <Compile Include="MCE_MT\EntityObject_MCE_B_ASSETS_MT_PLAN.cs" />
+    <Compile Include="MCE_MT\EntityObject_MCE_B_ASSETS_MT_PLAN_D.cs" />
+    <Compile Include="MCE_MT\EntityObject_V_MCE_ASSETS_DEPR_MTN.cs" />
+    <Compile Include="MCE_OUTTOCK\EntityObject_MCE_B_ASSETS_OUTSTOCK.cs" />
+    <Compile Include="MCE_OUTTOCK\EntityObject_MCE_B_ASSETS_OUTSTOCK_D.cs" />
+    <Compile Include="MCE_OUTTOCK\EntityObject_V_MCE_ASSET_OUTSTOCK_BACK.cs" />
+    <Compile Include="MCE_PLAN\EntityObject_MCE_B_ASSETS_PURCHASE.cs" />
+    <Compile Include="MCE_PLAN\EntityObject_MCE_B_ASSETS_PURCHASE_PLAN.cs" />
+    <Compile Include="MCE_PLAN\EntityObject_MCE_B_ASSETS_PURCHASE_PLAN_D.cs" />
+    <Compile Include="MCE_ROLL\EntityObject_MCE_B_ASSETS_FILETEMPLATE.cs" />
+    <Compile Include="MCE_ROLL\EntityObject_MCE_B_ASSETS_FILETEMPLATE_D.cs" />
+    <Compile Include="MCE_ROLL\EntityObject_MCE_B_ASSETS_ROLL.cs" />
+    <Compile Include="MCE_ROLL\EntityObject_MCE_B_ASSETS_ROLLEQUIP.cs" />
+    <Compile Include="MCE_ROLL\EntityObject_MCE_B_ASSETS_ROLLFILE.cs" />
+    <Compile Include="MCE_ROLL\EntityObject_V_MCE_ASSETS_ROLL.cs" />
+    <Compile Include="MCE_ROLL\EntityObject_V_MCE_ASSETS_ROLLEQUIP.cs" />
+    <Compile Include="MCE_STOCKDATA\EntityObject_MCE_B_ASSETS_BACK.cs" />
+    <Compile Include="MCE_STOCKDATA\EntityObject_MCE_B_ASSETS_BACK_D.cs" />
+    <Compile Include="MCE_STOCKDATA\EntityObject_MCE_B_ASSETS_CHECK.cs" />
+    <Compile Include="MCE_STOCKDATA\EntityObject_MCE_B_ASSETS_CHECK_D.cs" />
+    <Compile Include="MCE_STOCKDATA\EntityObject_MCE_B_ASSETS_CHECK_TYPE.cs" />
+    <Compile Include="MCE_STOCKDATA\EntityObject_MCE_B_ASSETS_TRANSFER.cs" />
+    <Compile Include="MCE_STOCKDATA\EntityObject_MCE_B_ASSETS_TRANSFER_D.cs" />
+    <Compile Include="MCE_STOCKDATA\EntityObject_MCE_B_SALES_RETURN.cs" />
+    <Compile Include="MCE_STOCKDATA\EntityObject_MCE_B_SALES_RETURN_D.cs" />
+    <Compile Include="MCE_STOCKDATA\EntityObject_V_MCE_ASSET_SALERETURN_BACK.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

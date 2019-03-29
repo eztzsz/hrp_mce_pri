@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <title>计量管理-计量分类新增</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1">
+    <link rel="stylesheet" type="text/css" href="../../styles/common/base.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/common/common.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/mce/PageMceMeterTypeNew.css">
+    <script type="text/javascript" src="../../scripts/new_angular/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/angular.1.2.29.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/appDirectives.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/appServices.js"></script>
+
+    <script type="text/javascript" src="../../scripts/My97DatePicker/WdatePicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../scripts/My97DatePicker/skin/WdatePicker.css">
+    <script type="text/javascript" src="../../scripts/mce/PageMceMeterTypeNew.js"></script>
+</head>
+<body ng-controller="index" ng-click="InputschangeState.changeState('a')">
+    <div class="content">
+        <div class="filt">
+            <ul>
+                <li>
+                    <div>
+                        <span>分类编码</span>
+                        <input type="text"  ng-model="headInfo.CODE">
+                    </div>
+                </li>               
+            </ul>
+            <ul>
+                <li>
+                    <div>
+                        <span>分类名称</span>
+                        <input type="text"  ng-model="headInfo.NAME">
+                    </div>
+                </li>
+            </ul>
+            <ul>
+                <li style="height:80px;">
+                    <div>
+                        <span>状态</span>
+                        <select ng-model="headInfo.STATE">
+                            <option value="">请选择</option>
+                            <option value="1">正常</option>
+                            <option value="2">禁用</option>
+                        </select>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+        <div class="data">
+            <div class="operation">
+          
+                <button class="btn"  ng-click="saveModel('1')">保存</button>
+                <button class="btn" ng-click="saveModel('2')">保存返回</button>
+
+                <button class=" btn"  ng-click="goBack()">返回</button>
+               
+
+            </div>
+           
+        </div>
+  
+    </div>
+</body>
+</html>

@@ -1,0 +1,711 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetPrvInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCause" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPaging" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOrder" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPrvInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPrvInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccountInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccountInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAccountInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEnterPriseInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEnterPriseInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEnterPriseInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPrvCertList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPrvCertListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPrvCertListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetPrvAuditStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strJson" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strStatus" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strUserNamr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetPrvAuditStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetPrvAuditStatusResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetMtrCertAuditStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strJson" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strStatus" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strUserNamr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetMtrCertAuditStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetMtrCertAuditStatusResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPrdlist">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPrdlistResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPrdlistResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPrdCertlist">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPrdCertlistResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPrdCertlistResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMtrCertList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCause" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPaging" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOrder" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMtrCertListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMtrCertListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMtrCertInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMtrCertInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMtrCertInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMtrCertCheckInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strJsonIDs" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMtrCertCheckInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMtrCertCheckInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPrvPicFileZip">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strPrvID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPrvPicFileZipResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPrvPicFileZipResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPrvAssetInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCause" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPaging" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOrder" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPrvAssetInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPrvAssetInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMceAssetDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMceAssetDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMceAssetDetailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckMceAssetIsAudit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strJson" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckMceAssetIsAuditResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckMceAssetIsAuditResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetMceAssetAuditStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strJson" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strStatus" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strReason" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetMceAssetAuditStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetMceAssetAuditStatusResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetPrvInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPrvInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetPrvInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPrvInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAccountInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAccountInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEnterPriseInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEnterPriseInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetEnterPriseInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEnterPriseInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPrvCertListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPrvCertList" />
+  </wsdl:message>
+  <wsdl:message name="GetPrvCertListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPrvCertListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetPrvAuditStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:SetPrvAuditStatus" />
+  </wsdl:message>
+  <wsdl:message name="SetPrvAuditStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:SetPrvAuditStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetMtrCertAuditStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:SetMtrCertAuditStatus" />
+  </wsdl:message>
+  <wsdl:message name="SetMtrCertAuditStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:SetMtrCertAuditStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPrdlistSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPrdlist" />
+  </wsdl:message>
+  <wsdl:message name="GetPrdlistSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPrdlistResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPrdCertlistSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPrdCertlist" />
+  </wsdl:message>
+  <wsdl:message name="GetPrdCertlistSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPrdCertlistResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMtrCertListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMtrCertList" />
+  </wsdl:message>
+  <wsdl:message name="GetMtrCertListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMtrCertListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMtrCertInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMtrCertInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetMtrCertInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMtrCertInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMtrCertCheckInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMtrCertCheckInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetMtrCertCheckInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMtrCertCheckInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPrvPicFileZipSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPrvPicFileZip" />
+  </wsdl:message>
+  <wsdl:message name="GetPrvPicFileZipSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPrvPicFileZipResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPrvAssetInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPrvAssetInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetPrvAssetInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPrvAssetInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMceAssetDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMceAssetDetail" />
+  </wsdl:message>
+  <wsdl:message name="GetMceAssetDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMceAssetDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckMceAssetIsAuditSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckMceAssetIsAudit" />
+  </wsdl:message>
+  <wsdl:message name="CheckMceAssetIsAuditSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckMceAssetIsAuditResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetMceAssetAuditStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:SetMceAssetAuditStatus" />
+  </wsdl:message>
+  <wsdl:message name="SetMceAssetAuditStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:SetMceAssetAuditStatusResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PRV_Web_ServiceSoap">
+    <wsdl:operation name="GetPrvInfo">
+      <wsdl:input message="tns:GetPrvInfoSoapIn" />
+      <wsdl:output message="tns:GetPrvInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountInfo">
+      <wsdl:input message="tns:GetAccountInfoSoapIn" />
+      <wsdl:output message="tns:GetAccountInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEnterPriseInfo">
+      <wsdl:input message="tns:GetEnterPriseInfoSoapIn" />
+      <wsdl:output message="tns:GetEnterPriseInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrvCertList">
+      <wsdl:input message="tns:GetPrvCertListSoapIn" />
+      <wsdl:output message="tns:GetPrvCertListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetPrvAuditStatus">
+      <wsdl:input message="tns:SetPrvAuditStatusSoapIn" />
+      <wsdl:output message="tns:SetPrvAuditStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetMtrCertAuditStatus">
+      <wsdl:input message="tns:SetMtrCertAuditStatusSoapIn" />
+      <wsdl:output message="tns:SetMtrCertAuditStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrdlist">
+      <wsdl:input message="tns:GetPrdlistSoapIn" />
+      <wsdl:output message="tns:GetPrdlistSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrdCertlist">
+      <wsdl:input message="tns:GetPrdCertlistSoapIn" />
+      <wsdl:output message="tns:GetPrdCertlistSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMtrCertList">
+      <wsdl:input message="tns:GetMtrCertListSoapIn" />
+      <wsdl:output message="tns:GetMtrCertListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMtrCertInfo">
+      <wsdl:input message="tns:GetMtrCertInfoSoapIn" />
+      <wsdl:output message="tns:GetMtrCertInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMtrCertCheckInfo">
+      <wsdl:input message="tns:GetMtrCertCheckInfoSoapIn" />
+      <wsdl:output message="tns:GetMtrCertCheckInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrvPicFileZip">
+      <wsdl:input message="tns:GetPrvPicFileZipSoapIn" />
+      <wsdl:output message="tns:GetPrvPicFileZipSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrvAssetInfo">
+      <wsdl:input message="tns:GetPrvAssetInfoSoapIn" />
+      <wsdl:output message="tns:GetPrvAssetInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMceAssetDetail">
+      <wsdl:input message="tns:GetMceAssetDetailSoapIn" />
+      <wsdl:output message="tns:GetMceAssetDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckMceAssetIsAudit">
+      <wsdl:input message="tns:CheckMceAssetIsAuditSoapIn" />
+      <wsdl:output message="tns:CheckMceAssetIsAuditSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetMceAssetAuditStatus">
+      <wsdl:input message="tns:SetMceAssetAuditStatusSoapIn" />
+      <wsdl:output message="tns:SetMceAssetAuditStatusSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PRV_Web_ServiceSoap" type="tns:PRV_Web_ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPrvInfo">
+      <soap:operation soapAction="http://tempuri.org/GetPrvInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountInfo">
+      <soap:operation soapAction="http://tempuri.org/GetAccountInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEnterPriseInfo">
+      <soap:operation soapAction="http://tempuri.org/GetEnterPriseInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrvCertList">
+      <soap:operation soapAction="http://tempuri.org/GetPrvCertList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetPrvAuditStatus">
+      <soap:operation soapAction="http://tempuri.org/SetPrvAuditStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetMtrCertAuditStatus">
+      <soap:operation soapAction="http://tempuri.org/SetMtrCertAuditStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrdlist">
+      <soap:operation soapAction="http://tempuri.org/GetPrdlist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrdCertlist">
+      <soap:operation soapAction="http://tempuri.org/GetPrdCertlist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMtrCertList">
+      <soap:operation soapAction="http://tempuri.org/GetMtrCertList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMtrCertInfo">
+      <soap:operation soapAction="http://tempuri.org/GetMtrCertInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMtrCertCheckInfo">
+      <soap:operation soapAction="http://tempuri.org/GetMtrCertCheckInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrvPicFileZip">
+      <soap:operation soapAction="http://tempuri.org/GetPrvPicFileZip" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrvAssetInfo">
+      <soap:operation soapAction="http://tempuri.org/GetPrvAssetInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMceAssetDetail">
+      <soap:operation soapAction="http://tempuri.org/GetMceAssetDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckMceAssetIsAudit">
+      <soap:operation soapAction="http://tempuri.org/CheckMceAssetIsAudit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetMceAssetAuditStatus">
+      <soap:operation soapAction="http://tempuri.org/SetMceAssetAuditStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PRV_Web_ServiceSoap12" type="tns:PRV_Web_ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPrvInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetPrvInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetAccountInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEnterPriseInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetEnterPriseInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrvCertList">
+      <soap12:operation soapAction="http://tempuri.org/GetPrvCertList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetPrvAuditStatus">
+      <soap12:operation soapAction="http://tempuri.org/SetPrvAuditStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetMtrCertAuditStatus">
+      <soap12:operation soapAction="http://tempuri.org/SetMtrCertAuditStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrdlist">
+      <soap12:operation soapAction="http://tempuri.org/GetPrdlist" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrdCertlist">
+      <soap12:operation soapAction="http://tempuri.org/GetPrdCertlist" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMtrCertList">
+      <soap12:operation soapAction="http://tempuri.org/GetMtrCertList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMtrCertInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetMtrCertInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMtrCertCheckInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetMtrCertCheckInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrvPicFileZip">
+      <soap12:operation soapAction="http://tempuri.org/GetPrvPicFileZip" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrvAssetInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetPrvAssetInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMceAssetDetail">
+      <soap12:operation soapAction="http://tempuri.org/GetMceAssetDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckMceAssetIsAudit">
+      <soap12:operation soapAction="http://tempuri.org/CheckMceAssetIsAudit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetMceAssetAuditStatus">
+      <soap12:operation soapAction="http://tempuri.org/SetMceAssetAuditStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PRV_Web_Service">
+    <wsdl:port name="PRV_Web_ServiceSoap" binding="tns:PRV_Web_ServiceSoap">
+      <soap:address location="http://localhost/hrp_shell_hnsprv_mce/service/prv/PRV_web/PRV_Web_Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PRV_Web_ServiceSoap12" binding="tns:PRV_Web_ServiceSoap12">
+      <soap12:address location="http://localhost/hrp_shell_hnsprv_mce/service/prv/PRV_web/PRV_Web_Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

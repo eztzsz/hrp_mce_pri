@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <title>合同管理->合同付款</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1">
+    <link rel="stylesheet" type="text/css" href="../../styles/common/base.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/common/common.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/mce/PageMceContractPay.css">
+    <script type="text/javascript" src="../../scripts/new_angular/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/angular.1.2.29.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/appDirectives.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/appServices.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../../scripts/My97DatePicker/skin/WdatePicker.css">
+    <script type="text/javascript" src="../../scripts/My97DatePicker/WdatePicker.js"></script>
+
+    <script type="text/javascript" src="../../scripts/mce/PageMceContractPay.js"></script>
+</head>
+<body ng-controller="index" ng-click="InputschangeState.changeState('a')">
+    <div class="content">
+        <div class="filt">
+            <ul>
+                <li>
+                    <div>
+                        <span>合同编号</span>
+                        <input type="text" ng-model="paramObj.code">
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>合同名称</span>
+                        <input type="text" ng-model="paramObj.name">
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>乙方单位</span>
+                        <my-param param="dept" change="InputschangeState" param-obj="paramDept" show-str="dept" authority="false"></my-param>
+                    </div>
+                </li>
+                <li>
+                    <div style="margin-right:30px">
+                        <span>状态</span>
+                        <select ng-model="paramObj.status">
+                            <option value="">全部</option>
+                            <option value="1">已付款</option>
+                            <option value="2">未付款</option>
+
+                        </select>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>计划付款日期</span>
+                        <input type="text" class="clock" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',onpicked:function(){$(this).trigger('change')},isShowClear:false})" ng-model="paramObj.beginspan">
+                    </div>
+                    <button class="btn" ng-click="getModelList(1)">查询</button>
+                </li>
+
+            </ul>
+        </div>
+        <div class="operation">
+            <button class="btn" ng-click="payModel()">付款</button>
+        </div>
+        <div class="data">
+            <div class="table">
+                <table border="0" cellpadding="0" cellspacing="0">
+                    <thead>
+                    <th ng-click="checkAll()">全选/全不选</th>
+                    <th>计划付款日期</th>
+                    <th>乙方单位</th>
+                    <th>合同编号</th>
+                    <th>合同名称</th>
+                    <th>期数</th>
+                    <th>金额</th>
+                    <th>状态</th>
+            
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="(key,value) in modelList" ng-click="onselChange(key)" ng-class="{'onsel':value.onsel}">
+                            <td>
+                                <input ng-show="value.STATE==2" type="checkbox" ng-checked="value.checked" ng-click="value.checked=!value.checked">
+                            </td>
+                            <td ng-bind="value.PLAN_PAY_DATE">00001</td>
+                            <td ng-bind="value.SECOND_PARTY_NAME">00001</td>
+                            <td ng-bind="value.CODE">00001</td>
+                            <td ng-bind="value.NAME">张三</td>
+                            <td ng-bind="value.PERIODS">13213131313</td>
+                            <td ng-bind="value.MONEY">336866846436</td>
+                            <td ng-bind="value.STATE_NAME">13861</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <mainpager my-pager="mainPager" my-search="getModelList(curIndex)"></mainpager>
+            </div>
+        </div>
+
+    </div>
+   
+</body>
+</html>

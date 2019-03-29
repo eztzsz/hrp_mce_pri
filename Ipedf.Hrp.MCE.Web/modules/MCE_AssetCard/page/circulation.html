@@ -1,0 +1,321 @@
+<!--<title>流转信息</title>-->
+<div class="circulation" ng-controller="circulation">
+    <!--<div class="search">
+        <span>关键字</span>
+        <input type="text" class="inp" placeholder="验收单号、入库单号、出库单号、调拨单号、退货单号">
+        <button class="btn">查询</button>
+    </div>-->
+    <div class="circulationList">
+        <ul class="model">
+            <li class="item">
+                <div class="right">
+                    <ul class="modelList">
+                        <li>
+                            <span>验收单号</span>
+                            <input type="text" ng-model="circulationInfo.AOG_Info.code" class="inp">
+                        </li>
+                        <li>
+                            <span>验收日期</span>
+                            <input type="text" ng-model="circulationInfo.AOG_Info.create_date" class="inp">
+                        </li>
+                        <li>
+                            <span>采购科室</span>
+                            <input type="text" ng-model="circulationInfo.AOG_Info.use_dept_name" class="inp">
+                        </li>
+                        <li>
+                            <span>供应商</span>
+                            <input type="text" ng-model="circulationInfo.AOG_Info.provider_name" class="inp">
+                        </li>
+                        <li>
+                            <span>采购合同号</span>
+                            <input type="text" ng-model="circulationInfo.AOG_Info.purcharse_ht_num" class="inp">
+                        </li>
+                    </ul>
+                    <ul class="modelList">
+                        <li>
+                            <span>采购人</span>
+                            <input type="text" ng-model="circulationInfo.AOG_Info.purcharse_person" class="inp">
+                        </li>
+                        <li>
+                            <span>验收人</span>
+                            <input type="text" ng-model="circulationInfo.AOG_Info.use_user_name" class="inp">
+                        </li>
+                        <li>
+                            <span>发票号</span>
+                            <input type="text" ng-model="circulationInfo.AOG_Info.invoice_code" class="inp">
+                        </li>
+                        <!--<li>
+                            <span>验收附件:</span>
+                            <strong >查看
+                                <ul>
+                                    <li>
+                                        <a href="#"></a>
+                                    </li>
+                                </ul>
+                            </strong>
+                            <strong >上传</strong>
+                        </li>-->
+                    </ul>
+                </div>
+                <div class="opera">
+                    <!--<button class="btn">添加</button>-->
+                    <button class="btn">查看详情</button>
+                </div>
+            </li>
+        </ul>
+        <ul class="model">
+            <li class="item">
+                <div class="right">
+                    <ul class="modelList">
+                        <li>
+                            <span>入库单号</span>
+                            <input type="text" ng-model="circulationInfo.Instock_Info.code" class="inp">
+                        </li>
+                        <li>
+                            <span>入库日期</span>
+                            <input type="text" ng-model="circulationInfo.Instock_Info.create_date" class="inp">
+                        </li>
+                        <li>
+                            <span>入库仓库</span>
+                            <input type="text" ng-model="circulationInfo.Instock_Info.warehouse_name" class="inp">
+                        </li>
+                        <li>
+                            <span>供应商</span>
+                            <input type="text" ng-model="circulationInfo.Instock_Info.provider_name" class="inp">
+                        </li>
+                    </ul>
+                    <ul class="modelList">
+                        <li>
+                            <span>购入日期</span>
+                            <input type="text" ng-model="circulationInfo.AOG_Info.create_date" class="inp">
+                        </li>
+                        <li>
+                            <span>入库人</span>
+                            <input type="text" ng-model="circulationInfo.Instock_Info.user_name" class="inp">
+                        </li>
+                        <li>
+                            <span>发票号</span>
+                            <input type="text" ng-model="circulationInfo.Instock_Info.invoice_code" class="inp">
+                        </li>
+                        <!--<li>
+                            <span>入库附件:</span>
+                            <strong >查看
+                                <ul>
+                                    <li>
+                                        <a href="#"></a>
+                                    </li>
+                                </ul>
+                            </strong>
+                            <strong >上传</strong>
+                        </li>-->
+                    </ul>
+                </div>
+                <div class="opera">
+                    <!--<button class="btn">添加</button>-->
+                    <button class="btn">查看详情</button>
+                </div>
+            </li>
+        </ul>
+        <ul class="model">
+            <li class="item">
+                <div class="right">
+                    <ul class="modelList">
+                        <li>
+                            <span>出库单号</span>
+                            <input type="text" ng-model="circulationInfo.Outstock_Info.code" class="inp">
+                        </li>
+                        <li>
+                            <span>出库日期</span>
+                            <input type="text" ng-model="circulationInfo.Outstock_Info.create_date" class="inp">
+                        </li>
+                        <li>
+                            <span>出库仓库</span>
+                            <input type="text" ng-model="circulationInfo.Outstock_Info.stock_name" class="inp">
+                        </li>
+                        <!--<li>
+                            <span>出库附件:</span>
+                            <strong >查看
+                                <ul>
+                                    <li>
+                                        <a href="#"></a>
+                                    </li>
+                                </ul>
+                            </strong>
+                            <strong >上传</strong>
+                        </li>-->
+                    </ul>
+                    <ul class="modelList">
+                        <li>
+                            <span>领用科室</span>
+                            <input type="text" ng-model="circulationInfo.Outstock_Info.using_dept_name" class="inp">
+                        </li>
+                        <li>
+                            <span>领用人</span>
+                            <input type="text" ng-model="circulationInfo.Outstock_Info.using_user_name" class="inp">
+                        </li>
+                        <li>
+                            <span>出库人</span>
+                            <input type="text" ng-model="circulationInfo.Outstock_Info.create_user_name" class="inp">
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="opera">
+                    <!--<button class="btn">添加</button>-->
+                    <button class="btn">查看详情</button>
+                </div>
+            </li>
+        </ul>
+        <ul class="model">
+            <li class="item">
+                <div class="right">
+                    <ul class="modelList">
+                        <li>
+                            <span>调拨单号</span>
+                            <input type="text" ng-model="circulationInfo.Transfer_Info.code" class="inp">
+                        </li>
+                        <li>
+                            <span>调拨日期</span>
+                            <input type="text" ng-model="circulationInfo.Transfer_Info.create_date" class="inp">
+                        </li>
+                        <li>
+                            <span>调出科室</span>
+                            <input type="text" ng-model="circulationInfo.Transfer_Info.transfer_dept_name" class="inp">
+                        </li>
+                        <li>
+                            <span>调入科室</span>
+                            <input type="text" ng-model="circulationInfo.Transfer_Info.dept_name" class="inp">
+                        </li>
+                    </ul>
+                    <ul class="modelList">
+                        <li>
+                            <span>调拨人</span>
+                            <input type="text" ng-model="circulationInfo.Transfer_Info.create_user_name" class="inp">
+                        </li>
+                        <li>
+                            <span>调出人</span>
+                            <input type="text" ng-model="circulationInfo.Transfer_Info.transfer_user_name" class="inp">
+                        </li>
+                        <li>
+                            <span>调入人</span>
+                            <input type="text" ng-model="circulationInfo.Transfer_Info.user_name" class="inp">
+                        </li>
+                        <!--<li>
+                            <span>调拨附件:</span>
+                            <strong >查看
+                                <ul>
+                                    <li>
+                                        <a href="#"></a>
+                                    </li>
+                                </ul>
+                            </strong>
+                            <strong >上传</strong>
+                        </li>-->
+
+                    </ul>
+                </div>
+                <div class="opera">
+                    <!--<button class="btn">添加</button>-->
+                    <button class="btn">查看详情</button>
+                </div>
+            </li>
+        </ul>
+        <ul class="model">
+            <li class="item">
+                <div class="right">
+                    <ul class="modelList">
+                        <li>
+                            <span>退库单号</span>
+                            <input type="text" ng-model="circulationInfo.Back_Info.code" class="inp">
+                        </li>
+                        <li>
+                            <span>退库日期</span>
+                            <input type="text" ng-model="circulationInfo.Back_Info.create_date" class="inp">
+                        </li>
+                        <!--<li>
+                            <span>退库附件:</span>
+                            <strong >查看
+                                <ul>
+                                    <li>
+                                        <a href="#"></a>
+                                    </li>
+                                </ul>
+                            </strong>
+                            <strong >上传</strong>
+                        </li>-->
+                    </ul>
+                    <ul class="modelList">
+                        <li>
+                            <span>退库科室</span>
+                            <input type="text" ng-model="circulationInfo.Back_Info.return_dept_name" class="inp">
+                        </li>
+                        <li>
+                            <span>退库人</span>
+                            <input type="text" ng-model="circulationInfo.Back_Info.return_user_name" class="inp">
+                        </li>
+                    </ul>
+                </div>
+                <div class="opera">
+                    <!--<button class="btn">添加</button>-->
+                    <button class="btn">查看详情</button>
+                </div>
+            </li>
+        </ul>
+        <ul class="model">
+            <li class="item">
+                <div class="right">
+                    <ul class="modelList">
+                        <li>
+                            <span>退货单号</span>
+                            <input type="text" ng-model="circulationInfo.Return_Info.code" class="inp">
+                        </li>
+                        <li>
+                            <span>退货日期</span>
+                            <input type="text" ng-model="circulationInfo.Return_Info.create_date" class="inp">
+                        </li>
+                        <li>
+                            <span>退货仓库</span>
+                            <input type="text" ng-model="circulationInfo.Return_Info.stock_name" class="inp">
+                        </li>
+
+                    </ul>
+                    <ul class="modelList">
+                        <li>
+                            <span>退货人</span>
+                            <input type="text" ng-model="circulationInfo.Return_Info.user_name" class="inp">
+                        </li>
+                        <li>
+                            <span>供应商</span>
+                            <input type="text" ng-model="circulationInfo.Return_Info.provider_name" class="inp">
+                        </li>
+                        <!--<li>
+                            <span>退货附件:</span>
+                            <strong >查看
+                                <ul>
+                                    <li>
+                                        <a href="#"></a>
+                                    </li>
+                                </ul>
+                            </strong>
+                            <strong >上传</strong>
+                        </li>-->
+
+                    </ul>
+                </div>
+                <div class="opera">
+                    <!--<button class="btn">添加</button>-->
+                    <button class="btn">查看详情</button>
+                </div>
+            </li>
+        </ul>
+        <!--<ul class="model">-->
+            <!--<li>-->
+                <!--<div class="addModel">-->
+                    <!--<a href="javascript:void(0);" >+新增流转信息</a>-->
+                <!--</div>-->
+
+            <!--</li>-->
+        <!--</ul>-->
+    </div>
+</div>
+

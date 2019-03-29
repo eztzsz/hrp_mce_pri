@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>资产台帐->资产卡片</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1">
+    <link rel="stylesheet" type="text/css" href="../../styles/common/base.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/common/common.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/MCE_AssetCard/PageMceAssertCardList.css">
+    <script type="text/javascript" src="../../scripts/new_angular/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/angular.1.2.29.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/appDirectives.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/appServices.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/jQuery.print.js"></script>
+    <script type="text/javascript" src="../../scripts/My97DatePicker/WdatePicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../scripts/My97DatePicker/skin/WdatePicker.css">
+    <script type="text/javascript" src="../../scripts/MCE_AssetCard/PageMceAssertCardList.js"></script>
+
+    <!--<link rel="stylesheet" type="text/css" href="../../styles/mtr/depart_sub.css" />-->
+    <script src="../../scripts/mtr/demo/angular-tree-control.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../scripts/mtr/demo/tree-control.css">
+    <link rel="stylesheet" type="text/css" href="../../scripts/mtr/demo/tree-control-attribute.css">
+
+</head>
+<body ng-controller="index" ng-click="InputschangeState.changeState('a')">
+<div class="content">
+    <div class="left">
+
+        <div class="title">
+            <p>资产分类</p>
+        </div>
+        <div style="height:504px;" class="prv">
+
+            <treecontrol class="tree-classic"
+                         tree-model="dataForTheTree"
+                         options="children"
+                         on-selection="showSelected(node, selected)"
+                         selected-node="node">
+                类型: {{node.text}}
+            </treecontrol>
+          
+        </div>
+    </div>
+    <div class="box">
+        <div class="filt">
+            <ul>
+                <li>
+                    <div>
+                        <span>资产编码</span>
+                        <input type="text" ng-model="paramObj.code">
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>资产名称</span>
+                        <input type="text" ng-model="paramObj.name">
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>规格型号</span>
+                        <input type="text" ng-model="paramObj.spec">
+                    </div>
+                </li>
+
+                <li>
+                    <div>
+                        <span>状态</span>
+                        <select ng-model="paramObj.status">
+                            <option value="">全部</option>
+                            <option value="1">编辑中</option>
+                            <option value="3">已审批</option>
+                            <option value="4">已归档</option>
+                            <option value="9">已作废</option>
+                        </select>
+                        <button class="btn" ng-click="getModelList(1)">查询</button>
+                    </div>
+                </li>
+                
+                <!--<li>
+                    <div>
+                        <span>采购类型</span>
+                        <select ng-model="paramObj.reqtype">
+                            <option  ng-repeat="value in statusList" value="{{value.id}}" ng-bind="value.name">采购</option>
+                        </select>
+                    </div>
+                </li>-->
+        
+         
+            </ul>
+        </div>
+        <div class="operation">
+            <button class="btn" ng-click="delModel()">删除</button>
+            <button class="btn" ng-click="goDetail('')">新增</button>
+                    
+        </div>
+        <div class="data">
+            <div class="table">
+                <table border="0" cellpadding="0" cellspacing="0">
+                    <thead>
+                        <th ng-click="checkAll()">全选/全不选</th>
+                        <th>资产编码</th>
+                        <th>资产名称</th>
+                        <th>生产厂家</th>
+                        <th>供应商</th>
+                        <th>领用科室</th>
+                        <th>存放地址</th>
+						<th>原值</th>
+                        <th>净值</th>
+                        <th>状态</th>
+               
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="value in modelList" ng-dblclick="goDetail(value.ID)" >
+                            <td>
+                                <div class="check" ng-click="value.checked = !value.checked" ng-show="value.STATE == 1">
+                                    <span></span>
+                                    <strong ng-show="value.checked">✔</strong>
+                                </div>
+                            </td>
+                            <td ng-bind="value.ASSETS_CODE">313168</td>
+                            <td ng-bind="value.ASSETS_NAME">313168</td>
+                            <td ng-bind="value.PRD_ID_NAME">撒旦法</td>
+                            <td ng-bind="value.PROVIDER_ID_NAME">设备科</td>
+                            <td ng-bind="value.USING_DEPT_ID_NAME">苏溪</td>
+                            <td ng-bind="value.STORE_ADDRESS">自购</td>
+                            <td ng-bind="value.ORIGINAL_VALUE">自购</td>
+                            <td ng-bind="value.NET_VALUE">313168</td>
+                            <td ng-bind="value.ASSETS_STATE_NAME"></td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div style="overflow:hidden;">
+                <mainpager my-pager="mainPager" my-search="getModelList(curIndex)"></mainpager>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

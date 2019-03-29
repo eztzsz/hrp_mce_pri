@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>供应商管理->供应商设备审核</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1" >
+	<link rel="stylesheet" type="text/css" href="../../styles/common/base.css">
+	<link rel="stylesheet" type="text/css" href="../../styles/common/common.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/mce/PageMceGetAssetCheckList.css">
+	<script type="text/javascript" src="../../scripts/new_angular/jquery-1.11.0.js"></script>
+	<script type="text/javascript" src="../../scripts/new_angular/angular.1.2.29.js"></script>
+	<script type="text/javascript" src="../../scripts/new_angular/appDirectives.js"></script>
+	<script type="text/javascript" src="../../scripts/new_angular/appServices.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="../../scripts/My97DatePicker/skin/WdatePicker.css">
+	<script type="text/javascript" src="../../scripts/My97DatePicker/WdatePicker.js"></script>
+
+    <script type="text/javascript" src="../../scripts/mce/PageMceGetAssetCheckList.js"></script>
+</head>
+<body ng-controller="index" ng-click="InputschangeState.changeState('a')">
+	<div class="content">
+		<div class="filt">
+			<ul>
+                <li>
+                    <div>
+                        <span>设备名称：</span>
+                        <input type="text" ng-model='paramObj.name'>
+                     </div>
+                </li>
+                <li>
+                    <div>
+                        <span>生产厂家：</span>
+                        <input type="text" ng-model='paramObj.prd'>
+                    </div>
+
+                </li>
+                <li>
+                    <div style="margin-right:30px">
+                        <span>状态</span>
+                        <select ng-model="paramObj.state">
+                            <option value="">--请选择--</option>
+                            <option value="0">待审批</option>
+                            <option value="1">已审批</option>
+                            <option value="1">已拒绝</option>
+                        </select>
+                    </div>
+
+                </li>
+				<li>
+
+					<button class="btn" ng-click="getModelList(1)">查询</button>
+
+				</li>
+			</ul>
+		</div>
+		<div class="operation">
+            <button id="btnCheck" class="btn" ng-click="checkAsset()">审核通过</button>
+            <button class="btn" ng-click="openNew()">审核不通过</button>
+		</div>
+		<div class="data">
+			<div class="table">
+				<table border="0" cellpadding="0" cellspacing="0">
+					<thead>
+						<th ng-click="checkAll()">全选/全不选</th>
+                        <th>设备名称</th>
+                        <th>设备分类</th>
+                        <th>单位</th>
+                        <th>规格</th>
+                        <th>生产厂家</th>
+                        <th>产地</th>
+                        <th>价格</th>
+                        <th>审核状态</th>
+                        <th>审核备注</th>
+					</thead>
+					<tbody>
+						<tr ng-repeat="(key,value) in modelList" ng-click="onselChange(key)" ng-class="{'onsel':value.onsel}"  ng-dblclick="goDetail(value.ID)">
+							<td>
+                                <div ng-show="value.STATE == 0">
+                                    <input type="checkbox" ng-checked="value.checked" ng-click="value.checked=!value.checked">
+                                </div>
+							</td>
+                            <td ng-bind="value.NAME">BH-201608130058</td>
+                            <td ng-bind="value.TYPE_ID_NAME">BH-201608130058</td>
+                            <td ng-bind="value.UNIT_ID_NAME">湖南省人民医院</td>
+                            <td ng-bind="value.SPEC">- -</td>
+                            <td ng-bind="value.PRD_ID_NAME">- -</td>
+                            <td ng-bind="value.PRD_PLACE_TYPE_ID_NAME">40.00</td>
+                            <td ng-bind="value.PRICE">2016-08-13 15:20</td>
+                            <td ng-bind="value.STATE_NAME">待确认</td>
+                            <td ng-bind="value.NOPASSREASON"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div>
+				<mainpager my-pager="mainPager" my-search="getModelList(curIndex)" ></mainpager>
+			</div>
+		</div>
+		
+	</div>
+	
+
+
+    <div class="bg" ng-show="newState.state"></div>
+    <div class="new_data" ng-show="newState.state">
+
+        <div  style="height:240px;width:500px;">
+            <ul>
+                <li>
+                    <div>
+                        <span style="vertical-align: top;font-size:medium">拒绝原因:</span>
+                        <textarea style="width:500px;height:200px;resize: none;line-height:16px;text-indent:2em;border: 1px solid #bed4ed"
+                                  ng-model="paramAssetObj.Reason"></textarea>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+
+        <div class="in">
+            <button id="btnRefuseCheck" class="btn" ng-click="checkAssetNo()">确认</button>
+            <button class="btn" ng-click="newState.state = false">取消</button>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <title>资产折旧->折旧计提</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1">
+    <link rel="stylesheet" type="text/css" href="../../styles/common/base.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/common/common.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/mce/PageMceDeprList.css">
+    <script type="text/javascript" src="../../scripts/new_angular/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/angular.1.2.29.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/appDirectives.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/appServices.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../../scripts/My97DatePicker/skin/WdatePicker.css">
+    <script type="text/javascript" src="../../scripts/My97DatePicker/WdatePicker.js"></script>
+
+    <script type="text/javascript" src="../../scripts/mce/PageMceDeprList.js"></script>
+</head>
+<body ng-controller="index" ng-click="InputschangeState.changeState('a')">
+    <div class="content">
+        <div class="filt">
+            <ul>
+                <li>
+                    <div>
+                        <span>单号</span>
+                        <input type="text" ng-model="paramObj.code">
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>财务月份</span>
+                        <input type="text" class="clock" onfocus="WdatePicker({dateFmt:'yyyyMM',onpicked:function(){$(this).trigger('change')},isShowClear:false})" ng-model="paramObj.finance_cycle">
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>计提科室</span>
+                        <my-param param="dept" change="InputschangeState" param-obj="paramDept" show-str="dept" authority="false"></my-param>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>计提人</span>
+                        <my-param param="user" change="InputschangeState" param-obj="paramUser" show-str="user" authority="false"></my-param>
+                    </div>
+                </li>
+                <li>
+                    <div style="margin-right:30px">
+                        <span>状态</span>
+                        <select ng-model="paramObj.status">
+                            <option value="">全部</option>
+                            <option value="1">编辑中</option>
+                            <option value="2">已提交</option>
+                            <option value="3">已审核</option>
+                            <option value="4">已归档</option>
+                            <option value="9">已作废</option>
+                        </select>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>计提日期</span>
+                        <input type="text" class="clock" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',onpicked:function(){$(this).trigger('change')},isShowClear:false})" ng-model="paramObj.beginspan">
+                        至
+                        <input type="text" class="clock" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',onpicked:function(){$(this).trigger('change')},isShowClear:false})" ng-model="paramObj.endspan">
+                    </div>
+                    <button class="btn" ng-click="getModelList(1)">查询</button>
+                </li>
+
+            </ul>
+        </div>
+        <div class="operation">
+           
+            <button class="btn" ng-click="deleteModel()">删除</button>
+            <button class="btn" ng-click="goDetail('')">新增</button>
+        </div>
+        <div class="data">
+            <div class="table">
+                <table border="0" cellpadding="0" cellspacing="0">
+                    <thead>
+                    <th ng-click="checkAll()">全选/全不选</th>
+                    <th>单号</th>
+                    <th>财务月份</th>
+                    <th>计提日期</th>
+                    <th>计提科室科室</th>   
+                    <th>计提人</th>
+                    <th>状态</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="(key,value) in modelList" ng-click="onselChange(key)" ng-class="{'onsel':value.onsel}" ng-dblclick="goDetail(value.ID)">
+                            <td>
+                                <input ng-show="value.STATE<=1" type="checkbox" ng-checked="value.checked" ng-click="value.checked=!value.checked">
+                            </td>
+                            <td ng-bind="value.CODE">00001</td>
+                            <td ng-bind="value.FINANCE_CYCLE">长沙迅捷</td>
+                            <td ng-bind="value.CREATE_DATE">张三</td>
+                            <td ng-bind="value.DEPT_ID_NAME">1351315</td>
+                            <td ng-bind="value.USER_ID_NAME">13861</td>                         
+                            <td ng-bind="value.STATE_NAME">审批通过</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <mainpager my-pager="mainPager" my-search="getModelList(curIndex)"></mainpager>
+            </div>
+        </div>
+
+    </div>
+    <a ng-href="fileSrc" id="fileDow"></a>
+</body>
+</html>

@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <title>设备保养-保养项目设置</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1">
+    <link rel="stylesheet" type="text/css" href="../../styles/common/base.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/common/common.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/mce/PageMceMtnItemList.css">
+    <script type="text/javascript" src="../../scripts/new_angular/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/angular.1.2.29.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/appDirectives.js"></script>
+    <script type="text/javascript" src="../../scripts/new_angular/appServices.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../../scripts/My97DatePicker/skin/WdatePicker.css">
+    <script type="text/javascript" src="../../scripts/My97DatePicker/WdatePicker.js"></script>
+
+    <script type="text/javascript" src="../../scripts/mce/PageMceMtnItemList.js"></script>
+</head>
+<body ng-controller="index" ng-click="InputschangeState.changeState('a')">
+    <div class="content">
+        <div class="filt">
+            <ul>
+                <li>
+                    <div>
+                        <span>编码</span>
+                        <input type="text" ng-model="paramObj.code">
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>名称</span>
+                        <input type="text" ng-model="paramObj.name">
+                    </div>
+                </li>
+                <li>
+                    <div>
+                       
+                    </div>
+                    <button class="btn" ng-click="getModelList(1)">查询</button>
+                </li>
+
+            </ul>
+        </div>
+        <div class="operation">
+           
+            <button class="btn" ng-click="deleteModel()">删除</button>
+            <button class="btn" ng-click="goDetail('')">新增</button>
+        </div>
+        <div class="data">
+            <div class="table">
+                <table border="0" cellpadding="0" cellspacing="0">
+                    <thead>
+                    <th ng-click="checkAll()">全选/全不选</th>
+                    <th>项目编码</th>
+                    <th>项目名称</th>
+                    <th>注意事项</th>
+                    <th>保养方法</th>
+      
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="(key,value) in modelList" ng-click="onselChange(key)" ng-class="{'onsel':value.onsel}" ng-dblclick="goDetail(value.ID)">
+                            <td>
+                                <input type="checkbox" ng-checked="value.checked" ng-click="value.checked=!value.checked">
+                            </td>
+                            <td ng-bind="value.CODE">00001</td>
+                            <td ng-bind="value.NAME">长沙迅捷</td>
+                            <td ng-bind="value.ATTENTION">张三</td>
+                            <td ng-bind="value.MTNMETHOD">13213131313</td>
+             
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <mainpager my-pager="mainPager" my-search="getModelList(curIndex)"></mainpager>
+            </div>
+        </div>
+
+    </div>
+    <a ng-href="fileSrc" id="fileDow"></a>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!--<title>维保信息</title>-->
+<div class="maintenance" ng-controller="maintenance">
+    <div class="search">
+        <span>关键字</span>
+        <input type="text" class="inp" placeholder="维修单号，保养单号" ng-model="paramMtnObj.condition">
+        <button class="btn" ng-click="getMtnList()">查询</button>
+    </div>
+    <div class="maintenanceList">
+        <ul class="model">
+            <li ng-repeat="v in mtnlList" class="item">
+                <div class="right">
+                    <ul class="modelList">
+                        <li>
+                            <span>维修单号</span>
+                            <input type="text" ng-model="v.CODE" ng-readonly="true" class="inp">
+                        </li>
+                        <li>
+                            <span>维修日期</span>
+                            <input type="text" ng-model="v.APPLY_TIME" ng-readonly="true" class="inp">
+                        </li>
+                        <li>
+                            <span>维修类型</span>
+                            <input type="text" ng-model="v.MTN_TYPE_ID_NAME" ng-readonly="true" class="inp">
+                        </li>
+                        <li>
+                            <span>使用科室</span>
+                            <input type="text" ng-model="v.USING_DEPT_ID_NAME" ng-readonly="true" class="inp">
+                        </li>
+                        <li>
+                            <span>维修附件</span>
+                            <strong>
+                                查看
+                                <ul>
+                                    <li>
+                                        <a href="#"></a>
+                                    </li>
+                                </ul>
+                            </strong>
+                            <strong>上传</strong>
+                        </li>
+                    </ul>
+                    <ul class="modelList">
+                        <li>
+                            <span>维修科室</span>
+                            <input type="text" ng-model="v.MAINTAIN_DEPT_ID_NAME" ng-readonly="true" class="inp">
+                        </li>
+                        <li>
+                            <span>维修人</span>
+                            <input type="text" ng-model="v.COMMENTS" ng-readonly="true" class="inp">
+                        </li>
+                        <li>
+                            <span>维修费用</span>
+                            <input type="text" ng-model="v.MAINTAIN_MONEY" ng-readonly="true" class="inp">
+                        </li>
+                        <li>
+                            <span>发票号</span>
+                            <input type="text" ng-readonly="true" class="inp">
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="opera">
+                    <button class="btn">添加</button>
+                    <button class="btn">查看详情</button>
+                </div>
+            </li>
+        </ul>
+        <!--<ul class="model">
+            <li>
+                <div class="addModel">
+                    <a href="javascript:void(0);" >+新增维保</a>
+                </div>
+
+            </li>
+        </ul>-->
+    </div>
+    <div class="table">
+        <div id="depreciationAdd">
+
+        </div>
+        <h4>历史记录</h4>
+        <div class="data">
+            <table cellspacing="0" cellpadding="0" border="0">
+                <thead>
+                <th>财务月份</th>
+                <th>原值</th>
+                <th>净值</th>
+                <th>维保费用</th>
+                <th>维保类型</th>
+                <th>使用科室</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="vDepr in deprHistoryList">
+                        <td ng-bind="vDepr.FINANCE_CYCLE">123</td>
+                        <td ng-bind="vDepr.ORIGINAL_VALUE">123</td>
+                        <td ng-bind="vDepr.NET_VALUE">1231</td>
+                        <td ng-bind="vDepr.MAINTAIN_MONEY">123</td>
+                        <td ng-bind="vDepr.MTN_TYPE_NAME">123</td>
+                        <td ng-bind="vDepr.DEPT_NAME">13</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="pager">
+            <span>首页</span>
+            <span>上一页</span>
+            <span>下一页</span>
+            <span>尾页</span>
+        </div>
+    </div>
+</div>

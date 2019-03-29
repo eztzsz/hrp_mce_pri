@@ -1,0 +1,84 @@
+<!--<title>案卷信息</title>-->
+<div class="records" ng-controller="records">
+    <div class="search">
+        <span>关键字</span>
+        <input type="text" class="inp" placeholder="案卷编号" ng-model="paramRollObj.condition">
+        <button class="btn" ng-click="getRollList()">查询</button>
+    </div>
+    <div class="recordsList">
+        <ul class="model">
+            <li ng-repeat="v in rollList" class="item">
+                <div class="right">
+                    <ul class="modelList">
+                        <li>
+                            <span>案卷编号</span>
+                            <input type="text" ng-model="v.code" ng-disabled="true" class="inp">
+                        </li>
+                        <li>
+                            <span>保存期限</span>
+                            <select style="border-color: rgb(190, 212, 237);" ng-disabled="v.audit_state!=1" ng-model="v.savelimit" ng-options="c.id as c.name for c in saveLimitList">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                        <li>
+                            <span>案卷名称</span>
+                            <input type="text" ng-model="v.name" ng-disabled="true" class="inp">
+                        </li>
+                        <li>
+                            <span>立卷人</span>
+                            <input type="text" ng-model="v.create_user_name" ng-disabled="true" class="inp">
+                        </li>
+                        <li>
+                            <span>计划内外</span>
+                            <select style="border-color: rgb(190, 212, 237);" ng-disabled="v.audit_state!=1" ng-model="v.plan_type" ng-options="c.id as c.name for c in planTypeList">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                        <li>
+                            <span>立卷日期</span>
+                            <input ng-disabled="v.audit_state!=1" type="text" ng-model="v.create_time" class="inp"
+                                   onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',onpicked:function(){$(this).trigger('change')},isShowClear:false})">
+                        </li>
+                        <li style="width: 460px;">
+                            <span>案卷分类</span>
+                            <select style="border-color: rgb(190, 212, 237);" ng-disabled="v.audit_state!=1" ng-model="v.roll_type" ng-options="c.id as c.name for c in rollTypeList">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                        <li>
+                            <span>案卷性质</span>
+                            <select style="border-color: rgb(190, 212, 237);" ng-disabled="v.audit_state!=1" ng-model="v.roll_property" ng-options="c.id as c.name for c in rollPropertyList">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                        <li>
+                            <span>备注</span>
+                            <input type="text" ng-model="v.comments" ng-readonly="v.audit_state!=1" class="inp">
+                        </li>
+                        <li>
+                            <span>文件列表</span>
+                            <strong><a style="text-decoration:none" ui-sref="records/fileList({id:v.id,audit_state:v.audit_state})">+</a></strong>
+                        </li>
+                        <li>
+                            <span>关联设备</span>
+                            <strong><a style="text-decoration:none" ui-sref="records/relation({id:v.id,audit_state:v.audit_state})">+</a></strong>
+                        </li>
+                    </ul>
+                </div>
+                <div class="opera">
+                    <button ng-show="v.audit_state  ==1" ng-click="saveModel(v)" class="btn">保存</button>
+                    <button ng-show="v.audit_state  ==1" ng-click="auditModel(v)" class="btn">审核</button>
+                    <button ng-show="v.audit_state  ==1" ng-click="delModel(v)" class="btn">删除</button>
+                </div>
+            </li>
+            <li>
+                <div ng-click="addModel()" class="addModel">
+                    <a href="javascript:void(0);">+新增案卷信息</a>
+                </div>
+            </li>
+        </ul>
+        <ul class="model">
+
+        </ul>
+    </div>
+</div>
