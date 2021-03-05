@@ -42,7 +42,7 @@ namespace Ipedf.Web.BizLogic
 						{
 							SystemLogic.Proxy.AuditAdd(obj);
 							int amount = HelperObject_MCE_B_ASSETS_DEPR.Save(obj, transaction);
-					//平台自动生成代码
+					//平台自动生成代码0
 							PostSave(obj, transaction);
 							transaction.Commit();
 						}
